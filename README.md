@@ -1,6 +1,18 @@
 # My PopClip Extensions
 
-## Index
+## Usage
+
+```
+Usage:
+	./build.sh [-i] <EXT_FOLDER>
+	./build.sh -h
+
+Options:
+	-i	Build and install
+	-h	Show help
+```
+
+## Extensions Index
 
 - Open GitHub Repo
 
