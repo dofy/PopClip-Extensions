@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>Extension Name</key>
+    <string>Open GitHub Repo</string>
+    <key>Extension Identifier</key>
+    <string>org.phpz.popclip.extension.open-github-repo</string>
+    <key>Extension Description</key>
+    <string>Open GitHub Repo in a web browser with the selected text like AUTHOR/REPO.</string>
+    <key>Actions</key>
+    <array>
+      <dict>
+        <key>Shell Script File</key>
+        <string>main.sh</string>
+        <key>Image File</key>
+        <string>github.png</string>
+        <key>Title</key>
+        <string>Open GitHub Repo</string>
+        <key>Regular Expression</key>
+        <string>^\s*[\w\-\.]+/[\w\-\.]+\s*$</string>
+      </dict>
+    </array>
+  </dict>
+</plist>
