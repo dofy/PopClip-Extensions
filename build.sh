@@ -1,32 +1,42 @@
 #!/bin/sh
 
 help () {
-  echo "Usage: ./build.sh [-i] <EXT_FOLDER>"
+  echo "Usage:"
+  echo "\t./build.sh [-i] <EXT_FOLDER>"
+  echo "\t./build.sh -h"
   echo
   echo "Options:"
   echo "\t-i\tBuild and install"
+  echo "\t-h\tShow help"
+  exit 0
 }
 
 build () {
-  SRC=$1/
-  DIST=_extensions/$1.popclipext/
-  if [ -d $1 ] ; then
-    mkdir -p $DIST
-    cp -R $SRC $DIST
-    echo "DONE!"
+  SRC="$1"
+  DIST="_extensions/$1.popclipext"
+  if [ -d "$SRC" ] ; then
+    mkdir -p "$DIST"
+    cp -R "$SRC/" "$DIST/"
+    echo "Extensions \"$SRC\" builded successfully!"
   else
-    echo "\"$1\" must be a folder."
+    echo "\"$SRC\" must be a folder."
     exit 1
   fi
 }
 
-if [ $# -eq 0 ] ; then
-  help
-elif [ $# -eq 1 ] ; then
-  build $1
-elif [ $# -eq 2 ] && [ $1 == "-i" ] ; then
-  build $2
-  open $DIST
-else
-  help
-fi
+[ $# -eq 0 ] && help
+
+while getopts "i:h" opts ; do
+  case $opts in
+    i)
+      build "$OPTARG"
+      open "$DIST"
+      exit 0
+      ;;
+    h|?)
+      help
+      ;;
+  esac
+done
+
+build "$1"
