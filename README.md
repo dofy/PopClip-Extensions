@@ -4,13 +4,14 @@
 
 ```
 Usage:
-	./build.sh [-c | -i] <EXT_NAME>
-	./build.sh -h
+  ./build.sh [-c | -i | -r] <EXT_NAME>
+  ./build.sh -h
 
 Options:
-	-c	Create an extension by template
-	-i	Build and install
-	-h	Show help
+  -c  Create an extension by template.
+  -i  Build and install.
+  -r  Remove extension and source!!!
+  -h  Show help.
 ```
 
 ## Extensions Index
