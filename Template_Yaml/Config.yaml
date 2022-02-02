@@ -1,0 +1,15 @@
+name:
+  en: 'Name'
+  zh-Hans: '名称'
+  zh-Hant: '名稱'
+  ja: '名前'
+icon: square filled 7
+action:
+  title:
+    en: 'Action'
+    zh-Hans: '动作'
+    zh-Hant: '動作'
+    ja: 'アクション'
+  icon: square filled A
+  javascript: return popclip.input.text;
+  after: show-result

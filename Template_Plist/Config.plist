@@ -4,6 +4,7 @@
 <plist version="1.0">
   <dict>
     <key>Version</key>
+    <!-- replace your extension version -->
     <integer>1</integer>
     <key>Extension Name</key>
     <!-- replace your extension name -->

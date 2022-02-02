@@ -2,11 +2,12 @@
 
 help() {
   echo "Usage:"
-  echo "\t./build.sh [-c | -i | -r] <EXT_NAME>"
+  echo "\t./build.sh [-p | -y | -i | -r] <EXT_NAME>"
   echo "\t./build.sh -h"
   echo
   echo "Options:"
-  echo "\t-c\tCreate an extension by template."
+  echo "\t-p\tCreate an extension by plist template."
+  echo "\t-y\tCreate an extension by yaml template."
   echo "\t-i\tBuild and install extension."
   echo "\t-r\tRemove extension and source!!!"
   echo "\t-h\tShow help."
@@ -18,8 +19,20 @@ die() {
   exit 1
 }
 
-create() {
-  TMP="ATemplate"
+create_p() {
+  TMP="Template_Plist"
+  SRC="$1"
+  if [ -d "$SRC" ]; then
+    die "The extension \"$SRC\" already exits!"
+  else
+    cp -R "$TMP/" "$SRC/"
+    echo "Extension \"$SRC\" has been created."
+    echo "You can edit it now."
+  fi
+}
+
+create_y() {
+  TMP="Template_Yaml"
   SRC="$1"
   if [ -d "$SRC" ]; then
     die "The extension \"$SRC\" already exits!"
@@ -63,10 +76,14 @@ remove() {
 
 [ $# -eq 0 ] && help
 
-while getopts "c:i:r:h" opts; do
+while getopts "p:y:i:r:h" opts; do
   case $opts in
-  c)
-    create "$OPTARG"
+  p)
+    create_p "$OPTARG"
+    exit 0
+    ;;
+  y)
+    create_y "$OPTARG"
     exit 0
     ;;
   i)
