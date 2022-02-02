@@ -2,7 +2,7 @@
 
 ## Usage
 
-```bash
+```
 Usage:
   ./build.sh [-p | -y | -i | -r] <EXT_NAME>
   ./build.sh -h
