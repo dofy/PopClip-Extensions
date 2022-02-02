@@ -34,6 +34,7 @@ build() {
   SRC="$1"
   EXT="_extensions/$1.popclipext"
   if [ -d "$SRC" ]; then
+    rm -rf "$EXT"
     mkdir -p "$EXT"
     cp -R "$SRC/" "$EXT/"
     echo "Extension \"$SRC\" build successfully!"
