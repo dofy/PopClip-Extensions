@@ -4,11 +4,12 @@
 
 ```
 Usage:
-  ./build.sh [-c | -i | -r] <EXT_NAME>
+  ./build.sh [-p | -y | -i | -r] <EXT_NAME>
   ./build.sh -h
 
 Options:
-  -c  Create an extension by template.
+  -p  Create an extension by plist template.
+  -y  Create an extension by yaml template.
   -i  Build and install.
   -r  Remove extension and source!!!
   -h  Show help.
@@ -20,7 +21,10 @@ Options:
 
   > Open GitHub Repo in a web browser with the selected text like `AUTHOR/REPO`
 
-**More Information** : [ PopClip Extension Repo ][popext]
+- PinYin
 
+  > Get PinYin of Chinese characters
+
+**More Information** : [ PopClip Extension Repo ][popext]
 
 [popext]: https://github.com/pilotmoon/PopClip-Extensions
