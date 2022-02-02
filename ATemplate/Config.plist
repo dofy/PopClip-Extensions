@@ -3,12 +3,14 @@
 <!-- DOCS: https://github.com/pilotmoon/PopClip-Extensions -->
 <plist version="1.0">
   <dict>
+    <key>Version</key>
+    <integer>1</integer>
     <key>Extension Name</key>
     <!-- replace your extension name -->
     <string>{EXT_NAME}</string>
     <key>Extension Identifier</key>
     <!-- change your extension id -->
-    <string>org.phpz.popclip.extension.{EXT_ID}</string>
+    <string>xyz.phpz.popclip.extension.{EXT_ID}</string>
     <key>Extension Description</key>
     <!-- and description -->
     <string>{EXT_DESCRIPTION}</string>
@@ -17,7 +19,7 @@
     <array>
       <dict>
         <key>URL</key>
-        <string>http://phpz.org/popclip/{popclip text}</string>
+        <string>https://phpz.xyz/popclip/{popclip text}</string>
         <key>Image File</key>
         <string>icon.png</string>
         <key>Title</key>
