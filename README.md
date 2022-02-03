@@ -3,7 +3,10 @@
 ## build.sh Usage
 
 ```
+Create / Build / Remove the PopClip extension
+
 Usage:
+  ./build.sh <EXT_NAME>
   ./build.sh [-p | -y | -i | -r] <EXT_NAME>
   ./build.sh -h
 

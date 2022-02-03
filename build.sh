@@ -1,7 +1,10 @@
 #!/bin/sh
 
 help() {
+  echo "Create / Build / Remove the PopClip extension"
+  echo
   echo "Usage:"
+  echo "\t./build.sh <EXT_NAME>"
   echo "\t./build.sh [-p | -y | -i | -r] <EXT_NAME>"
   echo "\t./build.sh -h"
   echo
