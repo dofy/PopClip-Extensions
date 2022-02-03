@@ -20,18 +20,21 @@ Options:
 
 ## Extensions Index
 
-- Open GitHub Repo
+- [Open GitHub Repo][ext1]
 
   > Open GitHub Repo in a web browser with the selected text like `AUTHOR/REPO`
 
-- PinYin
+- [PinYin][ext2]
 
   > Get PinYin of Chinese characters
 
-- TextRepeater
+- [TextRepeater][ext3]
 
   > Repeat TEXT by N times in `TEXT*N` or `TEXT.N`
 
 **More Information** : [ PopClip Extension Repo ][popext]
 
 [popext]: https://github.com/pilotmoon/PopClip-Extensions
+[ext1]: https://github.com/dofy/PopClip-Extensions/blob/master/_extensions/OpenGitHubRepo.popclipextz?raw=true
+[ext2]: https://github.com/pilotmoon/PopClip-Extensions/blob/master/_extensions/PinYin.popclipextz?raw=true
+[ext3]: https://github.com/pilotmoon/PopClip-Extensions/blob/master/_extensions/TextRepeater.popclipextz?raw=true
