@@ -1,6 +1,6 @@
 # My PopClip Extensions
 
-## **./build.sh** Usage
+## build.sh Usage
 
 ```
 Usage:
