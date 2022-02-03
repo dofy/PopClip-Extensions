@@ -20,7 +20,7 @@ die() {
 }
 
 create_p() {
-  TMP="Template_Plist"
+  TMP="_Template_Plist"
   SRC="$1"
   if [ -d "$SRC" ]; then
     die "The extension \"$SRC\" already exits!"
@@ -32,7 +32,7 @@ create_p() {
 }
 
 create_y() {
-  TMP="Template_Yaml"
+  TMP="_Template_Yaml"
   SRC="$1"
   if [ -d "$SRC" ]; then
     die "The extension \"$SRC\" already exits!"
