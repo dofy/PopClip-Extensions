@@ -30,7 +30,7 @@ Options:
 
 - [TextRepeater][ext3]
 
-  > Repeat TEXT by N times in `TEXT*N` or `TEXT.N`
+  > Repeat `TEXT` by `N` times if the content format is `TEXT*N` or `TEXT.N`
 
 **More Information** : [ PopClip Extension Repo ][popext]
 
