@@ -36,5 +36,5 @@ Options:
 
 [popext]: https://github.com/pilotmoon/PopClip-Extensions
 [ext1]: https://github.com/dofy/PopClip-Extensions/blob/master/_extensions/OpenGitHubRepo.popclipextz?raw=true
-[ext2]: https://github.com/pilotmoon/PopClip-Extensions/blob/master/_extensions/PinYin.popclipextz?raw=true
-[ext3]: https://github.com/pilotmoon/PopClip-Extensions/blob/master/_extensions/TextRepeater.popclipextz?raw=true
+[ext2]: https://github.com/dofy/PopClip-Extensions/blob/master/_extensions/PinYin.popclipextz?raw=true
+[ext3]: https://github.com/dofy/PopClip-Extensions/blob/master/_extensions/TextRepeater.popclipextz?raw=true
