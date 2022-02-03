@@ -1,0 +1,6 @@
+name: 'Text Repeater'
+icon: T*N
+regex: ^(.*?)(?:\.|\#|\*)(\d+)$
+requirements: [text, paste]
+javascript file: repeater.js
+after: paste-result

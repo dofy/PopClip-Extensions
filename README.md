@@ -1,6 +1,6 @@
 # My PopClip Extensions
 
-## Usage
+## **./build.sh** Usage
 
 ```
 Usage:
@@ -24,6 +24,10 @@ Options:
 - PinYin
 
   > Get PinYin of Chinese characters
+
+- TextRepeater
+
+  > Repeat TEXT by N times in `TEXT*N` or `TEXT.N`
 
 **More Information** : [ PopClip Extension Repo ][popext]
 
