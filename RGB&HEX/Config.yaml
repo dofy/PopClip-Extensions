@@ -1,0 +1,49 @@
+name:
+  en: 'Color Convertion'
+  zh-Hans: '颜色转换'
+  zh-Hant: '顏色轉换'
+  ja: 'カラー変換'
+version: 1
+icon: icon.png
+description: RGB to Hex or Hex to RGB
+requirements: [text, paste]
+options:
+  - identifier: opt_with_number_sign
+    label:
+      en: 'Hex With #'
+      zh-Hans: 'Hex 带 #'
+      zh-Hant: 'Hex 帶 #'
+      ja: '# 付きの Hex'
+    type: boolean
+    default value: true
+actions:
+  - title: 'RGB to Hex'
+    icon: square filled Hex
+    regex: ^\s*?\(?\s*?(000|0?\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\s*?,\s*?(000|0?\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\s*?,\s*?(000|0?\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\s*?\)?\s*$
+    javascript: |
+      const opt = popclip.options['opt_with_number_sign'];
+      const rgb = popclip.input.text.split(',');
+      let hex = opt ? '#' : '';
+      for (let i = 0; i < rgb.length; i++) {
+        let hexDigit = parseInt(rgb[i]).toString(16);
+        if (hexDigit.length == 1) {
+          hexDigit = '0' + hexDigit;
+        }
+        hex += hexDigit.toUpperCase();
+      }
+      popclip.showText(`${hex} copied!`);
+      return hex;
+    after: paste-result
+  - title: 'Hex to RGB'
+    icon: square filled RGB
+    regex: ^#?([0-9a-fA-F]{6})$
+    javascript: |
+      const hex = popclip.input.text.replace('#', '');
+      let rgb = [];
+      for (let i = 0; i < 3; i++) {
+        rgb.push(parseInt(hex.substring(i * 2, i * 2 + 2), 16));
+      }
+      const rgbStr = rgb.join(',');
+      popclip.showText(`${rgbStr} copied!`);
+      return rgbStr;
+    after: paste-result
