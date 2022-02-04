@@ -8,7 +8,7 @@ icon: icon.png
 description: RGB to Hex or Hex to RGB
 requirements: [text, paste]
 options:
-  - identifier: opt_with_number_sign
+  - identifier: opt_hex_with_hash
     label:
       en: 'Hex With #'
       zh-Hans: 'Hex 带 #'
@@ -16,20 +16,29 @@ options:
       ja: '# 付きの Hex'
     type: boolean
     default value: true
+  - identifier: opt_hex_uppercase
+    label:
+      en: 'Hex to Uppercase'
+      zh-Hans: 'Hex 转大写'
+      zh-Hant: 'Hex 轉大寫'
+      ja: 'Hex を大文字にする'
+    type: boolean
+    default value: true
 actions:
   - title: 'RGB to Hex'
     icon: square filled Hex
     regex: ^\s*?\(?\s*?(000|0?\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\s*?,\s*?(000|0?\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\s*?,\s*?(000|0?\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\s*?\)?\s*$
     javascript: |
-      const opt = popclip.options['opt_with_number_sign'];
-      const rgb = popclip.input.text.split(',');
-      let hex = opt ? '#' : '';
+      const opt_hash = popclip.options['opt_hex_with_hash'];
+      const opt_uppercase = popclip.options['opt_hex_uppercase'];
+      const rgb = popclip.input.text.replace(/[\(\)]/, '').split(',');
+      let hex = opt_hash ? '#' : '';
       for (let i = 0; i < rgb.length; i++) {
         let hexDigit = parseInt(rgb[i]).toString(16);
         if (hexDigit.length == 1) {
           hexDigit = '0' + hexDigit;
         }
-        hex += hexDigit.toUpperCase();
+        hex += opt_uppercase ? hexDigit.toUpperCase() : hexDigit;
       }
       popclip.showText(`${hex} copied!`);
       return hex;
