@@ -23,8 +23,8 @@ die() {
 }
 
 create_p() {
-  TMP=_Template_Plist
   SRC=$1
+  TMP=_Template_Plist
   if [ -d $SRC ]; then
     die "The extension \"$SRC\" already exits!"
   else
@@ -35,8 +35,8 @@ create_p() {
 }
 
 create_y() {
-  TMP=_Template_Yaml
   SRC=$1
+  TMP=_Template_Yaml
   if [ -d $SRC ]; then
     die "The extension \"$SRC\" already exits!"
   else
@@ -50,15 +50,14 @@ build() {
   SRC=$1
   FOLDER=_extensions/
   EXT=$1.popclipext
-  EXTz=$1.popclipextz
   if [ -d $SRC ]; then
-    rm -rf $FOLDER$EXT $FOLDER$EXTz
+    rm -rf $FOLDER$EXT $FOLDER${EXT}z
     mkdir -p $FOLDER$EXT
     cp -R $SRC/ $FOLDER$EXT/
     cd $FOLDER
-    zip -r -m -q $EXTz $EXT
+    zip -r -m -q ${EXT}z $EXT
     echo Extension \"$SRC\" build successfully!
-    echo You can try to install it in \"$FOLDER$EXTz\"
+    echo You can try to install it in \"$FOLDER${EXT}z\"
   else
     die \"$SRC\"\ must\ be\ a\ folder.
   fi
@@ -67,12 +66,11 @@ build() {
 remove() {
   SRC=$1
   EXT=_extensions/$1.popclipext
-  EXTz=_extensions/$1.popclipextz
   read -p "Are you sure to remove \"$SRC\"? [y/N]" CONFIRM
   while true; do
     case $CONFIRM in
     [yY]*)
-      rm -rf $SRC $EXT $EXTz
+      rm -rf $SRC $EXT ${EXT}z
       echo "Extension \"$SRC\" has been removed."
       ;;
     [nN]* | *) ;;
@@ -96,7 +94,7 @@ while getopts "p:y:i:r:h" opts; do
     ;;
   i)
     build $OPTARG
-    open $EXTz
+    open ${EXT}z
     exit 0
     ;;
   r)
