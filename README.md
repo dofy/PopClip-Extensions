@@ -36,6 +36,10 @@ Options:
 
   > Convert RGB to Hex or Hex to RGB
 
+- [Variable Name Convert][ext5]
+
+  > Convert variable name to camelCase or snake_case
+
 **More Information** : [ PopClip Extension Repo ][popext]
 
 [popext]: https://github.com/pilotmoon/PopClip-Extensions
@@ -43,3 +47,4 @@ Options:
 [ext2]: https://github.com/dofy/PopClip-Extensions/blob/master/_extensions/PinYin.popclipextz?raw=true
 [ext3]: https://github.com/dofy/PopClip-Extensions/blob/master/_extensions/TextRepeater.popclipextz?raw=true
 [ext4]: https://github.com/dofy/PopClip-Extensions/blob/master/_extensions/RGB%26HEX.popclipextz?raw=true
+[ext4]: https://github.com/dofy/PopClip-Extensions/blob/master/_extensions/VarNameConvert.popclipextz?raw=true
