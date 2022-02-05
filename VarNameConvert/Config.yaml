@@ -1,0 +1,19 @@
+# popclip
+name: 
+  en: Variable Name Convert
+  zh-Hans: 变量名转换
+  zh-Hant: 變量名轉换
+  ja: 変数名変換
+icon: Var
+regex: ^\s*[a-zA-Z_][a-zA-Z0-9_]*\s*$
+javascript: |
+  const name = popclip.input.text.replace(/^[\s_]+|[\s_]+$/g, '');
+  const words = name.split('_');
+  if(words.length > 1){
+    return words.map(word => word[0].toUpperCase() + word.slice(1).toLowerCase()).join('');
+  } else {
+    return name.replace(/[A-Z]/g, (match) => {
+      return '_' + match.toLowerCase()
+    }).replace(/^_+|_+$/, '')
+  }
+after: paste-result
