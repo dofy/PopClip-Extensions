@@ -38,7 +38,7 @@ Options:
 
 - [Variable Name Convert][ext5]
 
-  > Convert variable name to camelCase or snake_case
+  > Convert variable name to CamelCase or snake_case
 
 **More Information** : [ PopClip Extension Repo ][popext]
 
