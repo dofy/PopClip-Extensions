@@ -47,4 +47,4 @@ Options:
 [ext2]: https://github.com/dofy/PopClip-Extensions/blob/master/_extensions/PinYin.popclipextz?raw=true
 [ext3]: https://github.com/dofy/PopClip-Extensions/blob/master/_extensions/TextRepeater.popclipextz?raw=true
 [ext4]: https://github.com/dofy/PopClip-Extensions/blob/master/_extensions/RGB%26HEX.popclipextz?raw=true
-[ext4]: https://github.com/dofy/PopClip-Extensions/blob/master/_extensions/VarNameConvert.popclipextz?raw=true
+[ext5]: https://github.com/dofy/PopClip-Extensions/blob/master/_extensions/VarNameConvert.popclipextz?raw=true
