@@ -40,7 +40,9 @@ Options:
 
   > Convert variable name to CamelCase or snake_case
 
-**More Information** : [ PopClip Extension Repo ][popext]
+- [Markdown List][ext6]
+
+  > Convert multi-line text to markdown list
 
 [popext]: https://github.com/pilotmoon/PopClip-Extensions
 [ext1]: https://github.com/dofy/PopClip-Extensions/blob/master/_extensions/OpenGitHubRepo.popclipextz?raw=true
@@ -48,3 +50,4 @@ Options:
 [ext3]: https://github.com/dofy/PopClip-Extensions/blob/master/_extensions/TextRepeater.popclipextz?raw=true
 [ext4]: https://github.com/dofy/PopClip-Extensions/blob/master/_extensions/RGB%26HEX.popclipextz?raw=true
 [ext5]: https://github.com/dofy/PopClip-Extensions/blob/master/_extensions/VarNameConvert.popclipextz?raw=true
+[ext5]: https://github.com/dofy/PopClip-Extensions/blob/master/_extensions/MarkdownList.popclipextz?raw=true
