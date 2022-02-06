@@ -4,6 +4,8 @@ name:
   zh-Hans: 变量名转换
   zh-Hant: 變量名轉换
   ja: 変数名変換
+version: 3
+identifier: xyz.phpz.popclip.extension.var-name-convert
 icon: Var
 regex: ^\s*[a-zA-Z_][a-zA-Z0-9_]*\s*$
 javascript: |

@@ -1,7 +1,7 @@
 name: 'Text Repeater'
 version: 2
-icon: square T*n
 identifier: xyz.phpz.popclip.extension.text-repeater
+icon: square T*n
 regex: ^.*?(\.|\*)\d+$
 requirements: [text, paste]
 javascript file: repeater.js
