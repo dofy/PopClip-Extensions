@@ -1,0 +1,27 @@
+# popclip (maybe you need to change the icons 😂)
+name:
+  en: Markdown List
+  zh-Hans: Markdown 列表
+  zh-Hant: Markdown 列表
+  ja: Markdown リスト
+version: 1
+identifier: xyz.phpz.popclip.extension.markdown-list
+icon: symbol:list.bullet
+requirements: [text, paste]
+actions:
+  - title:
+      en: Numbered List
+      zh-Hans: 编号列表
+      zh-Hant: 編號列表
+      ja: 番号付きリスト
+    icon: symbol:list.number
+    javascript: return '1. ' + popclip.input.text.replace(/\n/g, '\n1. ')
+    after: paste-result
+  - title:
+      en: Bulleted List
+      zh-Hans: 无序列表
+      zh-Hant: 无序列表
+      ja: 无序リスト
+    icon: symbol:list.bullet
+    javascript: return '- ' + popclip.input.text.replace(/\n/g, '\n- ')
+    after: paste-result
