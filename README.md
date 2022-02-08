@@ -44,6 +44,10 @@ Options:
 
   > Convert multi-line text to markdown list
 
+- [Format JSON][ext7]
+
+  > Format JSON with indent
+
 [popext]: https://github.com/pilotmoon/PopClip-Extensions
 [ext1]: https://github.com/dofy/PopClip-Extensions/blob/master/_extensions/OpenGitHubRepo.popclipextz?raw=true
 [ext2]: https://github.com/dofy/PopClip-Extensions/blob/master/_extensions/PinYin.popclipextz?raw=true
@@ -51,3 +55,4 @@ Options:
 [ext4]: https://github.com/dofy/PopClip-Extensions/blob/master/_extensions/RGB%26HEX.popclipextz?raw=true
 [ext5]: https://github.com/dofy/PopClip-Extensions/blob/master/_extensions/VarNameConvert.popclipextz?raw=true
 [ext6]: https://github.com/dofy/PopClip-Extensions/blob/master/_extensions/MarkdownList.popclipextz?raw=true
+[ext7]: https://github.com/dofy/PopClip-Extensions/blob/master/_extensions/FormatJSON.popclipextz?raw=true
