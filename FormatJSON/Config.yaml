@@ -1,11 +1,18 @@
 # popclip
-name: 
+name:
   en: Format JSON
   zh-Hans: 格式化 JSON
   zh-Hant: 格式化 JSON
   ja: JSON 形式
-version: 1
+version: 2
 identifier: xyz.phpz.popclip.extension.format-json
 icon: circle J
-javascript: return JSON.stringify(JSON.parse(popclip.input.text), null, 2)
+javascript: |
+  const text = popclip.input.text;
+  try {
+    return JSON.stringify(JSON.parse(text), null, 2);
+  } catch (e) {
+    popclip.showText('Error: ' + e.message);
+    return text;
+  }
 after: paste-result
