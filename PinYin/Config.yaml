@@ -10,6 +10,13 @@ description:
   zh-Hans: 将中文字符转换为拼音.
   zh-Hant: 將中文字符轉換為拼寫.
 options:
+  # - identifier: read_it
+  #   label:
+  #     en: Read Selected Text
+  #     zh-Hans: 朗读所选文本
+  #     zh-Hant: 讀出所選文字
+  #   type: boolean
+  #   default value: true
   - identifier: tone_type
     label:
       en: Tone Type
