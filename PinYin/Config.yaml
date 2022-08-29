@@ -23,7 +23,7 @@ options:
       zh-Hans: 音调类型
       zh-Hant: 音調類型
     type: multiple
-    values: [mark, number]
+    values: [mark, number, alphabet]
     value labels:
       - en: Tone Mark (pīn)
         zh-Hans: 音调标记 (pīn)
@@ -31,6 +31,9 @@ options:
       - en: Tone Number (pin1)
         zh-Hans: 音调数字 (pin1)
         zh-Hant: 音調數字 (pin1)
+      - en: Tone Alphabet (pin)
+        zh-Hans: 无音调 (pin)
+        zh-Hant: 無音調 (pin)
 action:
   javascript file: pinyin.js
   after: show-result
