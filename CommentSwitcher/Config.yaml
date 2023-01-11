@@ -1,0 +1,31 @@
+name:
+  en: 'Comment Switcher'
+  zh-Hans: '注释切换'
+  zh-Hant: '註釋切換'
+  ja: 'コメント切り替え'
+version: 2
+identifier: xyz.phpz.popclip.extension.comment-switcher
+icon: 'square filled #'
+description:
+  en: 'Comment switcher'
+  zh-Hans: '注释切换'
+  zh-Hant: '註釋切換'
+  ja: 'コメント切り替え'
+options:
+  - identifier: comment_prefix
+    label:
+      en: 'Comment Prefix'
+      zh-Hans: '注释前缀'
+      zh-Hant: '註釋前綴'
+      ja: 'コメントプレフィックス'
+    type: string
+    default value: '//'
+action:
+  title:
+    en: 'Switch'
+    zh-Hans: '切换'
+    zh-Hant: '切換'
+    ja: '切り替え'
+  icon: 'square filled #'
+  javascript file: comment_switcher.js
+  after: paste-result
