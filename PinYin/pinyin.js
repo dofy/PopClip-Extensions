@@ -1,3 +1,5 @@
+// identifier: xyz.phpz.popclip.extension.pinyin
+
 const dict = require('dict.json')
 
 const type = popclip.options['tone_type']
