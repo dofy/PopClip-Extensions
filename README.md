@@ -48,6 +48,10 @@ Options:
 
   > Format JSON with indent
 
+- [Comment Switcher][ext8]
+
+  > Comment / uncomment a bunch of lines of code
+
 [popext]: https://github.com/pilotmoon/PopClip-Extensions
 [ext1]: https://github.com/dofy/PopClip-Extensions/blob/master/_extensions/OpenGitHubRepo.popclipextz?raw=true
 [ext2]: https://github.com/dofy/PopClip-Extensions/blob/master/_extensions/PinYin.popclipextz?raw=true
@@ -56,3 +60,4 @@ Options:
 [ext5]: https://github.com/dofy/PopClip-Extensions/blob/master/_extensions/VarNameConvert.popclipextz?raw=true
 [ext6]: https://github.com/dofy/PopClip-Extensions/blob/master/_extensions/MarkdownList.popclipextz?raw=true
 [ext7]: https://github.com/dofy/PopClip-Extensions/blob/master/_extensions/FormatJSON.popclipextz?raw=true
+[ext8]: https://github.com/dofy/PopClip-Extensions/blob/master/_extensions/CommentSwitcher.popclipextz?raw=true
