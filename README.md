@@ -11,8 +11,8 @@ Usage:
   ./build.sh -h
 
 Options:
-  -p  Create an extension by plist template.
-  -y  Create an extension by yaml template.
+  -p  Create an extension by `plist` template.
+  -y  Create an extension by `yaml` template.
   -i  Build and install.
   -r  Remove extension and source!!!
   -h  Show help.
