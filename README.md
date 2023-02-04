@@ -26,7 +26,7 @@ Options:
 
 - [PinYin][ext2]
 
-  > Get PinYin of Chinese characters
+  > Get PinYin or ZhuYin of Chinese characters
 
 - [TextRepeater][ext3]
 
