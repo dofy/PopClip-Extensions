@@ -17,11 +17,11 @@ options:
   #     zh-Hant: 讀出所選文字
   #   type: boolean
   #   default value: true
-  - identifier: tone_type
+  - identifier: pinyin_tone_type
     label:
-      en: Tone Type
-      zh-Hans: 音调类型
-      zh-Hant: 音調類型
+      en: PinYin Tone Type
+      zh-Hans: 拼音音调类型
+      zh-Hant: 拼音音調類型
     type: multiple
     values: [mark, number, alphabet]
     value labels:
@@ -34,6 +34,35 @@ options:
       - en: Tone Alphabet (pin)
         zh-Hans: 无音调 (pin)
         zh-Hant: 無音調 (pin)
-action:
-  javascript file: pinyin.js
-  after: show-result
+  - identifier: zhuyin_tone_type
+    label:
+      en: Zhuyin Tone Type
+      zh-Hans: 注音音调类型
+      zh-Hant: 注音音調類型
+    type: multiple
+    values: [mark, number, alphabet]
+    value labels:
+      - en: Tone Mark (ㄆㄧㄣˊ)
+        zh-Hans: 音调标记 (ㄆㄧㄣˊ)
+        zh-Hant: 音調標記 (ㄆㄧㄣˊ)
+      - en: Tone Number (ㄆㄧㄣ2)
+        zh-Hans: 音调数字 (ㄆㄧㄣ2)
+        zh-Hant: 音調數字 (ㄆㄧㄣ2)
+      - en: Tone Alphabet (ㄆㄧㄣ)
+        zh-Hans: 无音调 (ㄆㄧㄣ)
+        zh-Hant: 無音調 (ㄆㄧㄣ)
+actions:
+  - title: 
+      en: PinYin
+      zh-Hans: 拼音
+      zh-Hant: 拼寫
+    icon: 拼
+    javascript file: pinyin.js
+    after: show-result
+  - title: 
+      en: Zhuyin
+      zh-Hans: 注音
+      zh-Hant: 注音
+    icon: 注
+    javascript file: zhuyin.js
+    after: show-result
