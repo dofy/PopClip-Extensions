@@ -1,0 +1,39 @@
+{
+  "identifier": "xyz.phpz.popclip.extension.template_json",
+  "icon": "iconify:ion:fish",
+  "version": 1,
+  "name": {
+    "en": "Extension Name",
+    "zh-Hans": "扩展名",
+    "zh-Hant": "擴展名",
+    "ja": "拡張名"
+  },
+  "description": "Description of the extension",
+  "options": [
+    {
+      "identifier": "option-a",
+      "label": {
+        "en": "Option A",
+        "zh-Hans": "选项 A",
+        "zh-Hant": "選項 A",
+        "ja": "オプション A"
+      },
+      "type": "boolean",
+      "defaultValue": false
+    }
+  ],
+  "actions": [
+    {
+      "identifier": "action-a",
+      "icon": "iconify:ph:rocket-launch-thin",
+      "title": {
+        "en": "Action A",
+        "zh-Hans": "动作 A",
+        "zh-Hant": "動作 A",
+        "ja": "アクション A"
+      },
+      "javascript-file": "actionA.js",
+      "after": "show-result"
+    }
+  ]
+}

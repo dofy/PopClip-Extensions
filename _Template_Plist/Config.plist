@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!-- PList Config -->
 <!-- DOCS: https://github.com/pilotmoon/PopClip-Extensions -->
+<!-- The documention for this file is at -->
+<!-- https://github.com/pilotmoon/PopClip-Extensions#the-config-file-structure -->
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
   <dict>
     <key>Version</key>
@@ -14,7 +17,7 @@
     <string>xyz.phpz.popclip.extension.{EXT_ID}</string>
     <key>Extension Description</key>
     <!-- and description -->
-    <string>{EXT_DESCRIPTION}</string>
+    <string> {EXT_DESCRIPTION}</string>
     <key>Actions</key>
     <!-- for more infomation visit https://github.com/pilotmoon/PopClip-Extensions -->
     <array>
@@ -26,7 +29,7 @@
         <key>Title</key>
         <string>{ACTION_NAME}</string>
         <key>Regular Expression</key>
-        <string>(?s)^.{1,777}$</string>
+        <string> (?s)^.{1,777}$</string>
       </dict>
     </array>
   </dict>

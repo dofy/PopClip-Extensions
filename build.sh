@@ -1,19 +1,27 @@
 #!/bin/sh
 
 help() {
+  echo "    //   ) )                   //   ) )                "
+  echo "   //___/ /  ___      ___     //        // ( )  ___    "
+  echo "  / ____ / //   ) ) //   ) ) //        // / / //   ) ) "
+  echo " //       //   / / //___/ / //        // / / //___/ /  "
+  echo "//       ((___/ / //       ((____/ / // / / //         "
+  echo ""
   echo "Create / Build / Remove the PopClip extension"
   echo
   echo "Usage:"
   echo "\t./build.sh <EXT_NAME>"
-  echo "\t./build.sh [-p | -y | -i | -r] <EXT_NAME>"
+  echo "\t./build.sh [-p | -y | -j | -i | -r] <EXT_NAME>"
   echo "\t./build.sh -h"
   echo
   echo "Options:"
   echo "\t-p\tCreate an extension by plist template."
   echo "\t-y\tCreate an extension by yaml template."
+  echo "\t-j\tCreate an extension by json template."
   echo "\t-i\tBuild and install extension."
   echo "\t-r\tRemove extension and source!!!"
   echo "\t-h\tShow help."
+  echo ""
   exit 0
 }
 
@@ -22,6 +30,7 @@ die() {
   exit 1
 }
 
+# create extension by plist template
 create_p() {
   SRC=$1
   TMP=_Template_Plist
@@ -34,9 +43,23 @@ create_p() {
   fi
 }
 
+# create extension by yaml template
 create_y() {
   SRC=$1
   TMP=_Template_Yaml
+  if [ -d $SRC ]; then
+    die "The extension \"$SRC\" already exits!"
+  else
+    cp -R $TMP/ $SRC/
+    echo "Extension \"$SRC\" has been created."
+    echo "You can edit it now."
+  fi
+}
+
+# create extension by json template
+create_j() {
+  SRC=$1
+  TMP=_Template_JSON
   if [ -d $SRC ]; then
     die "The extension \"$SRC\" already exits!"
   else
@@ -82,7 +105,7 @@ remove() {
 
 [ $# -eq 0 ] && help
 
-while getopts "p:y:i:r:h" opts; do
+while getopts "p:y:j:i:r:h" opts; do
   case $opts in
   p)
     create_p $OPTARG
@@ -90,6 +113,10 @@ while getopts "p:y:i:r:h" opts; do
     ;;
   y)
     create_y $OPTARG
+    exit 0
+    ;;
+  j)
+    create_j $OPTARG
     exit 0
     ;;
   i)

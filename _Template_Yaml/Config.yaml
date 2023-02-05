@@ -1,3 +1,6 @@
+# Yaml Config File
+# The documentation for this file is at
+# https://github.com/pilotmoon/PopClip-Extensions#the-config-file-structure
 name:
   en: 'Name'
   zh-Hans: '名称'
