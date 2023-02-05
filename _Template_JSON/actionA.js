@@ -1,4 +1,4 @@
-// identifier: 'xyz.phpz.popclip.extension.template_json',
+// identifier: 'your.domain.popclip.extension.template_json',
 const optA = popclip.options['option-a'];
 const text = popclip.input.text;
 
