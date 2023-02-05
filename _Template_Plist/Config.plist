@@ -14,10 +14,10 @@
     <string>{EXT_NAME}</string>
     <key>Extension Identifier</key>
     <!-- change your extension id -->
-    <string>xyz.phpz.popclip.extension.{EXT_ID}</string>
+    <string>your.domain.popclip.extension.{EXT_ID}</string>
     <key>Extension Description</key>
     <!-- and description -->
-    <string> {EXT_DESCRIPTION}</string>
+    <string>{EXT_DESCRIPTION}</string>
     <key>Actions</key>
     <!-- for more infomation visit https://github.com/pilotmoon/PopClip-Extensions -->
     <array>

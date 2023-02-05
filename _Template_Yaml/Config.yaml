@@ -1,14 +1,15 @@
 # Yaml Config File
 # The documentation for this file is at
 # https://github.com/pilotmoon/PopClip-Extensions#the-config-file-structure
+identifier: your.domain.popclip.extension.template_yaml
+description: Description
+icon: square filled 7
+version: 1
 name:
   en: 'Name'
   zh-Hans: '名称'
   zh-Hant: '名稱'
   ja: '名前'
-version: 1
-icon: square filled 7
-description: Description
 action:
   title:
     en: 'Action'
