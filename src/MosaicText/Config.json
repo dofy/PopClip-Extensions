@@ -8,6 +8,7 @@
     "zh-Hant": "馬賽克文本",
     "ja": "モザイクテキスト"
   },
+  "requirements": ["text", "paste"],
   "description": "Use a custom code to mosaic the selected text. You can change the code in the extension.",
   "options": [
     {
@@ -32,8 +33,7 @@
         "zh-Hant": "打馬賽克",
         "ja": "モザイク"
       },
-      "javascript-file": "mosaic.js",
-      "after": "paste-result"
+      "javascript-file": "mosaic.js"
     }
   ]
 }

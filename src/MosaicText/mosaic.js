@@ -3,5 +3,6 @@ const mosaicCode = popclip.options['mosaic-code'];
 const text = popclip.input.text;
 
 const result = new Array(text.length).fill(mosaicCode).join('');
-
-return result;
+popclip.showText(`The text "${text}" is copied.`);
+popclip.pasteText(result);
+popclip.copyText(text);
