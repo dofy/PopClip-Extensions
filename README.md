@@ -55,7 +55,7 @@ Options:
 
 - [Mosaic Text][ext9]
 
-  > Mosaic text with custom characters which can be changed in the extension settings, you can use it to hide sensitive information.
+  > Mosaic text with custom characters which can be changed in the extension settings, you can use it to hide sensitive information. (The selected text will be copied to the clipboard first.)
 
 [popext]: https://github.com/pilotmoon/PopClip-Extensions
 [ext1]: https://github.com/dofy/PopClip-Extensions/raw/master/dist/OpenGitHubRepo.popclipextz
