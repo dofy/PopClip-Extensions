@@ -1,0 +1,39 @@
+{
+  "identifier": "xyz.phpz.popclip.extension.mosaic-text",
+  "icon": "iconify:mingcute:mosaic-line",
+  "version": 1,
+  "name": {
+    "en": "Mosaic Text",
+    "zh-Hans": "马赛克文本",
+    "zh-Hant": "馬賽克文本",
+    "ja": "モザイクテキスト"
+  },
+  "description": "Use a custom code to mosaic the selected text. You can change the code in the extension.",
+  "options": [
+    {
+      "identifier": "mosaic-code",
+      "label": {
+        "en": "Mosaic Code",
+        "zh-Hans": "马赛克代码",
+        "zh-Hant": "馬賽克代碼",
+        "ja": "モザイクコード"
+      },
+      "type": "string",
+      "inset": true,
+      "defaultValue": "*"
+    }
+  ],
+  "actions": [
+    {
+      "identifier": "Mosaic",
+      "title": {
+        "en": "Mosaic",
+        "zh-Hans": "打马赛克",
+        "zh-Hant": "打馬賽克",
+        "ja": "モザイク"
+      },
+      "javascript-file": "mosaic.js",
+      "after": "paste-result"
+    }
+  ]
+}
