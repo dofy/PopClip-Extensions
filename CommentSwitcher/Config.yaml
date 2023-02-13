@@ -20,6 +20,7 @@ options:
       ja: 'コメントプレフィックス'
     type: string
     default value: '//'
+    inset: true
 action:
   title:
     en: 'Switch'
