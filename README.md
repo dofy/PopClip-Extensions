@@ -27,7 +27,7 @@ Options:
 
 - [PinYin][ext2]
 
-  > Get PinYin or ZhuYin of Chinese characters with the selected text.
+  > Get `PinYin` or `ZhuYin` of Chinese characters with the selected text.
 
 - [TextRepeater][ext3]
 
@@ -35,11 +35,11 @@ Options:
 
 - [RGB&HEX][ext4]
 
-  > Convert RGB to Hex or Hex to RGB with the selected text like `#FFFFFF` or `255,255,255`
+  > Convert `RGB` to `Hex` or `Hex` to `RGB` with the selected text like `#FFFFFF` or `255,255,255`.
 
 - [Variable Name Convert][ext5]
 
-  > Convert variable name to CamelCase or snake_case.
+  > Convert variable name to `CamelCase` or `snake_case`.
 
 - [Markdown List][ext6]
 
