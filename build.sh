@@ -26,16 +26,19 @@ help() {
 }
 
 SRC_ROOT="src/"
+DIST_ROOT="dist/"
+TEMP_ROOT="templates/"
+
+EXT=".popclipext"
+EXTz="${EXT}z"
 
 die() {
   echo $1
   exit 1
 }
 
-# create extension by plist template
-create_p() {
-  SRC=$1
-  TMP=_Template_Plist
+# create extension by template
+create() {
   if [ -d $SRC_ROOT$SRC ]; then
     die "The extension \"$SRC\" already exits!"
   else
@@ -43,46 +46,39 @@ create_p() {
     echo "Extension \"$SRC\" has been created."
     echo "You can edit it now."
   fi
+}
+
+# create extension by plist template
+create_p() {
+  SRC=$1
+  TMP=$TEMP_ROOT/Plist
+  create
 }
 
 # create extension by yaml template
 create_y() {
   SRC=$1
-  TMP=_Template_Yaml
-  if [ -d $SRC_ROOT$SRC ]; then
-    die "The extension \"$SRC\" already exits!"
-  else
-    cp -R $TMP/ $SRC_ROOT$SRC/
-    echo "Extension \"$SRC\" has been created."
-    echo "You can edit it now."
-  fi
+  TMP=$TEMP_ROOT/Yaml
+  create
 }
 
 # create extension by json template
 create_j() {
   SRC=$1
-  TMP=_Template_JSON
-  if [ -d $SRC_ROOT$SRC ]; then
-    die "The extension \"$SRC\" already exits!"
-  else
-    cp -R $TMP/ $SRC_ROOT$SRC/
-    echo "Extension \"$SRC\" has been created."
-    echo "You can edit it now."
-  fi
+  TMP=$TEMP_ROOT/JSON
+  create
 }
 
 build() {
   SRC=$1
-  FOLDER=_extensions/
-  EXT=$1.popclipext
   if [ -d $SRC_ROOT$SRC ]; then
-    rm -rf $FOLDER$EXT $FOLDER${EXT}z
-    mkdir -p $FOLDER$EXT
-    cp -R $SRC_ROOT$SRC/ $FOLDER$EXT/
-    cd $FOLDER
-    zip -r -m -q ${EXT}z $EXT
+    rm -rf $DIST_ROOT$SRC$EXT $DIST_ROOT$SRC$EXTz
+    mkdir -p $DIST_ROOT$SRC$EXT
+    cp -R $SRC_ROOT$SRC/ $DIST_ROOT$SRC$EXT/
+    cd $DIST_ROOT
+    zip -r -m -q $SRC$EXTz $SRC$EXT
     echo Extension \"$SRC\" build successfully!
-    echo You can try to install it in \"$FOLDER${EXT}z\"
+    echo You can try to install it in \"$DIST_ROOT$SRC$EXTz\"
   else
     die \"$SRC\"\ must\ be\ a\ folder.
   fi
@@ -90,12 +86,11 @@ build() {
 
 remove() {
   SRC=$1
-  EXT=_extensions/$1.popclipext
   read -p "Are you sure to remove \"$SRC\"? [y/N]" CONFIRM
   while true; do
     case $CONFIRM in
     [yY]*)
-      rm -rf $SRC_ROOT$SRC $EXT ${EXT}z
+      rm -rf $SRC_ROOT$SRC $DIST_ROOT$SRC$EXT $DIST_ROOT$SRC$EXTz
       echo "Extension \"$SRC\" has been removed."
       ;;
     [nN]* | *) ;;
@@ -123,7 +118,7 @@ while getopts "p:y:j:i:r:h" opts; do
     ;;
   i)
     build $OPTARG
-    open ${EXT}z
+    open $SRC$EXTz
     exit 0
     ;;
   r)
