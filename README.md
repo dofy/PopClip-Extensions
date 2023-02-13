@@ -58,11 +58,12 @@ Options:
   > Mosaic text with custom characters which can be changed in the extension settings, you can use it to hide sensitive information.
 
 [popext]: https://github.com/pilotmoon/PopClip-Extensions
-[ext1]: https://github.com/dofy/PopClip-Extensions/blob/master/_extensions/OpenGitHubRepo.popclipextz?raw=true
-[ext2]: https://github.com/dofy/PopClip-Extensions/blob/master/_extensions/PinYin.popclipextz?raw=true
-[ext3]: https://github.com/dofy/PopClip-Extensions/blob/master/_extensions/TextRepeater.popclipextz?raw=true
-[ext4]: https://github.com/dofy/PopClip-Extensions/blob/master/_extensions/RGB%26HEX.popclipextz?raw=true
-[ext5]: https://github.com/dofy/PopClip-Extensions/blob/master/_extensions/VarNameConvert.popclipextz?raw=true
-[ext6]: https://github.com/dofy/PopClip-Extensions/blob/master/_extensions/MarkdownList.popclipextz?raw=true
-[ext7]: https://github.com/dofy/PopClip-Extensions/blob/master/_extensions/FormatJSON.popclipextz?raw=true
-[ext8]: https://github.com/dofy/PopClip-Extensions/blob/master/_extensions/CommentSwitcher.popclipextz?raw=true
+[ext1]: https://github.com/dofy/PopClip-Extensions/raw/master/dist/OpenGitHubRepo.popclipextz
+[ext2]: https://github.com/dofy/PopClip-Extensions/raw/master/dist/PinYin.popclipextz
+[ext3]: https://github.com/dofy/PopClip-Extensions/raw/master/dist/TextRepeater.popclipextz
+[ext4]: https://github.com/dofy/PopClip-Extensions/raw/master/dist/RGB%26HEX.popclipextz
+[ext5]: https://github.com/dofy/PopClip-Extensions/raw/master/dist/VarNameConvert.popclipextz
+[ext6]: https://github.com/dofy/PopClip-Extensions/raw/master/dist/MarkdownList.popclipextz
+[ext7]: https://github.com/dofy/PopClip-Extensions/raw/master/dist/FormatJSON.popclipextz
+[ext8]: https://github.com/dofy/PopClip-Extensions/raw/master/dist/CommentSwitcher.popclipextz
+[ext9]: https://github.com/dofy/PopClip-Extensions/raw/master/dist/MosaicText.popclipextz
