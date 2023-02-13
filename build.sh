@@ -25,6 +25,8 @@ help() {
   exit 0
 }
 
+SRC_ROOT="src/"
+
 die() {
   echo $1
   exit 1
@@ -34,10 +36,10 @@ die() {
 create_p() {
   SRC=$1
   TMP=_Template_Plist
-  if [ -d $SRC ]; then
+  if [ -d $SRC_ROOT$SRC ]; then
     die "The extension \"$SRC\" already exits!"
   else
-    cp -R $TMP/ $SRC/
+    cp -R $TMP/ $SRC_ROOT$SRC/
     echo "Extension \"$SRC\" has been created."
     echo "You can edit it now."
   fi
@@ -47,10 +49,10 @@ create_p() {
 create_y() {
   SRC=$1
   TMP=_Template_Yaml
-  if [ -d $SRC ]; then
+  if [ -d $SRC_ROOT$SRC ]; then
     die "The extension \"$SRC\" already exits!"
   else
-    cp -R $TMP/ $SRC/
+    cp -R $TMP/ $SRC_ROOT$SRC/
     echo "Extension \"$SRC\" has been created."
     echo "You can edit it now."
   fi
@@ -60,10 +62,10 @@ create_y() {
 create_j() {
   SRC=$1
   TMP=_Template_JSON
-  if [ -d $SRC ]; then
+  if [ -d $SRC_ROOT$SRC ]; then
     die "The extension \"$SRC\" already exits!"
   else
-    cp -R $TMP/ $SRC/
+    cp -R $TMP/ $SRC_ROOT$SRC/
     echo "Extension \"$SRC\" has been created."
     echo "You can edit it now."
   fi
@@ -73,10 +75,10 @@ build() {
   SRC=$1
   FOLDER=_extensions/
   EXT=$1.popclipext
-  if [ -d $SRC ]; then
+  if [ -d $SRC_ROOT$SRC ]; then
     rm -rf $FOLDER$EXT $FOLDER${EXT}z
     mkdir -p $FOLDER$EXT
-    cp -R $SRC/ $FOLDER$EXT/
+    cp -R $SRC_ROOT$SRC/ $FOLDER$EXT/
     cd $FOLDER
     zip -r -m -q ${EXT}z $EXT
     echo Extension \"$SRC\" build successfully!
@@ -93,7 +95,7 @@ remove() {
   while true; do
     case $CONFIRM in
     [yY]*)
-      rm -rf $SRC $EXT ${EXT}z
+      rm -rf $SRC_ROOT$SRC $EXT ${EXT}z
       echo "Extension \"$SRC\" has been removed."
       ;;
     [nN]* | *) ;;
