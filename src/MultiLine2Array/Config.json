@@ -1,0 +1,86 @@
+{
+  "identifier": "xyz.phpz.popclip.extension.multi-line-to-array",
+  "icon": "Arr",
+  "version": 1,
+  "name": {
+    "en": "Multi-Line to Array",
+    "zh-Hans": "多行文本转数组",
+    "zh-Hant": "多行文本轉陣列",
+    "ja": "複数行テキストを配列に変換"
+  },
+  "description": "Format multi-line text to javascript array",
+  "options": [
+    {
+      "identifier": "last_line_comma",
+      "label": {
+        "en": "Last line comma",
+        "zh-Hans": "最后一行结尾逗号",
+        "zh-Hant": "最後一行結尾逗號",
+        "ja": "最終行の末尾にカンマ"
+      },
+      "type": "boolean",
+      "defaultValue": false,
+      "inset": true
+    },
+    {
+      "identifier": "add_brackets",
+      "label": {
+        "en": "Add brackets",
+        "zh-Hans": "添加括号 []",
+        "zh-Hant": "添加括號 []",
+        "ja": "括弧を追加 []"
+      },
+      "type": "boolean",
+      "defaultValue": true,
+      "inset": true
+    },
+    {
+      "identifier": "trim",
+      "type": "boolean",
+      "label": {
+        "en": "Trim",
+        "zh-Hans": "去除空格",
+        "zh-Hant": "去除空格",
+        "ja": "空白を削除"
+      },
+      "defaultValue": true
+    },
+    {
+      "identifier": "single_line",
+      "type": "boolean",
+      "label": {
+        "en": "Single line",
+        "zh-Hans": "单行",
+        "zh-Hant": "單行",
+        "ja": "1行"
+      },
+      "defaultValue": false
+    },
+    {
+      "identifier": "quotes",
+      "type": "multiple",
+      "label": {
+        "en": "Quotes \" or '",
+        "zh-Hans": "引号 \" 或 '",
+        "zh-Hant": "引號 \" 或 '",
+        "ja": "引用符 \" または '"
+      },
+      "values": ["'", "\""],
+      "defaultValue": "\"",
+      "inset": true
+    }
+  ],
+  "actions": [
+    {
+      "identifier": "action",
+      "title": {
+        "en": "Format",
+        "zh-Hans": "格式化",
+        "zh-Hant": "格式化",
+        "ja": "フォーマット"
+      },
+      "javascript-file": "multiLine2Array.js",
+      "after": "paste-result"
+    }
+  ]
+}
