@@ -1,26 +1,39 @@
 // identifier: 'xyz.phpz.popclip.extension.multi-line-to-array',
-const optComma = popclip.options['last_line_comma'];
+const optREL = popclip.options['remove_empty_line'];
+const optComma = popclip.options['last_comma'];
 const optBrackets = popclip.options['add_brackets'];
-const optQuotes = popclip.options['quotes'];
+const optQuotes = popclip.options['quotes'] === 'single' ? "'" : '"';
 const optTrim = popclip.options['trim'];
 const optSingleLine = popclip.options['single_line'];
 const text = popclip.input.text;
 
-const lines = text.split(/\r/g);
+const lines = text.split(optREL ? /\n+/g : /\n/g);
+
+const quoteReg = new RegExp(`(${optQuotes})`, 'g');
 
 let result = ''
 
 if (optBrackets) {
-  result += '[';
+  result += optSingleLine ? '[' : '[\n';
 }
 
-result += optQuotes;
 
 lines.map((line, index) => {
-  result += optTrim ? line.trim() : line;
-  if (index < lines.length - 1) {
-    result += optSingleLine ? ' ' : ',';
+  const newLine = optTrim ? line.trim() : line;
+  if (optREL && newLine === '') {
+    return;
   }
+  result += optQuotes + newLine.replace(quoteReg, '\\$1') + optQuotes;
+  if (index < lines.length - 1) {
+    result += optSingleLine ? `,` : `,\n`;
+  } else {
+    if (optComma) {
+      result += optSingleLine ? `,` : `,\n`;
+    } else {
+      result += optSingleLine ? `` : `\n`;
+    }
+  }
+  return result;
 });
 
 if (optBrackets) {

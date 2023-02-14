@@ -1,6 +1,6 @@
 {
   "identifier": "xyz.phpz.popclip.extension.multi-line-to-array",
-  "icon": "Arr",
+  "icon": "square filled monospaced []",
   "version": 1,
   "name": {
     "en": "Multi-Line to Array",
@@ -11,12 +11,24 @@
   "description": "Format multi-line text to javascript array",
   "options": [
     {
-      "identifier": "last_line_comma",
+      "identifier": "remove_empty_line",
       "label": {
-        "en": "Last line comma",
-        "zh-Hans": "最后一行结尾逗号",
-        "zh-Hant": "最後一行結尾逗號",
-        "ja": "最終行の末尾にカンマ"
+        "en": "Remove empty line",
+        "zh-Hans": "去除空行",
+        "zh-Hant": "去除空行",
+        "ja": "空行を削除"
+      },
+      "type": "boolean",
+      "defaultValue": true,
+      "inset": true
+    },
+    {
+      "identifier": "last_comma",
+      "label": {
+        "en": "Add the last comma",
+        "zh-Hans": "添加最后一个逗号",
+        "zh-Hant": "添加最後一個逗號",
+        "ja": "最後のカンマを追加"
       },
       "type": "boolean",
       "defaultValue": false,
@@ -61,12 +73,13 @@
       "type": "multiple",
       "label": {
         "en": "Quotes \" or '",
-        "zh-Hans": "引号 \" 或 '",
-        "zh-Hant": "引號 \" 或 '",
+        "zh-Hans": "引号使用 \" 或 '",
+        "zh-Hant": "引號使用 \" 或 '",
         "ja": "引用符 \" または '"
       },
-      "values": ["'", "\""],
-      "defaultValue": "\"",
+      "values": ["single", "double"],
+      "defaultValue": "double",
+      "value labels": ["'", "\""],
       "inset": true
     }
   ],
