@@ -57,6 +57,10 @@ Options:
 
   > Mosaic text with custom characters which can be changed in the extension settings, you can use it to hide sensitive information. (The selected text will be copied to the clipboard first.)
 
+- [Multi-line to Array][ext10]
+
+  > Convert multi-line text to javascript array format.
+
 [popext]: https://github.com/pilotmoon/PopClip-Extensions
 [ext1]: https://github.com/dofy/PopClip-Extensions/raw/master/dist/OpenGitHubRepo.popclipextz
 [ext2]: https://github.com/dofy/PopClip-Extensions/raw/master/dist/PinYin.popclipextz
@@ -67,3 +71,4 @@ Options:
 [ext7]: https://github.com/dofy/PopClip-Extensions/raw/master/dist/FormatJSON.popclipextz
 [ext8]: https://github.com/dofy/PopClip-Extensions/raw/master/dist/CommentSwitcher.popclipextz
 [ext9]: https://github.com/dofy/PopClip-Extensions/raw/master/dist/MosaicText.popclipextz
+[ext10]: https://github.com/dofy/PopClip-Extensions/raw/master/dist/MultiLine2Array.popclipextz
