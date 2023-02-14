@@ -7,10 +7,25 @@ name:
 version: 2
 identifier: xyz.phpz.popclip.extension.format-json
 icon: circle J
+options:
+  - identifier: indent
+    label: Use Tab / Space
+    type: multiple
+    values: [Tab, Space]
+    default value: Space
+    inset: true
+  - identifier: space_length
+    label: Space Length
+    type: multiple
+    values: ["2", "4"]
+    default value: "2"
+    inset: true
 javascript: |
   const text = popclip.input.text;
+  const optIndent = popclip.options.indent;
+  const spaceLength = parseInt(popclip.options.space_length, 10)
   try {
-    return JSON.stringify(JSON.parse(text), null, 2);
+    return JSON.stringify(JSON.parse(text), null, optIndent === 'Tab' ? '\t' : spaceLength);
   } catch (e) {
     popclip.showText('Error: ' + e.message);
     return text;
