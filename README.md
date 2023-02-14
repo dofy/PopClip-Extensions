@@ -33,7 +33,7 @@ Options:
 
   > Repeat `TEXT` by `N` times if the content format is `TEXT*N` or `TEXT.N`.
 
-- [RGB&HEX][ext4]
+- [RGB_HEX][ext4]
 
   > Convert `RGB` to `Hex` or `Hex` to `RGB` with the selected text like `#FFFFFF` or `255,255,255`.
 
@@ -61,7 +61,7 @@ Options:
 [ext1]: https://github.com/dofy/PopClip-Extensions/raw/master/dist/OpenGitHubRepo.popclipextz
 [ext2]: https://github.com/dofy/PopClip-Extensions/raw/master/dist/PinYin.popclipextz
 [ext3]: https://github.com/dofy/PopClip-Extensions/raw/master/dist/TextRepeater.popclipextz
-[ext4]: https://github.com/dofy/PopClip-Extensions/raw/master/dist/RGB%26HEX.popclipextz
+[ext4]: https://github.com/dofy/PopClip-Extensions/raw/master/dist/RGB_HEX.popclipextz
 [ext5]: https://github.com/dofy/PopClip-Extensions/raw/master/dist/VarNameConvert.popclipextz
 [ext6]: https://github.com/dofy/PopClip-Extensions/raw/master/dist/MarkdownList.popclipextz
 [ext7]: https://github.com/dofy/PopClip-Extensions/raw/master/dist/FormatJSON.popclipextz
