@@ -6,7 +6,7 @@ name:
   ja: 変数名変換
 version: 3
 identifier: xyz.phpz.popclip.extension.var-name-convert
-icon: Var
+icon: square filled Var
 regex: ^\s*[a-zA-Z_][a-zA-Z0-9_]*\s*$
 javascript: |
   const name = popclip.input.text.replace(/^[\s_]+|[\s_]+$/g, '');
