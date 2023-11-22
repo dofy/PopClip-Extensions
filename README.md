@@ -23,7 +23,8 @@ Options:
 
 - [Open GitHub Repo][ext1]
 
-  > Open GitHub Repo in a web browser with the selected text like `AUTHOR/REPO` format.
+  > Open GitHub Repo in a web browser with the selected text like `AUTHOR/REPO`
+  > format.
 
 - [PinYin][ext2]
 
@@ -35,7 +36,8 @@ Options:
 
 - [RGB_HEX][ext4]
 
-  > Convert `RGB` to `Hex` or `Hex` to `RGB` with the selected text like `#FFFFFF` or `255,255,255`.
+  > Convert `RGB` to `Hex` or `Hex` to `RGB` with the selected text like
+  > `#FFFFFF` or `255,255,255`.
 
 - [Variable Name Convert][ext5]
 
@@ -55,20 +57,38 @@ Options:
 
 - [Mosaic Text][ext9]
 
-  > Mosaic text with custom characters which can be changed in the extension settings, you can use it to hide sensitive information. (The selected text will be copied to the clipboard first.)
+  > Mosaic text with custom characters which can be changed in the extension
+  > settings, you can use it to hide sensitive information. (The selected text
+  > will be copied to the clipboard first.)
 
 - [Multi-line to Array][ext10]
 
   > Convert multi-line text to javascript array format.
 
+## References
+
+- [PopClip Extensions][popext]
+- [PopClip Extension Docs][docs]
+
+[ext1]:
+  https://github.com/dofy/PopClip-Extensions/raw/master/dist/OpenGitHubRepo.popclipextz
+[ext2]:
+  https://github.com/dofy/PopClip-Extensions/raw/master/dist/PinYin.popclipextz
+[ext3]:
+  https://github.com/dofy/PopClip-Extensions/raw/master/dist/TextRepeater.popclipextz
+[ext4]:
+  https://github.com/dofy/PopClip-Extensions/raw/master/dist/RGB_HEX.popclipextz
+[ext5]:
+  https://github.com/dofy/PopClip-Extensions/raw/master/dist/VarNameConvert.popclipextz
+[ext6]:
+  https://github.com/dofy/PopClip-Extensions/raw/master/dist/MarkdownList.popclipextz
+[ext7]:
+  https://github.com/dofy/PopClip-Extensions/raw/master/dist/FormatJSON.popclipextz
+[ext8]:
+  https://github.com/dofy/PopClip-Extensions/raw/master/dist/CommentSwitcher.popclipextz
+[ext9]:
+  https://github.com/dofy/PopClip-Extensions/raw/master/dist/MosaicText.popclipextz
+[ext10]:
+  https://github.com/dofy/PopClip-Extensions/raw/master/dist/MultiLine2Array.popclipextz
 [popext]: https://github.com/pilotmoon/PopClip-Extensions
-[ext1]: https://github.com/dofy/PopClip-Extensions/raw/master/dist/OpenGitHubRepo.popclipextz
-[ext2]: https://github.com/dofy/PopClip-Extensions/raw/master/dist/PinYin.popclipextz
-[ext3]: https://github.com/dofy/PopClip-Extensions/raw/master/dist/TextRepeater.popclipextz
-[ext4]: https://github.com/dofy/PopClip-Extensions/raw/master/dist/RGB_HEX.popclipextz
-[ext5]: https://github.com/dofy/PopClip-Extensions/raw/master/dist/VarNameConvert.popclipextz
-[ext6]: https://github.com/dofy/PopClip-Extensions/raw/master/dist/MarkdownList.popclipextz
-[ext7]: https://github.com/dofy/PopClip-Extensions/raw/master/dist/FormatJSON.popclipextz
-[ext8]: https://github.com/dofy/PopClip-Extensions/raw/master/dist/CommentSwitcher.popclipextz
-[ext9]: https://github.com/dofy/PopClip-Extensions/raw/master/dist/MosaicText.popclipextz
-[ext10]: https://github.com/dofy/PopClip-Extensions/raw/master/dist/MultiLine2Array.popclipextz
+[docs]: https://www.popclip.app/dev/
