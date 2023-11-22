@@ -1,0 +1,12 @@
+#popclip
+# DOCS: https://www.popclip.app/dev/snippets
+name: Name
+icon: iconify:ion:fish
+requirements: [text, paste]
+actions:
+  - title: Action 1
+    icon: circle filled 1
+    javascript: "popclip.pasteText(`Action 1: ${popclip.input.text}`)"
+  - title: Action 2
+    icon: circle filled 2
+    javascript: "popclip.pasteText(`Action 2: ${popclip.input.text}`)"

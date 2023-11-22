@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- PList Config -->
-<!-- DOCS: https://github.com/pilotmoon/PopClip-Extensions -->
-<!-- The documention for this file is at -->
-<!-- https://github.com/pilotmoon/PopClip-Extensions#the-config-file-structure -->
+<!-- DOCS: https://www.popclip.app/dev/packages -->
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
   <dict>

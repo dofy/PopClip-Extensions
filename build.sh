@@ -11,15 +11,17 @@ help() {
   echo
   echo "Usage:"
   echo "\t./build.sh <EXT_NAME>"
-  echo "\t./build.sh [-p | -y | -j | -i | -r] <EXT_NAME>"
+  echo "\t./build.sh [-p | -y | -j | -sj | -sy | -i | -r] <EXT_NAME>"
   echo "\t./build.sh -h"
   echo
   echo "Options:"
-  echo "\t-p\tCreate an extension by plist template."
-  echo "\t-y\tCreate an extension by yaml template."
-  echo "\t-j\tCreate an extension by json template."
-  echo "\t-i\tBuild and install extension."
-  echo "\t-r\tRemove extension and source!!!"
+  echo "\t-p\tCreate extension from plist template."
+  echo "\t-y\tCreate extension from yaml template."
+  echo "\t-j\tCreate extension from json template."
+  echo "\t-sj\tCreate snippet extension from JavaScript snippet template."
+  echo "\t-sy\tCreate snippet extension from yaml snippet template."
+  echo "\t-i\tBuild and Install extension."
+  echo "\t-r\tRemove Extension and SOURCE!!!"
   echo "\t-h\tShow help."
   echo ""
   exit 0
@@ -27,8 +29,11 @@ help() {
 
 SRC_ROOT="src/"
 DIST_ROOT="dist/"
-TEMP_ROOT="templates/"
+TEMP_ROOT="templates"
 
+JS_EXT=".js"
+YAML_EXT=".yaml"
+SNIPPET_EXT=".popcliptxt"
 EXT=".popclipext"
 EXTz="${EXT}z"
 
@@ -40,10 +45,21 @@ die() {
 # create extension by template
 create() {
   if [ -d $SRC_ROOT$SRC ]; then
-    die "The extension \"$SRC\" already exits!"
+    die "The extension \"$SRC\" already exists!"
   else
     cp -R $TMP/ $SRC_ROOT$SRC/
     echo "Extension \"$SRC\" has been created."
+    echo "You can edit it now."
+  fi
+}
+
+create_snippet() {
+  FILE_NAME=$SRC$TYPE
+  if [ -f $SRC_ROOT$SRC$JS_EXT ] || [ -f $SRC_ROOT$SRC$YAML_EXT ] || [ -d $SRC_ROOT$SRC ]; then
+    die "The extension \"$SRC\" already exists!"
+  else
+    cp $TMP $SRC_ROOT$FILE_NAME
+    echo "Extension \"$FILE_NAME\" has been created."
     echo "You can edit it now."
   fi
 }
@@ -69,6 +85,22 @@ create_j() {
   create
 }
 
+# create snippet extension by JavaScript snippet template
+create_sj() {
+  SRC=$1
+  TYPE=$JS_EXT
+  TMP=$TEMP_ROOT/_Snippets/template$TYPE
+  create_snippet
+}
+
+# create snippet extension by yaml snippet template
+create_sy() {
+  SRC=$1
+  TYPE=$YAML_EXT
+  TMP=$TEMP_ROOT/_Snippets/template$TYPE
+  create_snippet
+}
+
 build() {
   SRC=$1
   if [ -d $SRC_ROOT$SRC ]; then
@@ -79,8 +111,16 @@ build() {
     zip -r -m -q $SRC$EXTz $SRC$EXT
     echo Extension \"$SRC\" build successfully!
     echo You can try to install it in \"$DIST_ROOT$SRC$EXTz\"
+  elif [ -f $SRC_ROOT$SRC$JS_EXT ]; then
+    cp $SRC_ROOT$SRC$JS_EXT $DIST_ROOT$SRC$SNIPPET_EXT
+    echo Snippet Extension \"$SRC\" build successfully!
+    echo You can try to install it in \"$DIST_ROOT$SRC$SNIPPET_EXT\"
+  elif [ -f $SRC_ROOT$SRC$YAML_EXT ]; then
+    cp $SRC_ROOT$SRC$YAML_EXT $DIST_ROOT$SRC$SNIPPET_EXT
+    echo Snippet Extension \"$SRC\" build successfully!
+    echo You can try to install it in \"$DIST_ROOT$SRC$SNIPPET_EXT\"
   else
-    die \"$SRC\"\ must\ be\ a\ folder.
+    die "The extension \"$SRC\" does not exist."
   fi
 }
 
@@ -90,11 +130,10 @@ remove() {
   while true; do
     case $CONFIRM in
     [yY]*)
-      rm -rf $SRC_ROOT$SRC $DIST_ROOT$SRC$EXT $DIST_ROOT$SRC$EXTz
+      rm -rf $SRC_ROOT$SRC $SRC_ROOT$SRC.* $DIST_ROOT$SRC.*
       echo "Extension \"$SRC\" has been removed."
       ;;
     [nN]* | *) ;;
-
     esac
     exit 0
   done
@@ -102,7 +141,7 @@ remove() {
 
 [ $# -eq 0 ] && help
 
-while getopts "p:y:j:i:r:h" opts; do
+while getopts "p:y:j:s:i:r:h" opts; do
   case $opts in
   p)
     create_p $OPTARG
@@ -116,9 +155,25 @@ while getopts "p:y:j:i:r:h" opts; do
     create_j $OPTARG
     exit 0
     ;;
+  s)
+    if [ $OPTARG = "j" ]; then
+      create_sj $2
+    elif [ $OPTARG = "y" ]; then
+      create_sy $2
+    else
+      help
+    fi
+    exit 0
+    ;;
   i)
     build $OPTARG
-    open $SRC$EXTz
+    if [ -f $DIST_ROOT$SRC$EXTz ]; then
+      open $DIST_ROOT$SRC$EXTz
+    elif [ -f $DIST_ROOT$SRC$SNIPPET_EXT ]; then
+      open $DIST_ROOT$SRC$SNIPPET_EXT
+    else
+      die "Build failed!"
+    fi
     exit 0
     ;;
   r)

@@ -1,7 +1,14 @@
-// identifier: 'your.domain.popclip.extension.template_json',
-const optA = popclip.options['option-a'];
-const text = popclip.input.text;
+/**
+ * ==========================================
+ * JavaScript Action
+ * DOCS: https://www.popclip.app/dev/packages
+ * ==========================================
+ */
 
-const result = `input:${text} option:${optA}`;
+const main = (async) => {
+  // identifier: 'your.domain.popclip.extension.template_json',
+  const optA = popclip.options["option-a"];
+  const text = popclip.input.text;
 
-return result;
+  return `input:${text} option:${optA}`;
+};
