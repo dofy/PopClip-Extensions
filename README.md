@@ -67,7 +67,8 @@ Options:
 
 ## References
 
-- [PopClip Extensions][popext]
+- [PopClip Extensions][popext-website]
+- [PopClip Extensions on GitHub][popext-github]
 - [PopClip Extension Docs][docs]
 
 [ext1]:
@@ -90,5 +91,6 @@ Options:
   https://github.com/dofy/PopClip-Extensions/raw/master/dist/MosaicText.popclipextz
 [ext10]:
   https://github.com/dofy/PopClip-Extensions/raw/master/dist/MultiLine2Array.popclipextz
-[popext]: https://github.com/pilotmoon/PopClip-Extensions
+[popext-website]: https://www.popclip.app/extensions/
+[popext-github]: https://github.com/pilotmoon/PopClip-Extensions
 [docs]: https://www.popclip.app/dev/
