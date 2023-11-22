@@ -7,13 +7,15 @@ Create / Build / Remove the PopClip extension
 
 Usage:
   ./build.sh <EXT_NAME>
-  ./build.sh [-p | -y | -j | -i | -r] <EXT_NAME>
+  ./build.sh [-p | -y | -j | -sj | -sy | -i | -r] <EXT_NAME>
   ./build.sh -h
 
 Options:
-  -p  Create an extension by `plist` template.
-  -y  Create an extension by `yaml` template.
-  -j  Create an extension by `json` template.
+  -p  Create extension from `plist` template.
+  -y  Create extension from `yaml` template.
+  -j  Create extension from `json` template.
+  -sj Create snippet extension from `JavaScript` snippet template.
+  -sy Create snippet extension from `yaml` snippet template.
   -i  Build and install.
   -r  Remove extension and source!!!
   -h  Show help.
