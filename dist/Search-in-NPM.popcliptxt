@@ -1,0 +1,5 @@
+#popclip
+# DOCS: https://www.popclip.app/dev/snippets
+name: Search in NPM
+icon: square filled NPM
+url: https://www.npmjs.com/search?q=***
