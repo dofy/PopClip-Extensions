@@ -67,6 +67,10 @@ Options:
 
   > Convert multi-line text to javascript array format.
 
+- [Search in NPM][ext11]
+
+  > Search in npmjs.com
+
 ## References
 
 - [PopClip Extensions][popext-website]
@@ -93,6 +97,8 @@ Options:
   https://github.com/dofy/PopClip-Extensions/raw/master/dist/MosaicText.popclipextz
 [ext10]:
   https://github.com/dofy/PopClip-Extensions/raw/master/dist/MultiLine2Array.popclipextz
+[ext11]:
+  https://github.com/dofy/PopClip-Extensions/raw/master/dist/Search-in-NPM.popcliptxt
 [popext-website]: https://www.popclip.app/extensions/
 [popext-github]: https://github.com/pilotmoon/PopClip-Extensions
 [docs]: https://www.popclip.app/dev/
