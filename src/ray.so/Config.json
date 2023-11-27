@@ -1,0 +1,115 @@
+{
+  "identifier": "xyz.phpz.popclip.extension.ray-so",
+  "icon": "symbol:filemenu.and.selection",
+  "version": 1,
+  "name": "ray.so",
+  "description": "Generate a image from code with ray.so",
+  "options": [
+    {
+      "identifier": "background",
+      "label": {
+        "en": "Background",
+        "zh-Hans": "背景",
+        "zh-Hant": "背景",
+        "ja": "背景"
+      },
+      "type": "boolean"
+    },
+    {
+      "identifier": "darkMode",
+      "label": {
+        "en": "Dark Mode",
+        "zh-Hans": "暗黑模式",
+        "zh-Hant": "暗黑模式",
+        "ja": "ダークモード"
+      },
+      "type": "boolean"
+    },
+    {
+      "identifier": "theme",
+      "label": {
+        "en": "Theme",
+        "zh-Hans": "主题",
+        "zh-Hant": "主題",
+        "ja": "テーマ"
+      },
+      "type": "multiple",
+      "valueLabels": [
+        {
+          "en": "Candy",
+          "zh-Hans": "糖果",
+          "zh-Hant": "糖果",
+          "ja": "キャンディ"
+        },
+        {
+          "en": "Breeze",
+          "zh-Hans": "微风",
+          "zh-Hant": "微風",
+          "ja": "微風"
+        },
+        {
+          "en": "Crimson",
+          "zh-Hans": "深红",
+          "zh-Hant": "深紅",
+          "ja": "クリムゾン"
+        },
+        {
+          "en": "Falcon",
+          "zh-Hans": "猎鹰",
+          "zh-Hant": "獵鷹",
+          "ja": "ファルコン"
+        },
+        {
+          "en": "Meadow",
+          "zh-Hans": "草地",
+          "zh-Hant": "草地",
+          "ja": "草地"
+        },
+        {
+          "en": "Midnight",
+          "zh-Hans": "午夜",
+          "zh-Hant": "午夜",
+          "ja": "ミッドナイト"
+        },
+        {
+          "en": "Raindrop",
+          "zh-Hans": "雨滴",
+          "zh-Hant": "雨滴",
+          "ja": "レインドロップ"
+        },
+        {
+          "en": "Sunset",
+          "zh-Hans": "日落",
+          "zh-Hant": "日落",
+          "ja": "サンセット"
+        }
+      ],
+      "values": [
+        "candy",
+        "breeze",
+        "crimson",
+        "falcon",
+        "meadow",
+        "midnight",
+        "raindrop",
+        "sunset"
+      ],
+      "defaultValue": "candy",
+      "inset": true
+    },
+    {
+      "identifier": "padding",
+      "label": {
+        "en": "Padding",
+        "zh-Hans": "内边距",
+        "zh-Hant": "內邊距",
+        "ja": "パディング"
+      },
+      "type": "multiple",
+      "values": ["8", "16", "32", "64", "128"],
+      "defaultValue": "64",
+      "inset": true
+    }
+  ],
+  "module": "main.ts"
+}
