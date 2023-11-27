@@ -55,10 +55,10 @@ create_package() {
     TYPE=JSON
   fi
   TMP=$TEMP_ROOT/$TYPE
-  if [ -f $SRC_ROOT/$SRC.* ] || [ -d $SRC_ROOT$SRC ]; then
+  if [ -f "$SRC_ROOT/$SRC.*" ] || [ -d "$SRC_ROOT$SRC" ]; then
     die "The extension \"$SRC\" already exists!"
   else
-    cp -R $TMP/ $SRC_ROOT$SRC/
+    cp -R "$TMP/" "$SRC_ROOT$SRC/"
     echo "Extension \"$SRC\" has been created."
     echo "You can edit it now."
   fi
@@ -76,10 +76,10 @@ create_snippet() {
   SRC=$2
   FILE_NAME=$SRC$TYPE
   TMP=$TEMP_ROOT/_Snippets/template$TYPE
-  if [ -f $SRC_ROOT$SRC.* ] || [ -d $SRC_ROOT$SRC ]; then
+  if [ -f "$SRC_ROOT$SRC.*" ] || [ -d "$SRC_ROOT$SRC" ]; then
     die "The extension \"$SRC\" already exists!"
   else
-    cp $TMP $SRC_ROOT$FILE_NAME
+    cp "$TMP" "$SRC_ROOT$FILE_NAME"
     echo "Extension \"$FILE_NAME\" has been created."
     echo "You can edit it now."
   fi
@@ -87,26 +87,27 @@ create_snippet() {
 
 build() {
   SRC=$1
-  if [ -d $SRC_ROOT$SRC ]; then
-    rm -rf $DIST_ROOT$SRC$EXT $DIST_ROOT$SRC$EXTz
-    mkdir -p $DIST_ROOT$SRC$EXT
-    cp -R $SRC_ROOT$SRC/ $DIST_ROOT$SRC$EXT/
-    cd $DIST_ROOT
-    zip -r -m -q $SRC$EXTz $SRC$EXT
-    echo Extension \"$SRC\" build successfully!
-    echo You can try to install it in \"$DIST_ROOT$SRC$EXTz\"
-  elif [ -f $SRC_ROOT$SRC$JS_EXT ]; then
-    cp $SRC_ROOT$SRC$JS_EXT $DIST_ROOT$SRC$SNIPPET_EXT
-    echo Snippet Extension \"$SRC\" build successfully!
-    echo You can try to install it in \"$DIST_ROOT$SRC$SNIPPET_EXT\"
-  elif [ -f $SRC_ROOT$SRC$TS_EXT ]; then
-    cp $SRC_ROOT$SRC$TS_EXT $DIST_ROOT$SRC$SNIPPET_EXT
-    echo Snippet Extension \"$SRC\" build successfully!
-    echo You can try to install it in \"$DIST_ROOT$SRC$SNIPPET_EXT\"
-  elif [ -f $SRC_ROOT$SRC$YAML_EXT ]; then
-    cp $SRC_ROOT$SRC$YAML_EXT $DIST_ROOT$SRC$SNIPPET_EXT
-    echo Snippet Extension \"$SRC\" build successfully!
-    echo You can try to install it in \"$DIST_ROOT$SRC$SNIPPET_EXT\"
+  if [ -d "$SRC_ROOT$SRC" ]; then
+    rm -rf "$DIST_ROOT$SRC$EXT" "$DIST_ROOT$SRC$EXTz"
+    mkdir -p "$DIST_ROOT$SRC$EXT"
+    cp -R "$SRC_ROOT$SRC/" "$DIST_ROOT$SRC$EXT/"
+    cd "$DIST_ROOT"
+    zip -r -m -q "$SRC$EXTz" "$SRC$EXT"
+    cd ..
+    echo "Extension \"$SRC\" build successfully!"
+    echo "You can try to install it in \"$DIST_ROOT$SRC$EXTz\""
+  elif [ -f "$SRC_ROOT$SRC$JS_EXT" ]; then
+    cp "$SRC_ROOT$SRC$JS_EXT" "$DIST_ROOT$SRC$SNIPPET_EXT"
+    echo "Snippet Extension \"$SRC\" build successfully!"
+    echo "You can try to install it in \"$DIST_ROOT$SRC$SNIPPET_EXT\""
+  elif [ -f "$SRC_ROOT$SRC$TS_EXT" ]; then
+    cp "$SRC_ROOT$SRC$TS_EXT" "$DIST_ROOT$SRC$SNIPPET_EXT"
+    echo "Snippet Extension \"$SRC\" build successfully!"
+    echo "You can try to install it in \"$DIST_ROOT$SRC$SNIPPET_EXT\""
+  elif [ -f "$SRC_ROOT$SRC$YAML_EXT" ]; then
+    cp "$SRC_ROOT$SRC$YAML_EXT" "$DIST_ROOT$SRC$SNIPPET_EXT"
+    echo "Snippet Extension \"$SRC\" build successfully!"
+    echo "You can try to install it in \"$DIST_ROOT$SRC$SNIPPET_EXT\""
   else
     die "The extension \"$SRC\" does not exist."
   fi
@@ -118,7 +119,7 @@ remove() {
   while true; do
     case $CONFIRM in
     [yY]*)
-      rm -rf $SRC_ROOT$SRC $SRC_ROOT$SRC.* $DIST_ROOT$SRC.*
+      rm -rf "$SRC_ROOT$SRC" "$SRC_ROOT$SRC".* "$DIST_ROOT$SRC".*
       echo "Extension \"$SRC\" has been removed."
       ;;
     [nN]* | *) ;;
@@ -132,26 +133,26 @@ remove() {
 while getopts "p:y:j:s:i:r:h" opts; do
   case $opts in
   p | y | j)
-    create_package $opts $2
+    create_package "$opts" "$2"
     exit 0
     ;;
   s)
-    create_snippet $OPTARG $2
+    create_snippet "$OPTARG" "$2"
     exit 0
     ;;
   i)
-    build $OPTARG
-    if [ -f $SRC$EXTz ]; then
-      open $SRC$EXTz
-    elif [ -f $SRC$SNIPPET_EXT ]; then
-      open $SRC$SNIPPET_EXT
+    build "$OPTARG"
+    if [ -f "$DIST_ROOT$SRC$EXTz" ]; then
+      open "$DIST_ROOT$SRC$EXTz"
+    elif [ -f "$DIST_ROOT$SRC$SNIPPET_EXT" ]; then
+      open "$DIST_ROOT$SRC$SNIPPET_EXT"
     else
       die "Build failed!"
     fi
     exit 0
     ;;
   r)
-    remove $OPTARG
+    remove "$OPTARG"
     exit 0
     ;;
   h | ?)
@@ -160,4 +161,4 @@ while getopts "p:y:j:s:i:r:h" opts; do
   esac
 done
 
-build $1
+build "$1"
