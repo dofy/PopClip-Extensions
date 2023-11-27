@@ -71,6 +71,11 @@ Options:
 
   > Search in npmjs.com
 
+- [Generate `ray.so` Image][ext12]
+
+  > Send selected text to [ray.so](https://ray.so) to get a beautiful image of
+  > your code.
+
 ## References
 
 - [PopClip Extensions][popext-website]
@@ -99,6 +104,8 @@ Options:
   https://github.com/dofy/PopClip-Extensions/raw/master/dist/MultiLine2Array.popclipextz
 [ext11]:
   https://github.com/dofy/PopClip-Extensions/raw/master/dist/Search-in-NPM.popcliptxt
+[ext12]:
+  https://github.com/dofy/PopClip-Extensions/raw/master/dist/ray.so.popclipextz
 [popext-website]: https://www.popclip.app/extensions/
 [popext-github]: https://github.com/pilotmoon/PopClip-Extensions
 [docs]: https://www.popclip.app/dev/
