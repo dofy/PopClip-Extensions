@@ -19,6 +19,7 @@ help() {
   echo "\t-y\tCreate extension from yaml template."
   echo "\t-j\tCreate extension from json template."
   echo "\t-sj\tCreate snippet extension from JavaScript snippet template."
+  echo "\t-st\tCreate snippet extension from TypeScript snippet template."
   echo "\t-sy\tCreate snippet extension from yaml snippet template."
   echo "\t-i\tBuild and Install extension."
   echo "\t-r\tRemove Extension and SOURCE!!!"
@@ -32,6 +33,7 @@ DIST_ROOT="dist/"
 TEMP_ROOT="templates"
 
 JS_EXT=".js"
+TS_EXT=".ts"
 YAML_EXT=".yaml"
 SNIPPET_EXT=".popcliptxt"
 EXT=".popclipext"
@@ -43,8 +45,17 @@ die() {
 }
 
 # create extension by template
-create() {
-  if [ -d $SRC_ROOT$SRC ]; then
+create_package() {
+  SRC=$2
+  if [ $1 == "p" ]; then
+    TYPE=Plist
+  elif [ $1 == "y" ]; then
+    TYPE=Yaml
+  elif [ $1 == "j" ]; then
+    TYPE=JSON
+  fi
+  TMP=$TEMP_ROOT/$TYPE
+  if [ -f $SRC_ROOT/$SRC.* ] || [ -d $SRC_ROOT$SRC ]; then
     die "The extension \"$SRC\" already exists!"
   else
     cp -R $TMP/ $SRC_ROOT$SRC/
@@ -53,52 +64,25 @@ create() {
   fi
 }
 
+# create snippet extension by template
 create_snippet() {
+  if [ $1 == "t" ]; then
+    TYPE=$TS_EXT
+  elif [ $1 == "j" ]; then
+    TYPE=$JS_EXT
+  elif [ $1 == "y" ]; then
+    TYPE=$YAML_EXT
+  fi
+  SRC=$2
   FILE_NAME=$SRC$TYPE
-  if [ -f $SRC_ROOT$SRC$JS_EXT ] || [ -f $SRC_ROOT$SRC$YAML_EXT ] || [ -d $SRC_ROOT$SRC ]; then
+  TMP=$TEMP_ROOT/_Snippets/template$TYPE
+  if [ -f $SRC_ROOT$SRC.* ] || [ -d $SRC_ROOT$SRC ]; then
     die "The extension \"$SRC\" already exists!"
   else
     cp $TMP $SRC_ROOT$FILE_NAME
     echo "Extension \"$FILE_NAME\" has been created."
     echo "You can edit it now."
   fi
-}
-
-# create extension by plist template
-create_p() {
-  SRC=$1
-  TMP=$TEMP_ROOT/Plist
-  create
-}
-
-# create extension by yaml template
-create_y() {
-  SRC=$1
-  TMP=$TEMP_ROOT/Yaml
-  create
-}
-
-# create extension by json template
-create_j() {
-  SRC=$1
-  TMP=$TEMP_ROOT/JSON
-  create
-}
-
-# create snippet extension by JavaScript snippet template
-create_sj() {
-  SRC=$1
-  TYPE=$JS_EXT
-  TMP=$TEMP_ROOT/_Snippets/template$TYPE
-  create_snippet
-}
-
-# create snippet extension by yaml snippet template
-create_sy() {
-  SRC=$1
-  TYPE=$YAML_EXT
-  TMP=$TEMP_ROOT/_Snippets/template$TYPE
-  create_snippet
 }
 
 build() {
@@ -113,6 +97,10 @@ build() {
     echo You can try to install it in \"$DIST_ROOT$SRC$EXTz\"
   elif [ -f $SRC_ROOT$SRC$JS_EXT ]; then
     cp $SRC_ROOT$SRC$JS_EXT $DIST_ROOT$SRC$SNIPPET_EXT
+    echo Snippet Extension \"$SRC\" build successfully!
+    echo You can try to install it in \"$DIST_ROOT$SRC$SNIPPET_EXT\"
+  elif [ -f $SRC_ROOT$SRC$TS_EXT ]; then
+    cp $SRC_ROOT$SRC$TS_EXT $DIST_ROOT$SRC$SNIPPET_EXT
     echo Snippet Extension \"$SRC\" build successfully!
     echo You can try to install it in \"$DIST_ROOT$SRC$SNIPPET_EXT\"
   elif [ -f $SRC_ROOT$SRC$YAML_EXT ]; then
@@ -143,26 +131,12 @@ remove() {
 
 while getopts "p:y:j:s:i:r:h" opts; do
   case $opts in
-  p)
-    create_p $OPTARG
-    exit 0
-    ;;
-  y)
-    create_y $OPTARG
-    exit 0
-    ;;
-  j)
-    create_j $OPTARG
+  p | y | j)
+    create_package $opts $2
     exit 0
     ;;
   s)
-    if [ $OPTARG = "j" ]; then
-      create_sj $2
-    elif [ $OPTARG = "y" ]; then
-      create_sy $2
-    else
-      help
-    fi
+    create_snippet $OPTARG $2
     exit 0
     ;;
   i)
