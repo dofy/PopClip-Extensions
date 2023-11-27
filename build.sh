@@ -167,10 +167,10 @@ while getopts "p:y:j:s:i:r:h" opts; do
     ;;
   i)
     build $OPTARG
-    if [ -f $DIST_ROOT$SRC$EXTz ]; then
-      open $DIST_ROOT$SRC$EXTz
-    elif [ -f $DIST_ROOT$SRC$SNIPPET_EXT ]; then
-      open $DIST_ROOT$SRC$SNIPPET_EXT
+    if [ -f $SRC$EXTz ]; then
+      open $SRC$EXTz
+    elif [ -f $SRC$SNIPPET_EXT ]; then
+      open $SRC$SNIPPET_EXT
     else
       die "Build failed!"
     fi
