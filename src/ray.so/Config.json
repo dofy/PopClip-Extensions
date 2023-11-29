@@ -106,7 +106,7 @@
         "ja": "パディング"
       },
       "type": "multiple",
-      "values": ["8", "16", "32", "64", "128"],
+      "values": ["16", "32", "64", "128"],
       "defaultValue": "64",
       "inset": true
     }
