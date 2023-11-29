@@ -11,16 +11,16 @@ help() {
   echo
   echo "Usage:"
   echo "\t./build.sh <EXT_NAME>"
-  echo "\t./build.sh [-p | -y | -j | -sj | -sy | -i | -r] <EXT_NAME>"
+  echo "\t./build.sh [-p | -y | -j | -J | -T | -Y | -i | -r] <EXT_NAME>"
   echo "\t./build.sh -h"
   echo
   echo "Options:"
   echo "\t-p\tCreate extension from plist template."
   echo "\t-y\tCreate extension from yaml template."
   echo "\t-j\tCreate extension from json template."
-  echo "\t-sj\tCreate snippet extension from JavaScript snippet template."
-  echo "\t-st\tCreate snippet extension from TypeScript snippet template."
-  echo "\t-sy\tCreate snippet extension from yaml snippet template."
+  echo "\t-J\tCreate snippet extension from JavaScript snippet template."
+  echo "\t-T\tCreate snippet extension from TypeScript snippet template."
+  echo "\t-Y\tCreate snippet extension from yaml snippet template."
   echo "\t-i\tBuild and Install extension."
   echo "\t-r\tRemove Extension and SOURCE!!!"
   echo "\t-h\tShow help."
@@ -46,7 +46,6 @@ die() {
 
 # create extension by template
 create_package() {
-  SRC=$2
   if [ $1 == "p" ]; then
     TYPE=Plist
   elif [ $1 == "y" ]; then
@@ -54,6 +53,7 @@ create_package() {
   elif [ $1 == "j" ]; then
     TYPE=JSON
   fi
+  SRC=$2
   TMP=$TEMP_ROOT/$TYPE
   if [ -f "$SRC_ROOT/$SRC.*" ] || [ -d "$SRC_ROOT$SRC" ]; then
     die "The extension \"$SRC\" already exists!"
@@ -66,11 +66,11 @@ create_package() {
 
 # create snippet extension by template
 create_snippet() {
-  if [ $1 == "t" ]; then
+  if [ $1 == "T" ]; then
     TYPE=$TS_EXT
-  elif [ $1 == "j" ]; then
+  elif [ $1 == "J" ]; then
     TYPE=$JS_EXT
-  elif [ $1 == "y" ]; then
+  elif [ $1 == "Y" ]; then
     TYPE=$YAML_EXT
   fi
   SRC=$2
@@ -130,14 +130,14 @@ remove() {
 
 [ $# -eq 0 ] && help
 
-while getopts "p:y:j:s:i:r:h" opts; do
+while getopts "p:y:j:J:T:Y:i:r:h" opts; do
   case $opts in
   p | y | j)
-    create_package "$opts" "$2"
+    create_package "$opts" "$OPTARG"
     exit 0
     ;;
-  s)
-    create_snippet "$OPTARG" "$2"
+  J | T | Y)
+    create_package "$opts" "$OPTARG"
     exit 0
     ;;
   i)
