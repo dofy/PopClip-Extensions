@@ -26,9 +26,9 @@ Options:
 
 - [Open GitHub Repo][ext1]
 
-> You can open this GitHub Repo in your browser when you check text in the
-> format `AUTHOR/REPO`. If `AUTHOR` is not the GitHub `USERNAME` you set up, a
-> new button will be added to open `USERNAME/REPO`.
+  > You can open this GitHub Repo in your browser when you check text in the
+  > format `AUTHOR/REPO`. If `AUTHOR` is not the GitHub `USERNAME` you set up, a
+  > new button will be added to open `USERNAME/REPO`.
 
 - [PinYin][ext2]
 
