@@ -12,7 +12,12 @@ const optionsToParams = (options: {
 const extension: Extension = {
   actions: [
     {
-      title: 'Generate "Ray.so" image',
+      title: {
+        en: "Generate Image",
+        ja: "画像を生成する",
+        "zh-Hans": "生成图片",
+        "zh-Hant": "生成圖片",
+      },
       code({ text }, options) {
         const code = util.base64Encode(text, { urlSafe: true });
         const params = optionsToParams(options);
