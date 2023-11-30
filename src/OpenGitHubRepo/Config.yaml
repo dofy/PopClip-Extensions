@@ -3,18 +3,19 @@ name:
   zh-Hans: 打开 GitHub 项目
   zh-Hant: 開啟 GitHub 倉庫
   ja: GitHub リポジトリを開く
-version: 2
-icon: github.png
-popclip version: 693
+icon: assets/github.svg
 identifier: org.phpz.popclip.extension.open-github-repo
-description: Open GitHub Repo in a web browser with the selected text like AUTHOR/REPO.
-action:
-  title:
-    en: Open GitHub Repo
-    zh-Hans: 打开 GitHub 项目
-    zh-Hant: 開啟 GitHub 倉庫
-    ja: GitHub リポジトリを開く
-  icon: github.png
-  regex: ^\s*[\w\-\.]+/[\w\-\.]+\s*$
-  requirements: [text]
-  javascript: popclip.openUrl('https://github.com/' + popclip.input.text);
+description:
+  Open GitHub Repo in a web browser with the selected text like AUTHOR/REPO.
+regex: ^\s*[\w\-\.]+\s*/\s*[\w\-\.]+\s*$
+entitlements:
+  - dynamic
+options:
+  - identifier: username
+    label:
+      en: GitHub Username
+      zh-Hans: GitHub 用户名
+      zh-Hant: GitHub 用戶名
+      ja: GitHub ユーザー名
+    type: string
+module: lib/GitHubRepo.ts
