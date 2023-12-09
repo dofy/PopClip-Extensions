@@ -7,13 +7,14 @@ Create / Build / Remove the PopClip extension
 
 Usage:
   ./build.sh <EXT_NAME>
-  ./build.sh [-p | -y | -j | -J | -T | -Y | -i | -r] <EXT_NAME>
+  ./build.sh [-p | -y | -j | -m | -J | -T | -Y | -i | -r] <EXT_NAME>
   ./build.sh -h
 
 Options:
   -p  Create extension from `plist` template.
   -y  Create extension from `yaml` template.
   -j  Create extension from `json` template.
+  -m  Create extension from `module` template (`Yaml` & `TypeScript`).
   -J Create snippet extension from `JavaScript` snippet template.
   -T Create snippet extension from `TypeScript` snippet template.
   -Y Create snippet extension from `yaml` snippet template.
@@ -78,36 +79,29 @@ Options:
   > Send selected text to [ray.so](https://ray.so) to get a beautiful image of
   > your code.
 
+- [DeepL Translator][ext13]
+
+  > Translate selected text by DeepL App or Website.
+
 ## References
 
 - [PopClip Extensions][popext-website]
 - [PopClip Extensions on GitHub][popext-github]
 - [PopClip Extension Docs][docs]
 
-[ext1]:
-  https://github.com/dofy/PopClip-Extensions/raw/master/dist/OpenGitHubRepo.popclipextz
-[ext2]:
-  https://github.com/dofy/PopClip-Extensions/raw/master/dist/PinYin.popclipextz
-[ext3]:
-  https://github.com/dofy/PopClip-Extensions/raw/master/dist/TextRepeater.popclipextz
-[ext4]:
-  https://github.com/dofy/PopClip-Extensions/raw/master/dist/RGB_HEX.popclipextz
-[ext5]:
-  https://github.com/dofy/PopClip-Extensions/raw/master/dist/VarNameConvert.popclipextz
-[ext6]:
-  https://github.com/dofy/PopClip-Extensions/raw/master/dist/MarkdownList.popclipextz
-[ext7]:
-  https://github.com/dofy/PopClip-Extensions/raw/master/dist/FormatJSON.popclipextz
-[ext8]:
-  https://github.com/dofy/PopClip-Extensions/raw/master/dist/CommentSwitcher.popclipextz
-[ext9]:
-  https://github.com/dofy/PopClip-Extensions/raw/master/dist/MosaicText.popclipextz
-[ext10]:
-  https://github.com/dofy/PopClip-Extensions/raw/master/dist/MultiLine2Array.popclipextz
-[ext11]:
-  https://github.com/dofy/PopClip-Extensions/raw/master/dist/Search-in-NPM.popcliptxt
-[ext12]:
-  https://github.com/dofy/PopClip-Extensions/raw/master/dist/ray.so.popclipextz
+[ext1]: https://github.com/dofy/PopClip-Extensions/raw/master/dist/OpenGitHubRepo.popclipextz
+[ext2]: https://github.com/dofy/PopClip-Extensions/raw/master/dist/PinYin.popclipextz
+[ext3]: https://github.com/dofy/PopClip-Extensions/raw/master/dist/TextRepeater.popclipextz
+[ext4]: https://github.com/dofy/PopClip-Extensions/raw/master/dist/RGB_HEX.popclipextz
+[ext5]: https://github.com/dofy/PopClip-Extensions/raw/master/dist/VarNameConvert.popclipextz
+[ext6]: https://github.com/dofy/PopClip-Extensions/raw/master/dist/MarkdownList.popclipextz
+[ext7]: https://github.com/dofy/PopClip-Extensions/raw/master/dist/FormatJSON.popclipextz
+[ext8]: https://github.com/dofy/PopClip-Extensions/raw/master/dist/CommentSwitcher.popclipextz
+[ext9]: https://github.com/dofy/PopClip-Extensions/raw/master/dist/MosaicText.popclipextz
+[ext10]: https://github.com/dofy/PopClip-Extensions/raw/master/dist/MultiLine2Array.popclipextz
+[ext11]: https://github.com/dofy/PopClip-Extensions/raw/master/dist/Search-in-NPM.popcliptxt
+[ext12]: https://github.com/dofy/PopClip-Extensions/raw/master/dist/ray.so.popclipextz
+[ext12]: https://github.com/dofy/PopClip-Extensions/raw/master/dist/DeepLTranslator.popclipextz
 [popext-website]: https://www.popclip.app/extensions/
 [popext-github]: https://github.com/pilotmoon/PopClip-Extensions
 [docs]: https://www.popclip.app/dev/
