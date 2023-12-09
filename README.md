@@ -101,7 +101,7 @@ Options:
 [ext10]: https://github.com/dofy/PopClip-Extensions/raw/master/dist/MultiLine2Array.popclipextz
 [ext11]: https://github.com/dofy/PopClip-Extensions/raw/master/dist/Search-in-NPM.popcliptxt
 [ext12]: https://github.com/dofy/PopClip-Extensions/raw/master/dist/ray.so.popclipextz
-[ext12]: https://github.com/dofy/PopClip-Extensions/raw/master/dist/DeepLTranslator.popclipextz
+[ext13]: https://github.com/dofy/PopClip-Extensions/raw/master/dist/DeepLTranslator.popclipextz
 [popext-website]: https://www.popclip.app/extensions/
 [popext-github]: https://github.com/pilotmoon/PopClip-Extensions
 [docs]: https://www.popclip.app/dev/
