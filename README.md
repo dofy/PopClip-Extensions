@@ -81,7 +81,7 @@ Options:
 
 - [DeepL Translator][ext13]
 
-  > Translate selected text by DeepL App or Website.
+  > Translate selected text via DeepL App or Website.
 
 ## References
 

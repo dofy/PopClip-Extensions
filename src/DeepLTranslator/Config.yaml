@@ -51,8 +51,8 @@ options:
       zh-hant: 客製化快捷鍵
       zh-hans: 自定义快捷键
     description:
-      en: "Your customized shortcuts in DeepL.\nplease refer to PopClip official documentation for the shortcut format.\n"
-      zh-hant: "您在 DeepL 中製定的客製化快捷鍵。\n快捷鍵格式請參考 PopClip 官方文檔。"
-      zh-hans: "您在 DeepL 中设定的自定义快捷键。\n快捷键格式请参考 PopClip 官方文档。"
+      en: "Your customized shortcuts in DeepL.\nplease refer to PopClip official documentation for the shortcut format.\ne.g. cmd ctrl opt shift x"
+      zh-hant: "您在 DeepL 中製定的客製化快捷鍵。\n快捷鍵格式請參考 PopClip 官方文檔。\n例： cmd ctrl opt shift x"
+      zh-hans: "您在 DeepL 中设定的自定义快捷键。\n快捷键格式请参考 PopClip 官方文档。\n例： cmd ctrl opt shift x"
     type: string
 module: Main.ts
