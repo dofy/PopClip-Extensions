@@ -11,7 +11,7 @@ help() {
   echo
   echo "Usage:"
   echo "\t./build.sh <EXT_NAME>"
-  echo "\t./build.sh [-p | -y | -j | -m | -J | -T | -Y | -i | -r] <EXT_NAME>"
+  echo "\t./build.sh <OPTIONS> <EXT_NAME>"
   echo "\t./build.sh -h"
   echo
   echo "Options:"
