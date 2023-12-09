@@ -1,7 +1,6 @@
 {
   "identifier": "your.domain.popclip.extension.template_json",
   "icon": "iconify:ion:fish",
-  "version": 1,
   "name": {
     "en": "Extension Name",
     "zh-Hans": "扩展名",

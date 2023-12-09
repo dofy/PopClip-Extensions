@@ -11,13 +11,14 @@ help() {
   echo
   echo "Usage:"
   echo "\t./build.sh <EXT_NAME>"
-  echo "\t./build.sh [-p | -y | -j | -J | -T | -Y | -i | -r] <EXT_NAME>"
+  echo "\t./build.sh [-p | -y | -j | -m | -J | -T | -Y | -i | -r] <EXT_NAME>"
   echo "\t./build.sh -h"
   echo
   echo "Options:"
   echo "\t-p\tCreate extension from plist template."
   echo "\t-y\tCreate extension from yaml template."
   echo "\t-j\tCreate extension from json template."
+  echo "\t-m\tCreate extension from module template (Yaml & TypeScript)."
   echo "\t-J\tCreate snippet extension from JavaScript snippet template."
   echo "\t-T\tCreate snippet extension from TypeScript snippet template."
   echo "\t-Y\tCreate snippet extension from yaml snippet template."
@@ -52,6 +53,8 @@ create_package() {
     TYPE=Yaml
   elif [ $1 == "j" ]; then
     TYPE=JSON
+  elif [ $1 == "m" ]; then
+    TYPE=module
   fi
   SRC=$2
   TMP=$TEMP_ROOT/$TYPE
@@ -131,9 +134,9 @@ remove() {
 
 [ $# -eq 0 ] && help
 
-while getopts "p:y:j:J:T:Y:i:r:h" opts; do
+while getopts "p:y:j:m:J:T:Y:i:r:h" opts; do
   case $opts in
-  p | y | j)
+  p | y | j | m)
     create_package "$opts" "$OPTARG"
     exit 0
     ;;

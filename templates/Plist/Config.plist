@@ -4,9 +4,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
   <dict>
-    <key>Version</key>
-    <!-- replace your extension version -->
-    <integer>1</integer>
     <key>Extension Name</key>
     <!-- replace your extension name -->
     <string>{EXT_NAME}</string>

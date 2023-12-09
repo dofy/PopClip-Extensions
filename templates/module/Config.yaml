@@ -1,8 +1,8 @@
 # Yaml Config File
 # DOCS: https://www.popclip.app/dev/packages
-identifier: your.domain.popclip.extension.template_yaml
+identifier: your.domain.popclip.extension.template_module
 description: Description
-icon: square filled 7
+icon: square filled M
 name:
   en: 'Name'
   zh-Hans: '名称'
@@ -13,12 +13,4 @@ options:
     label: Option A
     type: boolean
     default value: true
-action:
-  title:
-    en: 'Action'
-    zh-Hans: '动作'
-    zh-Hant: '動作'
-    ja: 'アクション'
-  icon: square filled A
-  javascript file: actionA.js
-  after: show-result
+module: Main.ts

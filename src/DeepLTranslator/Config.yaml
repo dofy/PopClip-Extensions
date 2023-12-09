@@ -1,0 +1,58 @@
+name:
+  en: DeepL Translator
+  zh-hant: DeepL 翻譯器
+  zh-hans: DeepL 翻译器
+icon: icon.png
+identifier: org.phpz.popclip.extension.deepl-translator
+description: Translate seleted text by DeepL App or Website.
+options:
+  - identifier: runMode
+    label:
+      en: Mode
+      zh-hant: 模式
+      zh-hans: 模式
+    description:
+      en: Translate by App or Website
+      zh-hant: 使用應用程式或網站進行翻譯
+      zh-hans: 使用应用程序或网站进行翻译
+    type: multiple
+    values:
+      - app
+      - website
+    value labels:
+      - en: DeepL App
+        zh-hant: DeepL 應用
+        zh-hans: DeepL 应用
+      - en: DeepL Website
+        zh-hant: DeepL 網站
+        zh-hans: DeepL 网站
+    default value: app
+    inset: true
+  - identifier: defaultShortcut
+    label:
+      en: Default Shortcut
+      zh-hant: DeepL 默認快捷鍵
+      zh-hans: DeepL 默认快捷键
+    description:
+      en: "Use the DeepL default shortcut (⌘ + C + C)\nIf this option is checked, the custom shortcut below will be ignored."
+      zh-hant: "使用 DeepL 默認快捷鍵 (⌘ + C + C)\n如果選中此選項，下方的客製化快捷鍵將被忽略。"
+      zh-hans: "使用 DeepL 默认快捷键（⌘ + C + C)\n如果选中该选项，下面的自定义快捷键将被忽略。"
+    type: boolean
+    default value: true
+  - identifier: heading-or
+    label:
+      en: 'OR:'
+      zh-hant: '或：'
+      zh-hans: '或：'
+    type: heading
+  - identifier: customShortcut
+    label:
+      en: Custom Shortcut
+      zh-hant: 客製化快捷鍵
+      zh-hans: 自定义快捷键
+    description:
+      en: "Your customized shortcuts in DeepL.\nplease refer to PopClip official documentation for the shortcut format.\n"
+      zh-hant: "您在 DeepL 中製定的客製化快捷鍵。\n快捷鍵格式請參考 PopClip 官方文檔。"
+      zh-hans: "您在 DeepL 中设定的自定义快捷键。\n快捷键格式请参考 PopClip 官方文档。"
+    type: string
+module: Main.ts
