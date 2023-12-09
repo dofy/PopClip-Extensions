@@ -76,6 +76,7 @@ create_snippet() {
   SRC=$2
   FILE_NAME=$SRC$TYPE
   TMP=$TEMP_ROOT/_Snippets/template$TYPE
+  echo $TMP
   if [ -f "$SRC_ROOT$SRC.*" ] || [ -d "$SRC_ROOT$SRC" ]; then
     die "The extension \"$SRC\" already exists!"
   else
@@ -137,7 +138,7 @@ while getopts "p:y:j:J:T:Y:i:r:h" opts; do
     exit 0
     ;;
   J | T | Y)
-    create_package "$opts" "$OPTARG"
+    create_snippet "$opts" "$OPTARG"
     exit 0
     ;;
   i)
