@@ -83,6 +83,10 @@ Options:
 
   > Translate selected text via DeepL App or Website.
 
+- [Generate Password][ext14]
+
+  > Generate password with custom length and characters.
+
 ## References
 
 - [PopClip Extensions][popext-website]
@@ -102,6 +106,7 @@ Options:
 [ext11]: https://github.com/dofy/PopClip-Extensions/raw/master/dist/Search-in-NPM.popcliptxt
 [ext12]: https://github.com/dofy/PopClip-Extensions/raw/master/dist/ray.so.popclipextz
 [ext13]: https://github.com/dofy/PopClip-Extensions/raw/master/dist/DeepLTranslator.popclipextz
+[ext14]: https://github.com/dofy/PopClip-Extensions/raw/master/dist/GeneratePassword.popclipextz
 [popext-website]: https://www.popclip.app/extensions/
 [popext-github]: https://github.com/pilotmoon/PopClip-Extensions
 [docs]: https://www.popclip.app/dev/
