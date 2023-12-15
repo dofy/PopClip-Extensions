@@ -1,0 +1,53 @@
+# Yaml Config File
+# DOCS: https://www.popclip.app/dev/packages
+identifier: org.phpz.popclip.extension.password-generator
+description: Generate a random password
+icon: symbol:key
+name:
+  en: 'Password Generator'
+  zh-Hans: '密码生成器'
+  zh-Hant: '密碼生成器'
+  ja: 'パスワードジェネレーター'
+options:
+  - identifier: leng
+    label:
+      en: 'Password Length'
+      zh-Hans: '密码长度'
+      zh-Hant: '密碼長度'
+      ja: 'パスワードの長さ'
+    type: multiple
+    values:
+      - '8'
+      - '16'
+      - '24'
+      - '32'
+      - '64'
+      - '128'
+    default value: '16'
+    inset: true
+  - identifier: headings
+    label:
+      en: 'Include the following characters:'
+      zh-Hans: '同时包含以下字符：'
+      zh-Hant: '同時包含以下字符：'
+      ja: '以下の文字を含む：'
+    type: heading
+  - identifier: number
+    label:
+      en: 'Numbers'
+      zh-Hans: '数字'
+      zh-Hant: '數字'
+      ja: '数字'
+    type: boolean
+    default value: true
+    inset: true
+  - identifier: symbol
+    label:
+      en: 'Symbols'
+      zh-Hans: '符号'
+      zh-Hant: '符號'
+      ja: '記号'
+    type: boolean
+    default value: true
+    inset: true
+module: Main.ts
