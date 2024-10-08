@@ -1,0 +1,32 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .:
+    devDependencies:
+      '@popclip/types':
+        specifier: ^1.4670.0
+        version: 1.4670.0
+      typescript:
+        specifier: ^5.6.2
+        version: 5.6.2
+
+packages:
+
+  '@popclip/types@1.4670.0':
+    resolution: {integrity: sha512-KR5RFXWjGoOFm3pfh/KLrtcct94vBQ+VHhKKKCTSvpaAQImsfZo8rVGxioUHq8qHkiw/alysfs/BJbQek87ouw==}
+
+  typescript@5.6.2:
+    resolution: {integrity: sha512-NW8ByodCSNCwZeghjN3o+JX5OFH0Ojg6sadjEKY4huZ52TqbJTJnDo5+Tw98lSy63NZvi4n+ez5m2u5d4PkZyw==}
+    engines: {node: '>=14.17'}
+    hasBin: true
+
+snapshots:
+
+  '@popclip/types@1.4670.0': {}
+
+  typescript@5.6.2: {}

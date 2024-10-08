@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "es2018",
+    "lib": ["es2023", "dom", "dom.iterable"],
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "baseUrl": ".",
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "strict": true,
+    "noImplicitAny": false,
+    "types": ["node", "@popclip/types"],
+    "isolatedModules": true
+  },
+  "include": ["./src"]
+}

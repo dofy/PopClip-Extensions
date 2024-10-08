@@ -1,4 +1,3 @@
-/// <reference path="/Applications/PopClip.app/Contents/Resources/popclip.d.ts" />
 /**
  * DOCS: https://www.popclip.app/dev/snippets
  */
@@ -8,37 +7,37 @@
 // language: typescript
 // module: true
 const getIcon = (filled: boolean = false) => {
-  return `square ${filled ? "filled" : ""} ${String(
+  return `square ${filled ? 'filled' : ''} ${String(
     Math.floor(Math.random() * 100)
-  )}`;
-};
+  )}`
+}
 const extension: Extension = {
   icon: getIcon(),
   options: [
     {
-      identifier: "option1",
-      label: "Option 1",
-      type: "boolean",
+      identifier: 'option1',
+      label: 'Option 1',
+      type: 'boolean',
     },
   ],
   actions: [
     {
-      title: "Action 1",
+      title: 'Action 1',
       icon: getIcon(true),
-      after: "show-result",
+      after: 'show-result',
       code: (input) => {
-        return "Hi from the action. Your text is: " + input.text;
+        return 'Hi from the action. Your text is: ' + input.text
       },
     },
     {
-      title: "Action 2",
+      title: 'Action 2',
       icon: getIcon(),
-      after: "show-result",
+      after: 'show-result',
       code: (input, { option1 }) => {
-        popclip.openUrl(`https://www.google.com/search?q=${input.text}`);
-        return `Option 1 is ${option1 ? "enabled" : "disabled"}`;
+        popclip.openUrl(`https://www.google.com/search?q=${input.text}`)
+        return `Option 1 is ${option1 ? 'enabled' : 'disabled'}`
       },
     },
   ],
-};
-export default extension;
+}
+export default extension

@@ -1,5 +1,3 @@
-/// <reference path="/Applications/PopClip.app/Contents/Resources/popclip.d.ts" />
-
 const extension: Extension = {
   actions: [
     {

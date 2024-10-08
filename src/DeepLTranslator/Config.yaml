@@ -28,6 +28,61 @@ options:
         zh-hans: DeepL 网站
     default value: app
     inset: true
+  - identifier: sourceLanguage
+    label:
+      en: Source Language
+      zh-hant: 源語言
+      zh-hans: 源语言
+    description:
+      en: 'The language of the text you want to translate. (Only works in Website mode)'
+      zh-hant: '您要翻譯的文本的語言。（僅在網站模式下有效）'
+      zh-hans: '您要翻译的文本的语言。（仅在网站模式下有效）'
+    type: multiple
+    default value: en
+    values:
+      - bg
+      - cs
+      - da
+      - de
+      - en
+      - es
+      - et
+      - fi
+      - fr
+      - ga
+      - gl
+      - it
+      - ja
+      - nl
+      - pl
+      - pt
+      - ro
+      - ru
+      - tr
+      - uk
+      - zh
+    value labels:
+      - Български
+      - Čeština
+      - Dansk
+      - Deutsch
+      - English
+      - Español
+      - Eesti
+      - Suomi
+      - Français
+      - Gaeilge
+      - Galego
+      - Italiano
+      - 日本語
+      - Nederlands
+      - Polski
+      - Português
+      - Română
+      - Русский
+      - Türkçe
+      - Українська
+      - 中文
   - identifier: defaultShortcut
     label:
       en: Default Shortcut

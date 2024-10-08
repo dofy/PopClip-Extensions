@@ -1,5 +1,3 @@
-/// <reference path="/Applications/PopClip.app/Contents/Resources/popclip.d.ts" />
-
 const CHARS = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
 const NUMBERS = '0123456789'
 const SYMBOLS = '!@#$%^&*()_+-=[]{};:,./<>?\\|'
