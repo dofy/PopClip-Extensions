@@ -28,15 +28,15 @@ options:
         zh-hans: DeepL 网站
     default value: app
     inset: true
-  - identifier: sourceLanguage
+  - identifier: secondLanguage
     label:
-      en: Source Language
-      zh-hant: 源語言
-      zh-hans: 源语言
+      en: Second Language
+      zh-hant: 第二語言
+      zh-hans: 第二语言
     description:
-      en: 'The language of the text you want to translate. (Only works in Website mode)'
-      zh-hant: '您要翻譯的文本的語言。（僅在網站模式下有效）'
-      zh-hans: '您要翻译的文本的语言。（仅在网站模式下有效）'
+      en: 'You can translate the selected text from this language into the system language or from the system language into this language (held the Option key, only valid in Web mode).'
+      zh-hant: '您可以將選中的文本從此語言翻譯為系統語言，或從系統語言翻譯為此語言（按住 Option 鍵，僅在網站模式下有效）。'
+      zh-hans: '您可以将选中的文本从此语言翻译为系统语言，或从系统语言翻译为此语言（按住 Option 键，仅在网站模式下有效）。'
     type: multiple
     default value: en
     values:

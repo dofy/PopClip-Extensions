@@ -1,5 +1,5 @@
 const DeepL_URL =
-  'https://www.deepl.com/{languageCode}/translator#{sourceLanguage}/{localLanguage}/'
+  'https://www.deepl.com/{languageCode}/translator#{secondLanguage}/{localLanguage}/'
 
 const extension: Extension = {
   actions: [
@@ -7,18 +7,22 @@ const extension: Extension = {
       title: 'Translate',
       code(
         { text },
-        { runMode, sourceLanguage, defaultShortcut, customShortcut }
+        { runMode, secondLanguage, defaultShortcut, customShortcut }
       ) {
         if (runMode === 'website') {
           const { languageCode, localeIdentifier } = util.localeInfo
+          const optionIsHeld = popclip.modifiers.option
           const localLanguage =
             localeIdentifier.split('_')[0].toLowerCase() || 'en'
           popclip.openUrl(
             `${DeepL_URL.replace('{languageCode}', languageCode)
-              .replace('{localLanguage}', localLanguage)
               .replace(
-                '{sourceLanguage}',
-                sourceLanguage.toString() || 'en'
+                '{secondLanguage}',
+                optionIsHeld ? languageCode : (secondLanguage as string)
+              )
+              .replace(
+                '{localLanguage}',
+                optionIsHeld ? (secondLanguage as string) : localLanguage
               )}${encodeURIComponent(text)}`
           )
         } else {
