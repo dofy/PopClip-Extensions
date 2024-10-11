@@ -83,10 +83,10 @@ Options:
 
   > Translate selected text via DeepL App or Website.
   >
-  > The second language option is only available in the web version of DeepL.
+  > The **Second Language** option is only available in the Web Mode.
   >
-  > - Clicking the translation icon will translate the selected text from the **second language** to the **system language**
-  > - Clicking the icon while holding the `Option` key will translate the selected text from the **system language** to the **second language**
+  > - Clicking the `Translate` icon will translate the selected text from the **Second Language** into the **System Language**
+  > - Clicking the icon while holding the `Option` key will translate the selected text from the **System Language** into the **Second Language**
 
 - [Generate Password][ext14]
 
