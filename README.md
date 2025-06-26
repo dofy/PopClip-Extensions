@@ -97,10 +97,10 @@ Options:
   > This is a PopClip Snippets extension that allows you to use ChatGPT to
   > generate PopClip extensions.
   >
+  > [How to use it?][snippets]
+
   > [!TIP]
   > The current version is just a preliminary implementation, the prompts are not yet refined, and further adjustments are needed. If you're interested, feel free to submit your suggestions for improvement.
-
-  > [How to use it?][snippets]
 
 ## References
 
