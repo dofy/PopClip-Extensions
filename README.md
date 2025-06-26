@@ -92,6 +92,16 @@ Options:
 
   > Generate password with custom length and characters.
 
+- [Use ChatGPT to Make PopClip Extensions][ext15]
+
+  > This is a PopClip Snippets extension that allows you to use ChatGPT to
+  > generate PopClip extensions.
+  >
+  > [!TIP]
+  > The current version is just a preliminary implementation, the prompts are not yet refined, and further adjustments are needed. If you're interested, feel free to submit your suggestions for improvement.
+
+  > [How to use it?][snippets]
+
 ## References
 
 - [PopClip Extensions][popext-website]
@@ -112,6 +122,8 @@ Options:
 [ext12]: https://github.com/dofy/PopClip-Extensions/raw/master/dist/ray.so.popclipextz
 [ext13]: https://github.com/dofy/PopClip-Extensions/raw/master/dist/DeepLTranslator.popclipextz
 [ext14]: https://github.com/dofy/PopClip-Extensions/raw/master/dist/GeneratePassword.popclipextz
+[ext15]: https://github.com/dofy/PopClip-Extensions/blob/master/src/ChatGPTMakePopclipExt.applescript
 [popext-website]: https://www.popclip.app/extensions/
 [popext-github]: https://github.com/pilotmoon/PopClip-Extensions
 [docs]: https://www.popclip.app/dev/
+[snippets]: https://www.popclip.app/dev/snippets
