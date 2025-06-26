@@ -96,11 +96,16 @@ Options:
 
   > This is a PopClip Snippets extension that allows you to use ChatGPT to
   > generate PopClip extensions.
-  >
-  > [How to use it?][snippets]
 
 > [!TIP]
 > The current version is just a preliminary implementation, the prompts are not yet refined, and further adjustments are needed. If you're interested, feel free to submit your suggestions for improvement.
+
+- [Fancy Text Snippets][snippets]
+
+  > This is a PopClip Snippets extension that allows you to use fancy text
+  > snippets in PopClip. You can use it to quickly transform text into different styles.
+
+> [!TIP] > [How to install PopClip Snippets][snippets]
 
 ## References
 
@@ -123,6 +128,7 @@ Options:
 [ext13]: https://github.com/dofy/PopClip-Extensions/raw/master/dist/DeepLTranslator.popclipextz
 [ext14]: https://github.com/dofy/PopClip-Extensions/raw/master/dist/GeneratePassword.popclipextz
 [ext15]: https://github.com/dofy/PopClip-Extensions/blob/master/src/ChatGPTMakePopclipExt.applescript
+[ext16]: https://github.com/dofy/PopClip-Extensions/blob/master/src/FancyText.popcliptxt
 [popext-website]: https://www.popclip.app/extensions/
 [popext-github]: https://github.com/pilotmoon/PopClip-Extensions
 [docs]: https://www.popclip.app/dev/

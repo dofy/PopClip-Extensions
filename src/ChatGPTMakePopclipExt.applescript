@@ -1,5 +1,5 @@
 -- #popclip
--- name: ChatGPT → PopClip Snippet
+-- name: ChatGPT generate PopClip Snippets
 -- icon: square filled CPC
 -- requirements: [text]
 -- language: applescript
@@ -8,66 +8,80 @@ tell application id "com.openai.chat"
 end tell
 delay 0.3
 
-set promptText to "Please complete the following task as requested:" & ¬
-          "\n- Purpose: Generate a PopClip Snippet plugin as requested, directly return the PopClip Snippet installation text, without creating other plugin files, note that you should use the correct yaml format," & ¬
-          "\n- Snippet format requirements: first line must be #popclip, can be implemented in multiple languages" & ¬
-          "\n- examples:" & ¬
-          "\nAn shell script example:" & ¬
+set promptText to "## Objective" & ¬
+          "\nGenerate a PopClip Snippet plugin based on the requirements below. Output only the installable YAML code without any explanations or additional formatting." & ¬
+          "\n" & ¬
+          "\n## Output Requirements" & ¬
+          "\n1. **YAML code only**: No explanations, comments, or code block formatting" & ¬
+          "\n2. **Must start with #popclip**: This is the recognition identifier" & ¬
+          "\n3. **Ready to install**: The output code should be directly copy-pastable for installation" & ¬
+          "\n4. **Use standard ASCII characters**: Use proper English half-width symbols, avoid special quotes and ellipsis" & ¬
+          "\n5. **Wrap in code blocks**: Always enclose the YAML output in ``` code block markers" & ¬
+          "\n" & ¬
+          "\n## YAML Format Standards" & ¬
+          "\n- Use 2 spaces for indentation (no tabs)" & ¬
+          "\n- Quote strings with special characters" & ¬
+          "\n- Array elements start with hyphen (-)" & ¬
+          "\n- Field names in lowercase, use underscores for multi-word fields" & ¬
+          "\n- For multi-line JavaScript scripts, use proper YAML literal block format:" & ¬
+          "\n  ```yaml" & ¬
+          "\n  javascript: |" & ¬
+          "\n    {code with proper indentation}" & ¬
+          "\n  ```" & ¬
+          "\n" & ¬
+          "\n## Supported Script Types" & ¬
+          "\n**JavaScript:**" & ¬
           "\n```yaml" & ¬
-          "\n#popclip shellscript example" & ¬
-          "\nname: Say" & ¬
-          "\ninterpreter: zsh" & ¬
-          "\nshell script: say -v Daniel $POPCLIP_TEXT" & ¬
+          "\n#popclip" & ¬
+          "\nname: Example JS" & ¬
+          "\njavascript: popclip.pasteText('Hello ' + popclip.input.text)" & ¬
           "\n```" & ¬
-          "\nAn applescript example:" & ¬
+          "\n" & ¬
+          "\n**Shell Script:**" & ¬
           "\n```yaml" & ¬
-          "\n#popclip applescript example" & ¬
-          "\nname: Say" & ¬
+          "\n#popclip" & ¬
+          "\nname: Example Shell" & ¬
+          "\ninterpreter: zsh" & ¬
+          "\nshell script: echo \"Hello $POPCLIP_TEXT\"" & ¬
+          "\n```" & ¬
+          "\n" & ¬
+          "\n**AppleScript:**" & ¬
+          "\n```yaml" & ¬
+          "\n#popclip" & ¬
+          "\nname: Example AppleScript" & ¬
           "\nlanguage: applescript" & ¬
           "\ntell application \"System Events\"" & ¬
-          "\n  do shell script \"say -v Daniel '\" & popclip text" & ¬
-          "\n  \"'\"" & ¬
+          "\n  display dialog popclip text" & ¬
           "\nend tell" & ¬
           "\n```" & ¬
-          "\nA JavaScript example, including multiple actions:" & ¬
+          "\n" & ¬
+          "\n**Multiple Actions Example:**" & ¬
           "\n```yaml" & ¬
-          "\n#popclip js + multi action example" & ¬
-          "\nname: Markdown Formatting" & ¬
+          "\n#popclip" & ¬
+          "\nname: Text Formatting" & ¬
           "\nrequirements: [text, paste]" & ¬
           "\nactions:" & ¬
-          "\n- title: Markdown Bold # note: actions have a `title`, not a `name`" & ¬
+          "\n- title: Bold" & ¬
           "\n  icon: circle filled B" & ¬
           "\n  javascript: popclip.pasteText('**' + popclip.input.text + '**')" & ¬
-          "\n- title: Markdown Italic" & ¬
+          "\n- title: Italic" & ¬
           "\n  icon: circle filled I" & ¬
           "\n  javascript: popclip.pasteText('*' + popclip.input.text + '*')" & ¬
           "\n```" & ¬
-          "\n- Do not include any additional text or comments in the output." & ¬
-          "\n- Ensure the output is a valid PopClip Snippet YAML format." & ¬
-          "\n- The output should be a complete PopClip Snippet that can be installed directly." & ¬
-          "\n- The output should not include any explanations or additional comments." & ¬
-          "\n- The output should not include any code blocks or formatting that is not part of the PopClip Snippet YAML format." & ¬
-          "\n- Use the correct script name, language, and requirements." & ¬
-          "\n  * javascript: `javascript`" & ¬
-          "\n  * applescript: `language: applescript`" & ¬
-          "\n  * shell script: `interpreter: zsh`" & ¬
-          "\n- The first line must be `#popclip`." & ¬
-          "\n- The `name` field should be descriptive of the plugin's function." & ¬
-          "\n- The `icon` field should be a valid PopClip icon name or a custom icon." & ¬
-          "\n  * `T`: Here, `T` specifies the base icon as a text icon." & ¬
-          "\n  * `circle T`: This specifies a circle with the letter T." & ¬
-          "\n  * `square filled T`: This specifies a filled square with the letter T." & ¬
-          "\n  * `symbol:hand.raised`: Here, the base icon as an SF Symbols icon." & ¬
-          "\n- The `requirements` field should list any dependencies or required inputs." & ¬
-          "\n- The `actions` field should contain a list of actions, each with a `title`, `icon`, and the script to execute." & ¬
-          "\n- YAML Format Requirements:" & ¬
-          "\n  * Use proper indentation with 2 spaces (not tabs)" & ¬
-          "\n  * Include proper quotes around strings with special characters" & ¬
-          "\n  * For multiline strings, use the '>' character to indicate folded text" & ¬
-          "\n  * Use hyphen lists (-) for array elements with consistent spacing" & ¬
-          "\n  * Keep key names lowercase with underscores for readability" & ¬
-          "\n- Reference documentation: https://www.popclip.app/dev/snippets" & ¬
-          "\n- Task to be completed by the plugin:" & ¬
+          "\n" & ¬
+          "\n## Common Fields" & ¬
+          "\n- **name**: Plugin name (required)" & ¬
+          "\n- **icon**: Icon (e.g., T, circle T, square filled T, symbol:star)" & ¬
+          "\n- **requirements**: Dependencies (e.g., [text], [text, paste])" & ¬
+          "\n- **actions**: List of actions, each with title, icon, and script" & ¬
+          "\n- **url**: URL action (e.g., https://example.com/search?q=***)" & ¬
+          "\n" & ¬
+          "\n## Script Variables" & ¬
+          "\n- **JavaScript**: popclip.input.text" & ¬
+          "\n- **Shell**: $POPCLIP_TEXT" & ¬
+          "\n- **AppleScript**: popclip text" & ¬
+          "\n" & ¬
+          "\n## User Request" & ¬
           "\n" & "{popclip text}"
 
 set the clipboard to promptText
