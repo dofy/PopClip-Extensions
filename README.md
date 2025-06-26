@@ -105,7 +105,9 @@ Options:
   > This is a PopClip Snippets extension that allows you to use fancy text
   > snippets in PopClip. You can use it to quickly transform text into different styles.
 
-> [!TIP] > [How to install PopClip Snippets][snippets]
+> [!TIP]
+>
+> [How to install PopClip Snippets][snippets]
 
 ## References
 
