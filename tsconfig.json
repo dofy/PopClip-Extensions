@@ -4,7 +4,7 @@
     "lib": ["es2023", "dom", "dom.iterable"],
     "module": "commonjs",
     "moduleResolution": "node",
-    "baseUrl": ".",
+    "ignoreDeprecations": "6.0",
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
