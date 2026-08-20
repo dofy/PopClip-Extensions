@@ -8,6 +8,7 @@ name:
   zh-Hans: '密码生成器'
   zh-Hant: '密碼生成器'
   ja: 'パスワードジェネレーター'
+version: 2
 options:
   - identifier: leng
     label:
@@ -15,29 +16,45 @@ options:
       zh-Hans: '密码长度'
       zh-Hant: '密碼長度'
       ja: 'パスワードの長さ'
-    type: multiple
-    values:
-      - '8'
-      - '16'
-      - '24'
-      - '32'
-      - '64'
-      - '128'
+    type: string
     default value: '16'
+    description:
+      en: 'An integer between 4 and 256. Defaults to 16 if empty or invalid.'
+      zh-Hans: '4 到 256 之间的整数,留空或非法时使用 16。'
+      zh-Hant: '4 到 256 之間的整數,留空或非法時使用 16。'
+      ja: '4 から 256 の整数。空欄・不正時は 16。'
     inset: true
-  - identifier: headings
+  - identifier: heading_classes
     label:
-      en: 'Include the following characters:'
-      zh-Hans: '同时包含以下字符：'
-      zh-Hant: '同時包含以下字符：'
-      ja: '以下の文字を含む：'
+      en: 'Character classes'
+      zh-Hans: '字符类型'
+      zh-Hant: '字符類型'
+      ja: '文字種'
     type: heading
+  - identifier: lowercase
+    label:
+      en: 'Lowercase (a-z)'
+      zh-Hans: '小写字母 (a-z)'
+      zh-Hant: '小寫字母 (a-z)'
+      ja: '小文字 (a-z)'
+    type: boolean
+    default value: true
+    inset: true
+  - identifier: uppercase
+    label:
+      en: 'Uppercase (A-Z)'
+      zh-Hans: '大写字母 (A-Z)'
+      zh-Hant: '大寫字母 (A-Z)'
+      ja: '大文字 (A-Z)'
+    type: boolean
+    default value: true
+    inset: true
   - identifier: number
     label:
-      en: 'Numbers'
-      zh-Hans: '数字'
-      zh-Hant: '數字'
-      ja: '数字'
+      en: 'Numbers (0-9)'
+      zh-Hans: '数字 (0-9)'
+      zh-Hant: '數字 (0-9)'
+      ja: '数字 (0-9)'
     type: boolean
     default value: true
     inset: true
@@ -49,5 +66,71 @@ options:
       ja: '記号'
     type: boolean
     default value: true
+    inset: true
+  - identifier: customSymbols
+    label:
+      en: 'Custom symbols'
+      zh-Hans: '自定义符号'
+      zh-Hant: '自訂符號'
+      ja: 'カスタム記号'
+    type: string
+    default value: ''
+    description:
+      en: 'Override the built-in symbol set when Symbols is on. Leave empty to use the default: !@#$%^&*()_+-=[]{};:,./<>?\|'
+      zh-Hans: '启用「符号」时覆盖内置集合,留空则使用默认: !@#$%^&*()_+-=[]{};:,./<>?\|'
+      zh-Hant: '啟用「符號」時覆蓋內建集合,留空則使用預設: !@#$%^&*()_+-=[]{};:,./<>?\|'
+      ja: '「記号」有効時に内蔵セットを差し替え。空欄で既定 !@#$%^&*()_+-=[]{};:,./<>?\|'
+    inset: true
+  - identifier: heading_advanced
+    label:
+      en: 'Advanced'
+      zh-Hans: '高级'
+      zh-Hant: '進階'
+      ja: '詳細'
+    type: heading
+  - identifier: excludeAmbiguous
+    label:
+      en: 'Exclude look-alikes (0 O 1 l I |)'
+      zh-Hans: '排除易混字符 (0 O 1 l I |)'
+      zh-Hant: '排除易混字元 (0 O 1 l I |)'
+      ja: '紛らわしい文字を除外 (0 O 1 l I |)'
+    type: boolean
+    default value: false
+    inset: true
+  - identifier: noRepeat
+    label:
+      en: 'No adjacent duplicates'
+      zh-Hans: '禁止相邻重复'
+      zh-Hant: '禁止相鄰重複'
+      ja: '隣接する重複を禁止'
+    type: boolean
+    default value: false
+    inset: true
+  - identifier: outputMode
+    label:
+      en: 'After generating'
+      zh-Hans: '生成后'
+      zh-Hant: '生成後'
+      ja: '生成後'
+    type: multiple
+    values: [auto, paste, copy, show]
+    value labels:
+      - en: 'Paste if possible, else copy'
+        zh-Hans: '尽量粘贴,否则复制'
+        zh-Hant: '盡量貼上,否則複製'
+        ja: '可能なら貼付,不可なら複製'
+      - en: 'Always paste'
+        zh-Hans: '始终粘贴'
+        zh-Hant: '始終貼上'
+        ja: '常に貼付'
+      - en: 'Always copy'
+        zh-Hans: '始终复制'
+        zh-Hant: '始終複製'
+        ja: '常に複製'
+      - en: 'Show only'
+        zh-Hans: '仅显示'
+        zh-Hant: '僅顯示'
+        ja: '表示のみ'
+    default value: auto
     inset: true
 module: Main.ts
