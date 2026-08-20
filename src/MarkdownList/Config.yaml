@@ -4,11 +4,11 @@ name:
   zh-Hans: Markdown 列表
   zh-Hant: Markdown 列表
   ja: Markdown リスト
-version: 1
+version: 2
 identifier: xyz.phpz.popclip.extension.markdown-list
 icon: symbol:list.bullet
 requirements: [text, paste]
-actions:
+submenu:
   - title:
       en: Numbered List
       zh-Hans: 编号列表
@@ -20,8 +20,8 @@ actions:
   - title:
       en: Bulleted List
       zh-Hans: 无序列表
-      zh-Hant: 无序列表
-      ja: 无序リスト
+      zh-Hant: 無序列表
+      ja: 箇条書きリスト
     icon: symbol:list.bullet
     javascript: return '- ' + popclip.input.text.replace(/\n/g, '\n- ')
     after: paste-result

@@ -1,9 +1,20 @@
-const CHARS = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+const LETTERS = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
 const NUMBERS = '0123456789'
 const SYMBOLS = '!@#$%^&*()_+-=[]{};:,./<>?\\|'
 
-const getRandomChar = (chars: string) => {
-  return chars.charAt(Math.floor(Math.random() * chars.length))
+// Cryptographically secure pick: util.randomUniform gives a uniform int in
+// [0, max] with no modulo bias, backed by a CSPRNG.
+const pick = (chars: string) => chars.charAt(util.randomUniform(chars.length - 1))
+
+// Fisher-Yates shuffle using the same secure source.
+const shuffle = (arr: string[]) => {
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = util.randomUniform(i)
+    const tmp = arr[i]
+    arr[i] = arr[j]
+    arr[j] = tmp
+  }
+  return arr
 }
 
 const extension: Extension = {
@@ -18,16 +29,25 @@ const extension: Extension = {
       requirements: [],
       code(_, { leng, number, symbol }, { canPaste }) {
         const length = parseInt(leng as string, 10) || 16
-        let password = ''
-        for (let i = 0; i < length; i++) {
-          if (number && Math.random() > 0.7) {
-            password += getRandomChar(NUMBERS)
-          } else if (symbol && Math.random() > 0.85) {
-            password += getRandomChar(SYMBOLS)
-          } else {
-            password += getRandomChar(CHARS)
-          }
+
+        // Build the character pool and guarantee at least one char of each
+        // enabled class, so an enabled option is never silently absent.
+        let pool = LETTERS
+        const chars: string[] = []
+        if (number) {
+          pool += NUMBERS
+          chars.push(pick(NUMBERS))
         }
+        if (symbol) {
+          pool += SYMBOLS
+          chars.push(pick(SYMBOLS))
+        }
+        while (chars.length < length) {
+          chars.push(pick(pool))
+        }
+
+        const password = shuffle(chars).slice(0, length).join('')
+
         if (canPaste) {
           popclip.pasteText(password)
         } else {

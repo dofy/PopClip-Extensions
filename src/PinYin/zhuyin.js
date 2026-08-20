@@ -20,17 +20,16 @@ const pin2zhu = (pin) => {
       if (!/\d/.test(pin)) {
         result += '˙'
       } else {
-        diao.map((d, i) => {
-          result = result.replace(i, d)
-        })
+        // Replace the single tone digit (0-4) with its Zhuyin tone mark.
+        result = result.replace(/\d/, (n) => diao[Number(n)] ?? '')
       }
       break;
     default:
       break;
   }
 
-  for (const [pin, zhu] of Object.entries(zhuyin)) {
-    const regex = new RegExp(pin)
+  for (const [syllable, zhu] of Object.entries(zhuyin)) {
+    const regex = new RegExp(syllable)
     result = result.replace(regex, zhu)
   }
   return result

@@ -5,7 +5,7 @@ const extension: Extension = {
   actions: [
     {
       title: 'Translate',
-      code(
+      async code(
         { text },
         { runMode, secondLanguage, defaultShortcut, customShortcut }
       ) {
@@ -27,7 +27,11 @@ const extension: Extension = {
           )
         } else {
           if (defaultShortcut) {
+            // DeepL desktop opens on a double ⌘C. PopClip removed its automatic
+            // 100ms post-keypress delay (2023.9), so pace the two presses
+            // ourselves or DeepL merges them into a single copy.
             popclip.pressKey('cmd c')
+            await sleep(150)
             popclip.pressKey('cmd c')
           } else {
             print(customShortcut)
