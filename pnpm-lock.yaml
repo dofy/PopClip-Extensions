@@ -9,16 +9,16 @@ importers:
   .:
     devDependencies:
       '@popclip/types':
-        specifier: ^1.5793.0
-        version: 1.5793.0
+        specifier: ^1.5973.1
+        version: 1.5973.1
       typescript:
         specifier: ^6.0.3
         version: 6.0.3
 
 packages:
 
-  '@popclip/types@1.5793.0':
-    resolution: {integrity: sha512-FBATfAH5j3ee63dWVQ2JDz2mY12c6jMWHy5CFzZZPLDrqynj/SCJ0fHOyBqs/BEiDJWPXnccakIK/oxuGaxAxg==}
+  '@popclip/types@1.5973.1':
+    resolution: {integrity: sha512-Qzc68hhE0gQgC1h+RM9S9cjLH0exhHOZlgOdadjSxToK0gZh5oA+7ucFCJe0u6YOg84cWPQnjsbhjEXkHNx/zQ==}
 
   typescript@6.0.3:
     resolution: {integrity: sha512-y2TvuxSZPDyQakkFRPZHKFm+KKVqIisdg9/CZwm9ftvKXLP8NRWj38/ODjNbr43SsoXqNuAisEf1GdCxqWcdBw==}
@@ -27,6 +27,6 @@ packages:
 
 snapshots:
 
-  '@popclip/types@1.5793.0': {}
+  '@popclip/types@1.5973.1': {}
 
   typescript@6.0.3: {}

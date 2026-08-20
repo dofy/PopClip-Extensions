@@ -1,6 +1,6 @@
 {
 	"devDependencies": {
-		"@popclip/types": "^1.5793.0",
+		"@popclip/types": "^1.5973.1",
 		"typescript": "^6.0.3"
 	}
 }
