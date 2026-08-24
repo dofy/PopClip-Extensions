@@ -4,6 +4,7 @@ name:
   zh-hans: DeepL 翻译器
 icon: icon.png
 identifier: org.phpz.popclip.extension.deepl-translator
+popclip version: 5992
 description: Translate seleted text by DeepL App or Website.
 options:
   - identifier: runMode
@@ -34,9 +35,9 @@ options:
       zh-hant: 第二語言
       zh-hans: 第二语言
     description:
-      en: 'You can translate the selected text from this language into the system language or from the system language into this language (held the Option key, only valid in Web mode).'
-      zh-hant: '您可以將選中的文本從此語言翻譯為系統語言，或從系統語言翻譯為此語言（按住 Option 鍵，僅在網站模式下有效）。'
-      zh-hans: '您可以将选中的文本从此语言翻译为系统语言，或从系统语言翻译为此语言（按住 Option 键，仅在网站模式下有效）。'
+      en: 'You can translate the selected text from this language into the system language or from the system language into this language (hold the Option key, only valid in Web mode). Select Other… to enter a DeepL language code, such as ko.'
+      zh-hant: '您可以將選中的文本從此語言翻譯為系統語言，或從系統語言翻譯為此語言（按住 Option 鍵，僅在網站模式下有效）。選擇「其他…」可輸入 DeepL 語言代碼，例如 ko。'
+      zh-hans: '您可以将选中的文本从此语言翻译为系统语言，或从系统语言翻译为此语言（按住 Option 键，仅在网站模式下有效）。选择“其他…”可输入 DeepL 语言代码，例如 ko。'
     type: multiple
     default value: en
     values:
@@ -83,6 +84,7 @@ options:
       - Türkçe
       - Українська
       - 中文
+    allow other: true
   - identifier: defaultShortcut
     label:
       en: Default Shortcut
@@ -100,14 +102,98 @@ options:
       zh-hant: '或：'
       zh-hans: '或：'
     type: heading
-  - identifier: customShortcut
+  - identifier: heading-custom
     label:
       en: Custom Shortcut
       zh-hant: 客製化快捷鍵
       zh-hans: 自定义快捷键
+    type: heading
+  - identifier: customCommand
+    label:
+      en: Command (⌘)
+      zh-hant: Command (⌘)
+      zh-hans: Command (⌘)
+    type: boolean
+    default value: true
+  - identifier: customControl
+    label:
+      en: Control (⌃)
+      zh-hant: Control (⌃)
+      zh-hans: Control (⌃)
+    type: boolean
+    default value: false
+  - identifier: customOption
+    label:
+      en: Option (⌥)
+      zh-hant: Option (⌥)
+      zh-hans: Option (⌥)
+    type: boolean
+    default value: false
+  - identifier: customShift
+    label:
+      en: Shift (⇧)
+      zh-hant: Shift (⇧)
+      zh-hans: Shift (⇧)
+    type: boolean
+    default value: false
+  - identifier: customKey
+    label:
+      en: Key
+      zh-hant: 按鍵
+      zh-hans: 按键
     description:
-      en: "Your customized shortcuts in DeepL.\nplease refer to PopClip official documentation for the shortcut format.\ne.g. cmd ctrl opt shift x"
-      zh-hant: "您在 DeepL 中製定的客製化快捷鍵。\n快捷鍵格式請參考 PopClip 官方文檔。\n例： cmd ctrl opt shift x"
-      zh-hans: "您在 DeepL 中设定的自定义快捷键。\n快捷键格式请参考 PopClip 官方文档。\n例： cmd ctrl opt shift x"
-    type: string
+      en: "Choose one character. The selected modifiers will be combined with it. See [PopClip's shortcut format](https://www.popclip.app/dev/key-press-actions)."
+      zh-hant: "選擇一個字元，已選取的修飾鍵會與它組合。請參考 [PopClip 快捷鍵格式](https://www.popclip.app/dev/key-press-actions)。"
+      zh-hans: "选择一个字符，已选中的修饰键会与它组合。请参考 [PopClip 快捷键格式](https://www.popclip.app/dev/key-press-actions)。"
+    type: multiple
+    values:
+      - A
+      - B
+      - C
+      - D
+      - E
+      - F
+      - G
+      - H
+      - I
+      - J
+      - K
+      - L
+      - M
+      - N
+      - O
+      - P
+      - Q
+      - R
+      - S
+      - T
+      - U
+      - V
+      - W
+      - X
+      - Y
+      - Z
+      - '0'
+      - '1'
+      - '2'
+      - '3'
+      - '4'
+      - '5'
+      - '6'
+      - '7'
+      - '8'
+      - '9'
+      - '-'
+      - '='
+      - '['
+      - ']'
+      - '\'
+      - ';'
+      - "'"
+      - ','
+      - '.'
+      - '/'
+      - '`'
+    default value: X
+    inset: true
 module: Main.ts

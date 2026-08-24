@@ -7,7 +7,16 @@ const extension: Extension = {
       title: 'Translate',
       async code(
         { text },
-        { runMode, secondLanguage, defaultShortcut, customShortcut }
+        {
+          runMode,
+          secondLanguage,
+          defaultShortcut,
+          customCommand,
+          customControl,
+          customShift,
+          customOption,
+          customKey,
+        }
       ) {
         if (runMode === 'website') {
           const { languageCode, localeIdentifier } = util.localeInfo
@@ -34,12 +43,18 @@ const extension: Extension = {
             await sleep(150)
             popclip.pressKey('cmd c')
           } else {
-            print(customShortcut)
-            if (customShortcut !== '') {
-              popclip.pressKey(customShortcut as string)
-            } else {
-              popclip.showText('Please set a custom shortcut in settings.')
+            const key = String(customKey ?? '').trim().toLowerCase()
+            if (Array.from(key).length !== 1) {
+              popclip.showText('Please enter one character for the custom shortcut.')
+              return
             }
+
+            const modifiers: string[] = []
+            if (customControl) modifiers.push('ctrl')
+            if (customCommand) modifiers.push('cmd')
+            if (customShift) modifiers.push('shift')
+            if (customOption) modifiers.push('opt')
+            popclip.pressKey([...modifiers, key].join(' '))
           }
         }
       },

@@ -5,6 +5,7 @@ name:
 version: 3
 identifier: xyz.phpz.popclip.extension.pinyin
 icon: 拼
+popclip version: 5992
 description:
   en: convert Chinese characters to pinyin.
   zh-Hans: 将中文字符转换为拼音.

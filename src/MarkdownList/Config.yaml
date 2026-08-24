@@ -7,6 +7,7 @@ name:
 version: 2
 identifier: xyz.phpz.popclip.extension.markdown-list
 icon: symbol:list.bullet
+popclip version: 5992
 requirements: [text, paste]
 submenu:
   - title:
