@@ -2,7 +2,7 @@ const optionsToParams = (options: {
   [key: string]: string | boolean
 }): string => {
   const params = Object.entries(options)
-    .map(([key, value]) => `${key}=${value}`)
+    .map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(String(value))}`)
     .join('&')
   return params
 }

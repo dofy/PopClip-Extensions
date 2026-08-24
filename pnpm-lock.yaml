@@ -9,24 +9,39 @@ importers:
   .:
     devDependencies:
       '@popclip/types':
-        specifier: ^1.5973.1
-        version: 1.5973.1
+        specifier: ^1.6959.1
+        version: 1.6959.1
+      '@types/node':
+        specifier: ^26.2.0
+        version: 26.2.0
       typescript:
         specifier: ^6.0.3
         version: 6.0.3
 
 packages:
 
-  '@popclip/types@1.5973.1':
-    resolution: {integrity: sha512-Qzc68hhE0gQgC1h+RM9S9cjLH0exhHOZlgOdadjSxToK0gZh5oA+7ucFCJe0u6YOg84cWPQnjsbhjEXkHNx/zQ==}
+  '@popclip/types@1.6959.1':
+    resolution: {integrity: sha512-5yVnsJbN+UbLxXLNH2xr7zXLpdxP+aepR5RmO6v/aGeG/HJjT7q+6m+jO0eStDBOCcnbM470RnE2DXRaDGeAKg==}
+
+  '@types/node@26.2.0':
+    resolution: {integrity: sha512-5IviulTZeRNp2vAJ514cc/HUlY5nZ9fCbq9DMyC52BrhFZACo3nI0R7qBxhQmo/d27NFe96ur/b7Wwxklda+kg==}
 
   typescript@6.0.3:
     resolution: {integrity: sha512-y2TvuxSZPDyQakkFRPZHKFm+KKVqIisdg9/CZwm9ftvKXLP8NRWj38/ODjNbr43SsoXqNuAisEf1GdCxqWcdBw==}
     engines: {node: '>=14.17'}
     hasBin: true
 
+  undici-types@8.3.0:
+    resolution: {integrity: sha512-j375ScV60dom+YkPFIfTLcOiPxkN/buHz5GobjLhixFuANaNs3C9l4GmrWqejgXWJ7BbJcFYpTEUkS1Ge8bpZQ==}
+
 snapshots:
 
-  '@popclip/types@1.5973.1': {}
+  '@popclip/types@1.6959.1': {}
+
+  '@types/node@26.2.0':
+    dependencies:
+      undici-types: 8.3.0
 
   typescript@6.0.3: {}
+
+  undici-types@8.3.0: {}
