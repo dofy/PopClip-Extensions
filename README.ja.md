@@ -8,10 +8,6 @@ macOS 向けの PopClip 拡張機能と snippet 拡張機能のコレクショ�
 
 [`dist/`](dist/) にある `.popclipextz` ファイルを開くと、PopClip に拡張機能をインストールできます。Snippet 拡張機能には `.popcliptxt` 形式を使用します。
 
-## 多言語対応
-
-拡張機能と snippet の名前、説明、オプション、アクションタイトルは、英語（`en`）、簡体字中国語（`zh-hans`）、繁体字中国語（`zh-hant`）、日本語（`ja`）、韓国語（`ko`）、フランス語（`fr`）、スペイン語（`es`）に対応しています。英語は PopClip が要求する fallback 言語として保持しています。
-
 ## 拡張機能
 
 以下の 14 個のパッケージは [PopClip 拡張機能ディレクトリ](https://www.popclip.app/extensions/) への提出用に設定されています。

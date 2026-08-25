@@ -8,10 +8,6 @@
 
 開啟 [`dist/`](dist/) 中的 `.popclipextz` 檔案，即可在 PopClip 中安裝擴充功能。Snippet 擴充功能使用 `.popcliptxt` 格式。
 
-## 多語言支援
-
-擴充功能與 snippet 的名稱、說明、選項及動作標題支援英文（`en`）、簡體中文（`zh-hans`）、繁體中文（`zh-hant`）、日文（`ja`）、韓文（`ko`）、法文（`fr`）和西班牙文（`es`）。英文是 PopClip 要求保留的 fallback 語言。
-
 ## 擴充功能
 
 以下 14 個擴充功能已設定為提交至 [PopClip 擴充功能目錄](https://www.popclip.app/extensions/)：

@@ -11,13 +11,6 @@ packages in `dist/`.
 Open a `.popclipextz` file from [`dist/`](dist/) to install an extension in
 PopClip. Snippet extensions use the `.popcliptxt` format.
 
-## Localization
-
-Extension and snippet names, descriptions, options, and action titles support
-English (`en`), Simplified Chinese (`zh-hans`), Traditional Chinese
-(`zh-hant`), Japanese (`ja`), Korean (`ko`), French (`fr`), and Spanish
-(`es`). English is kept as the required PopClip fallback language.
-
 ## Extensions
 
 These 14 packages are configured for submission to the

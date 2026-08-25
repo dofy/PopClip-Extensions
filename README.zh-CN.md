@@ -8,10 +8,6 @@
 
 打开 [`dist/`](dist/) 中的 `.popclipextz` 文件，即可在 PopClip 中安装扩展。Snippet 扩展使用 `.popcliptxt` 格式。
 
-## 多语言支持
-
-扩展和 snippet 的名称、说明、选项及动作标题支持英语（`en`）、简体中文（`zh-hans`）、繁体中文（`zh-hant`）、日语（`ja`）、韩语（`ko`）、法语（`fr`）和西班牙语（`es`）。英语是 PopClip 要求保留的 fallback 语言。
-
 ## 扩展
 
 以下 14 个扩展已配置为提交到 [PopClip 扩展目录](https://www.popclip.app/extensions/)：
