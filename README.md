@@ -56,18 +56,34 @@ directory package glob:
 
 - [Search in NPM](src/Search-in-NPM.yaml) · [Install](dist/Search-in-NPM.popcliptxt)
 - [ChatGPT Make PopClip Extension](src/ChatGPTMakePopclipExt.applescript)
+
+  > Send the selected request to the ChatGPT Chat Bar and ask it to generate
+  > an installable PopClip snippet. The ChatGPT macOS app and Accessibility
+  > permission for System Events are required.
 - [Fancy Text](src/FancyText.popcliptxt)
 
 ## Build
 
-Build one package with:
+Run without arguments to open the interactive build menu:
+
+```sh
+./build.sh
+```
+
+The menu can build or install packages and snippets, create sources from
+templates, and remove a source with confirmation. For automation, build one
+package or snippet with:
 
 ```sh
 ./build.sh PinYin
+./build.sh build PinYin
+./build.sh install PinYin
+./build.sh build FancyText
 ```
 
-The result is written to `dist/`. Run `./build.sh -h` for package and snippet
-templates, installation, and removal options.
+The result is written to `dist/`. Legacy options such as `./build.sh -i
+PinYin` remain supported. Run `./build.sh -h` for all commands and template
+formats.
 
 ## Directory submission
 

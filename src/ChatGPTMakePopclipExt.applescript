@@ -3,94 +3,39 @@
 -- icon: square filled CPC
 -- requirements: [text]
 -- language: applescript
-tell application id "com.openai.chat"
+set promptText to "You are a PopClip extension author. Generate one installable PopClip snippet from the user request below." & ¬
+  "\n\nOutput rules:" & ¬
+  "\n- Output exactly one Markdown code block with the language tag yaml: start with ```yaml and end with ```; include no text outside the code block." & ¬
+  "\n- The first line inside the code block must be exactly #popclip." & ¬
+  "\n- Keep the YAML inside the code block directly selectable and installable as a PopClip snippet after removing only the Markdown fences." & ¬
+  "\n- Use valid YAML 1.2 and 2 spaces for indentation; never use tabs." & ¬
+  "\n- Use PopClip's exact field names, including fields such as popclip version, javascript, javascript file, shell script, actions, and after. Do not invent snake_case field names." & ¬
+  "\n- Choose the simplest suitable action type. Prefer JavaScript for text transformations. Use paste requirements only when the action pastes." & ¬
+  "\n- For multi-line scripts, use a YAML literal block (|) with correctly indented content." & ¬
+  "\n- Include name and icon when useful. Add requirements, options, regex, or actions only when needed." & ¬
+  "\n- Preserve the language and intent of the user request. Keep code and user-facing labels clear and safe." & ¬
+  "\n\nThe selected user request is:" & ¬
+  "\n" & "{popclip full text}"
+
+set previousClipboard to the clipboard
+set the clipboard to promptText
+
+tell application "ChatGPT"
   activate
 end tell
-delay 0.3
-
-set promptText to "## Objective" & ¬
-          "\nGenerate a PopClip Snippet plugin based on the requirements below. Output only the installable YAML code without any explanations or additional formatting." & ¬
-          "\n" & ¬
-          "\n## Output Requirements" & ¬
-          "\n1. **YAML code only**: No explanations, comments, or code block formatting" & ¬
-          "\n2. **Must start with #popclip**: This is the recognition identifier" & ¬
-          "\n3. **Ready to install**: The output code should be directly copy-pastable for installation" & ¬
-          "\n4. **Use standard ASCII characters**: Use proper English half-width symbols, avoid special quotes and ellipsis" & ¬
-          "\n5. **Wrap in code blocks**: Always enclose the YAML output in ``` code block markers" & ¬
-          "\n" & ¬
-          "\n## YAML Format Standards" & ¬
-          "\n- Use 2 spaces for indentation (no tabs)" & ¬
-          "\n- Quote strings with special characters" & ¬
-          "\n- Array elements start with hyphen (-)" & ¬
-          "\n- Field names in lowercase, use underscores for multi-word fields" & ¬
-          "\n- For multi-line JavaScript scripts, use proper YAML literal block format:" & ¬
-          "\n  ```yaml" & ¬
-          "\n  javascript: |" & ¬
-          "\n    {code with proper indentation}" & ¬
-          "\n  ```" & ¬
-          "\n" & ¬
-          "\n## Supported Script Types" & ¬
-          "\n**JavaScript:**" & ¬
-          "\n```yaml" & ¬
-          "\n#popclip" & ¬
-          "\nname: Example JS" & ¬
-          "\njavascript: popclip.pasteText('Hello ' + popclip.input.text)" & ¬
-          "\n```" & ¬
-          "\n" & ¬
-          "\n**Shell Script:**" & ¬
-          "\n```yaml" & ¬
-          "\n#popclip" & ¬
-          "\nname: Example Shell" & ¬
-          "\ninterpreter: zsh" & ¬
-          "\nshell script: echo \"Hello $POPCLIP_TEXT\"" & ¬
-          "\n```" & ¬
-          "\n" & ¬
-          "\n**AppleScript:**" & ¬
-          "\n```yaml" & ¬
-          "\n#popclip" & ¬
-          "\nname: Example AppleScript" & ¬
-          "\nlanguage: applescript" & ¬
-          "\ntell application \"System Events\"" & ¬
-          "\n  display dialog popclip text" & ¬
-          "\nend tell" & ¬
-          "\n```" & ¬
-          "\n" & ¬
-          "\n**Multiple Actions Example:**" & ¬
-          "\n```yaml" & ¬
-          "\n#popclip" & ¬
-          "\nname: Text Formatting" & ¬
-          "\nrequirements: [text, paste]" & ¬
-          "\nactions:" & ¬
-          "\n- title: Bold" & ¬
-          "\n  icon: circle filled B" & ¬
-          "\n  javascript: popclip.pasteText('**' + popclip.input.text + '**')" & ¬
-          "\n- title: Italic" & ¬
-          "\n  icon: circle filled I" & ¬
-          "\n  javascript: popclip.pasteText('*' + popclip.input.text + '*')" & ¬
-          "\n```" & ¬
-          "\n" & ¬
-          "\n## Common Fields" & ¬
-          "\n- **name**: Plugin name (required)" & ¬
-          "\n- **icon**: Icon (e.g., T, circle T, square filled T, symbol:star)" & ¬
-          "\n- **requirements**: Dependencies (e.g., [text], [text, paste])" & ¬
-          "\n- **actions**: List of actions, each with title, icon, and script" & ¬
-          "\n- **url**: URL action (e.g., https://example.com/search?q=***)" & ¬
-          "\n" & ¬
-          "\n## Script Variables" & ¬
-          "\n- **JavaScript**: popclip.input.text" & ¬
-          "\n- **Shell**: $POPCLIP_TEXT" & ¬
-          "\n- **AppleScript**: popclip text" & ¬
-          "\n" & ¬
-          "\n## User Request" & ¬
-          "\n" & "{popclip text}"
-
-set the clipboard to promptText
-delay 0.3
+delay 0.5
 
 tell application "System Events"
-  keystroke "n" using {command down, shift down}
-  delay 0.3
-  keystroke "v" using {command down} 
-  delay 0.3
-  key code 36 -- Enter key
+  -- Open the ChatGPT quick conversation dialog without using the global Chat Bar shortcut.
+  keystroke "n" using {command down, option down}
+  delay 0.5
+  keystroke "v" using {command down}
+  delay 0.2
+  key code 36
 end tell
+
+-- Do not leave the generated prompt in the user's clipboard.
+delay 0.2
+try
+  set the clipboard to previousClipboard
+end try
