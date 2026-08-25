@@ -4,7 +4,15 @@ const DeepL_URL =
 const extension: Extension = {
   actions: [
     {
-      title: 'Translate',
+      title: {
+        en: 'Translate',
+        'zh-hans': '翻译',
+        'zh-hant': '翻譯',
+        ja: '翻訳',
+        ko: '번역',
+        fr: 'Traduire',
+        es: 'Traducir',
+      },
       async code(
         { text },
         {

@@ -2,10 +2,21 @@ name:
   en: DeepL Translator
   zh-hant: DeepL 翻譯器
   zh-hans: DeepL 翻译器
+  ja: DeepL 翻訳
+  ko: DeepL 번역기
+  fr: Traducteur DeepL
+  es: Traductor DeepL
 icon: icon.png
 identifier: org.phpz.popclip.extension.deepl-translator
 popclip version: 6159
-description: Translate selected text with the DeepL app or website.
+description:
+  en: Translate selected text with the DeepL app or website.
+  zh-hant: 使用 DeepL 應用程式或網站翻譯選取的文字。
+  zh-hans: 使用 DeepL 应用或网站翻译选中的文字。
+  ja: DeepL アプリまたはウェブサイトで選択したテキストを翻訳します。
+  ko: DeepL 앱 또는 웹사이트로 선택한 텍스트를 번역합니다.
+  fr: Traduire le texte sélectionné avec l’application ou le site DeepL.
+  es: Traduce el texto seleccionado con la aplicación o el sitio web de DeepL.
 keywords: translate translation language deepl
 options:
   - identifier: runMode
@@ -13,10 +24,18 @@ options:
       en: Mode
       zh-hant: 模式
       zh-hans: 模式
+      ja: モード
+      ko: 모드
+      fr: Mode
+      es: Modo
     description:
       en: Translate by App or Website
       zh-hant: 使用應用程式或網站進行翻譯
       zh-hans: 使用应用程序或网站进行翻译
+      ja: アプリまたはウェブサイトで翻訳
+      ko: 앱 또는 웹사이트로 번역
+      fr: Traduire avec l’application ou le site web
+      es: Traducir con la aplicación o el sitio web
     type: multiple
     values:
       - app
@@ -25,9 +44,17 @@ options:
       - en: DeepL App
         zh-hant: DeepL 應用
         zh-hans: DeepL 应用
+        ja: DeepL アプリ
+        ko: DeepL 앱
+        fr: Application DeepL
+        es: Aplicación DeepL
       - en: DeepL Website
         zh-hant: DeepL 網站
         zh-hans: DeepL 网站
+        ja: DeepL ウェブサイト
+        ko: DeepL 웹사이트
+        fr: Site DeepL
+        es: Sitio web de DeepL
     default value: app
     inset: true
   - identifier: secondLanguage
@@ -35,10 +62,18 @@ options:
       en: Second Language
       zh-hant: 第二語言
       zh-hans: 第二语言
+      ja: 第二言語
+      ko: 두 번째 언어
+      fr: Deuxième langue
+      es: Segundo idioma
     description:
       en: 'You can translate the selected text from this language into the system language or from the system language into this language (hold the Option key, only valid in Web mode). Select Other… to enter a DeepL language code, such as ko.'
       zh-hant: '您可以將選中的文本從此語言翻譯為系統語言，或從系統語言翻譯為此語言（按住 Option 鍵，僅在網站模式下有效）。選擇「其他…」可輸入 DeepL 語言代碼，例如 ko。'
       zh-hans: '您可以将选中的文本从此语言翻译为系统语言，或从系统语言翻译为此语言（按住 Option 键，仅在网站模式下有效）。选择“其他…”可输入 DeepL 语言代码，例如 ko。'
+      ja: 'この言語からシステム言語へ、またはシステム言語からこの言語へ翻訳します（Option キーはウェブサイトモードのみ有効）。「その他…」で DeepL の言語コードを入力できます。'
+      ko: '이 언어에서 시스템 언어로 또는 시스템 언어에서 이 언어로 번역합니다(Option 키는 웹사이트 모드에서만 유효). “기타…”에서 DeepL 언어 코드를 입력할 수 있습니다.'
+      fr: 'Traduisez de cette langue vers la langue système ou inversement (la touche Option fonctionne uniquement en mode site web). « Autre… » permet de saisir un code de langue DeepL.'
+      es: 'Traduce de este idioma al idioma del sistema o al contrario (Option solo funciona en modo sitio web). «Otro…» permite introducir un código de idioma de DeepL.'
     type: multiple
     default value: en
     values:
@@ -91,10 +126,18 @@ options:
       en: Default Shortcut
       zh-hant: DeepL 默認快捷鍵
       zh-hans: DeepL 默认快捷键
+      ja: デフォルトのショートカット
+      ko: 기본 단축키
+      fr: Raccourci par défaut
+      es: Atajo predeterminado
     description:
       en: "Use the DeepL default shortcut (⌘ + C + C)\nIf this option is checked, the custom shortcut below will be ignored."
       zh-hant: "使用 DeepL 默認快捷鍵 (⌘ + C + C)\n如果選中此選項，下方的客製化快捷鍵將被忽略。"
       zh-hans: "使用 DeepL 默认快捷键（⌘ + C + C)\n如果选中该选项，下面的自定义快捷键将被忽略。"
+      ja: "DeepL のデフォルトショートカット（⌘ + C + C）を使用します。\n有効にすると、下のカスタムショートカットは無視されます。"
+      ko: "DeepL 기본 단축키(⌘ + C + C)를 사용합니다.\n활성화하면 아래의 사용자 지정 단축키는 무시됩니다."
+      fr: "Utiliser le raccourci DeepL par défaut (⌘ + C + C).\nS’il est activé, le raccourci personnalisé ci-dessous est ignoré."
+      es: "Usa el atajo predeterminado de DeepL (⌘ + C + C).\nSi está activado, se ignorará el atajo personalizado siguiente."
     type: boolean
     default value: true
   - identifier: heading-or
@@ -102,18 +145,30 @@ options:
       en: 'OR:'
       zh-hant: '或：'
       zh-hans: '或：'
+      ja: 'または:'
+      ko: '또는:'
+      fr: 'OU :'
+      es: 'O:'
     type: heading
   - identifier: heading-custom
     label:
       en: Custom Shortcut
       zh-hant: 客製化快捷鍵
       zh-hans: 自定义快捷键
+      ja: カスタムショートカット
+      ko: 사용자 지정 단축키
+      fr: Raccourci personnalisé
+      es: Atajo personalizado
     type: heading
   - identifier: customCommand
     label:
       en: Command (⌘)
       zh-hant: Command (⌘)
       zh-hans: Command (⌘)
+      ja: Command (⌘)
+      ko: Command (⌘)
+      fr: Commande (⌘)
+      es: Comando (⌘)
     type: boolean
     default value: true
   - identifier: customControl
@@ -121,6 +176,10 @@ options:
       en: Control (⌃)
       zh-hant: Control (⌃)
       zh-hans: Control (⌃)
+      ja: Control (⌃)
+      ko: Control (⌃)
+      fr: Contrôle (⌃)
+      es: Control (⌃)
     type: boolean
     default value: false
   - identifier: customOption
@@ -128,6 +187,10 @@ options:
       en: Option (⌥)
       zh-hant: Option (⌥)
       zh-hans: Option (⌥)
+      ja: Option (⌥)
+      ko: Option (⌥)
+      fr: Option (⌥)
+      es: Opción (⌥)
     type: boolean
     default value: false
   - identifier: customShift
@@ -135,6 +198,10 @@ options:
       en: Shift (⇧)
       zh-hant: Shift (⇧)
       zh-hans: Shift (⇧)
+      ja: Shift (⇧)
+      ko: Shift (⇧)
+      fr: Maj (⇧)
+      es: Mayús (⇧)
     type: boolean
     default value: false
   - identifier: customKey
@@ -142,10 +209,18 @@ options:
       en: Key
       zh-hant: 按鍵
       zh-hans: 按键
+      ja: キー
+      ko: 키
+      fr: Touche
+      es: Tecla
     description:
       en: "Choose one character. The selected modifiers will be combined with it. See [PopClip's shortcut format](https://www.popclip.app/dev/key-press-actions)."
       zh-hant: "選擇一個字元，已選取的修飾鍵會與它組合。請參考 [PopClip 快捷鍵格式](https://www.popclip.app/dev/key-press-actions)。"
       zh-hans: "选择一个字符，已选中的修饰键会与它组合。请参考 [PopClip 快捷键格式](https://www.popclip.app/dev/key-press-actions)。"
+      ja: "1 文字を選び、選択した修飾キーと組み合わせます。[PopClip のショートカット形式](https://www.popclip.app/dev/key-press-actions)を参照してください。"
+      ko: "문자 하나를 선택하면 선택한 보조 키와 조합됩니다. [PopClip 단축키 형식](https://www.popclip.app/dev/key-press-actions)을 참조하세요."
+      fr: "Choisissez un caractère, qui sera combiné aux modificateurs sélectionnés. Consultez le [format des raccourcis PopClip](https://www.popclip.app/dev/key-press-actions)."
+      es: "Elige un carácter que se combinará con los modificadores seleccionados. Consulta el [formato de atajos de PopClip](https://www.popclip.app/dev/key-press-actions)."
     type: multiple
     values:
       - A

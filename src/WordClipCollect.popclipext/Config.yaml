@@ -1,13 +1,22 @@
 name:
   en: Add to WordClip
-  zh-Hans: 添加到 WordClip
-  zh-Hant: 加入 WordClip
+  zh-hans: 添加到 WordClip
+  zh-hant: 加入 WordClip
   ja: WordClip に追加
+  ko: WordClip에 추가
+  fr: Ajouter à WordClip
+  es: Añadir a WordClip
 icon: assets/wordclip.svg
 identifier: xyz.phpz.popclip.extension.wordclip-collect
 popclip version: 6159
 description:
-  Collect the selected word into the WordClip app via wordclip://collect?word=<word>.
+  en: Collect the selected word into the WordClip app via wordclip://collect?word=<word>.
+  zh-hans: 通过 wordclip://collect?word=<word> 将选中的单词收集到 WordClip。
+  zh-hant: 透過 wordclip://collect?word=<word> 將選取的單字收集到 WordClip。
+  ja: wordclip://collect?word=<word> で選択した単語を WordClip に収集します。
+  ko: wordclip://collect?word=<word>를 통해 선택한 단어를 WordClip에 수집합니다.
+  fr: Envoie le mot sélectionné à WordClip via wordclip://collect?word=<word>.
+  es: Recopila la palabra seleccionada en WordClip mediante wordclip://collect?word=<word>.
 keywords: wordclip vocabulary dictionary collect words
 entitlements:
   - dynamic

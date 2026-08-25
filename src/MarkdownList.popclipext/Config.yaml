@@ -1,31 +1,47 @@
 # popclip (maybe you need to change the icons 😂)
 name:
   en: Markdown List
-  zh-Hans: Markdown 列表
-  zh-Hant: Markdown 列表
+  zh-hans: Markdown 列表
+  zh-hant: Markdown 列表
   ja: Markdown リスト
+  ko: Markdown 목록
+  fr: Liste Markdown
+  es: Lista Markdown
 version: 2
 identifier: xyz.phpz.popclip.extension.markdown-list
 icon: symbol:list.bullet
 popclip version: 6159
-description: Convert selected multi-line text into a Markdown list.
+description:
+  en: Convert selected multi-line text into a Markdown list.
+  zh-hans: 将选中的多行文本转换为 Markdown 列表。
+  zh-hant: 將選取的多行文字轉換為 Markdown 清單。
+  ja: 選択した複数行テキストを Markdown リストに変換します。
+  ko: 선택한 여러 줄 텍스트를 Markdown 목록으로 변환합니다.
+  fr: Convertir le texte multiligne sélectionné en liste Markdown.
+  es: Convierte el texto multilínea seleccionado en una lista Markdown.
 keywords: markdown list bullets numbered
 requirements: [text, paste]
 actions:
   - submenu:
       - title:
           en: Numbered List
-          zh-Hans: 编号列表
-          zh-Hant: 編號列表
+          zh-hans: 编号列表
+          zh-hant: 編號列表
           ja: 番号付きリスト
+          ko: 번호 목록
+          fr: Liste numérotée
+          es: Lista numerada
         icon: symbol:list.number
         javascript: return '1. ' + popclip.input.text.replace(/\n/g, '\n1. ')
         after: paste-result
       - title:
           en: Bulleted List
-          zh-Hans: 无序列表
-          zh-Hant: 無序列表
+          zh-hans: 无序列表
+          zh-hant: 無序列表
           ja: 箇条書きリスト
+          ko: 글머리 기호 목록
+          fr: Liste à puces
+          es: Lista con viñetas
         icon: symbol:list.bullet
         javascript: return '- ' + popclip.input.text.replace(/\n/g, '\n- ')
         after: paste-result

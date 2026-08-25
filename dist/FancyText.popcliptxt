@@ -1,9 +1,23 @@
 #popclip
-name: Fancy Text
+name:
+  en: Fancy Text
+  zh-hans: 花式文本
+  zh-hant: 花式文字
+  ja: 装飾テキスト
+  ko: 꾸밈 텍스트
+  fr: Texte fantaisie
+  es: Texto decorativo
 icon: T
 requirements: [text, paste]
 actions:
-  - title: Bold Script
+  - title:
+      en: Bold Script
+      zh-hans: 粗体手写
+      zh-hant: 粗體手寫
+      ja: 太字スクリプト
+      ko: 굵은 스크립트
+      fr: Écriture en gras
+      es: Escritura en negrita
     icon: circle filled B
     javascript: |
       function fancy(text) {
@@ -15,7 +29,14 @@ actions:
         }).join('');
       }
       popclip.pasteText(fancy(popclip.input.text));
-  - title: Fraktur
+  - title:
+      en: Fraktur
+      zh-hans: 哥特体
+      zh-hant: 哥德體
+      ja: フラクトゥール
+      ko: 프락투어
+      fr: Fraktur
+      es: Fraktur
     icon: circle filled F
     javascript: |
       function fancy(text) {
@@ -27,7 +48,14 @@ actions:
         }).join('');
       }
       popclip.pasteText(fancy(popclip.input.text));
-  - title: Double-struck
+  - title:
+      en: Double-struck
+      zh-hans: 双线体
+      zh-hant: 雙線體
+      ja: 二重線
+      ko: 이중선
+      fr: Double trait
+      es: Doble trazo
     icon: circle filled D
     javascript: |
       function fancy(text) {

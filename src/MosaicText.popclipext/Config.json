@@ -5,21 +5,35 @@
   "popclipVersion": 6159,
   "name": {
     "en": "Mosaic Text",
-    "zh-Hans": "马赛克文本",
-    "zh-Hant": "馬賽克文本",
-    "ja": "モザイクテキスト"
+    "zh-hans": "马赛克文本",
+    "zh-hant": "馬賽克文本",
+    "ja": "モザイクテキスト",
+    "ko": "모자이크 텍스트",
+    "fr": "Texte en mosaïque",
+    "es": "Texto en mosaico"
   },
   "requirements": ["text", "paste"],
-  "description": "Replace selected text with a configurable mosaic character.",
+  "description": {
+    "en": "Replace selected text with a configurable mosaic character.",
+    "zh-hans": "用可配置的马赛克字符替换所选文本。",
+    "zh-hant": "使用可設定的馬賽克字元取代選取的文字。",
+    "ja": "選択したテキストを設定可能なモザイク文字に置き換えます。",
+    "ko": "선택한 텍스트를 설정 가능한 모자이크 문자로 바꿉니다.",
+    "fr": "Remplace le texte sélectionné par un caractère de mosaïque configurable.",
+    "es": "Reemplaza el texto seleccionado por un carácter de mosaico configurable."
+  },
   "keywords": "mosaic redact privacy censor",
   "options": [
     {
       "identifier": "mosaic-code",
       "label": {
         "en": "Mosaic Code",
-        "zh-Hans": "马赛克代码",
-        "zh-Hant": "馬賽克代碼",
-        "ja": "モザイクコード"
+        "zh-hans": "马赛克代码",
+        "zh-hant": "馬賽克代碼",
+        "ja": "モザイクコード",
+        "ko": "모자이크 문자",
+        "fr": "Caractère de mosaïque",
+        "es": "Carácter de mosaico"
       },
       "type": "string",
       "inset": true,
@@ -31,9 +45,12 @@
       "identifier": "Mosaic",
       "title": {
         "en": "Mosaic",
-        "zh-Hans": "打马赛克",
-        "zh-Hant": "打馬賽克",
-        "ja": "モザイク"
+        "zh-hans": "打马赛克",
+        "zh-hant": "打馬賽克",
+        "ja": "モザイク",
+        "ko": "모자이크",
+        "fr": "Mosaïque",
+        "es": "Mosaico"
       },
       "javascript-file": "mosaic.js"
     }

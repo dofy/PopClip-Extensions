@@ -1,9 +1,23 @@
-name: 'Text Repeater'
+name:
+  en: 'Text Repeater'
+  zh-hans: '文本重复器'
+  zh-hant: '文字重複器'
+  ja: 'テキストリピーター'
+  ko: '텍스트 반복기'
+  fr: 'Répéteur de texte'
+  es: 'Repetidor de texto'
 version: 2
 identifier: xyz.phpz.popclip.extension.text-repeater
 popclip version: 6159
 icon: square T*n
-description: Repeat selected text a specified number of times.
+description:
+  en: Repeat selected text a specified number of times.
+  zh-hans: 将选中的文本重复指定次数。
+  zh-hant: 將選取的文字重複指定次數。
+  ja: 選択したテキストを指定回数繰り返します。
+  ko: 선택한 텍스트를 지정한 횟수만큼 반복합니다.
+  fr: Répéter le texte sélectionné un nombre de fois défini.
+  es: Repite el texto seleccionado un número de veces determinado.
 keywords: repeat duplicate text multiplication
 regex: ^.*?(\.|\*)\d+$
 requirements: [text, paste]

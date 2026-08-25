@@ -1,24 +1,48 @@
 # popclip
 name:
   en: Format JSON
-  zh-Hans: 格式化 JSON
-  zh-Hant: 格式化 JSON
+  zh-hans: 格式化 JSON
+  zh-hant: 格式化 JSON
   ja: JSON 形式
+  ko: JSON 형식 지정
+  fr: Formater le JSON
+  es: Formatear JSON
 version: 2
 identifier: xyz.phpz.popclip.extension.format-json
 popclip version: 6159
 icon: circle J
-description: Format selected JSON text with configurable indentation.
+description:
+  en: Format selected JSON text with configurable indentation.
+  zh-hans: 使用可配置的缩进格式化选中的 JSON 文本。
+  zh-hant: 使用可設定的縮排格式化選取的 JSON 文字。
+  ja: 選択した JSON テキストを設定可能なインデントで整形します。
+  ko: 설정 가능한 들여쓰기로 선택한 JSON 텍스트를 포맷합니다.
+  fr: Formate le texte JSON sélectionné avec une indentation configurable.
+  es: Formatea el texto JSON seleccionado con una sangría configurable.
 keywords: json format formatter prettify
 options:
   - identifier: indent
-    label: Use Tab / Space
+    label:
+      en: Use Tab / Space
+      zh-hans: 使用制表符 / 空格
+      zh-hant: 使用定位點 / 空格
+      ja: タブ / スペースを使用
+      ko: 탭 / 공백 사용
+      fr: Utiliser des tabulations / espaces
+      es: Usar tabulaciones / espacios
     type: multiple
     values: [Tab, Space]
     default value: Space
     inset: true
   - identifier: space_length
-    label: Space Length
+    label:
+      en: Space Length
+      zh-hans: 空格长度
+      zh-hant: 空格長度
+      ja: スペース幅
+      ko: 공백 길이
+      fr: Longueur des espaces
+      es: Longitud de espacios
     type: multiple
     values: ["2", "4"]
     default value: "2"

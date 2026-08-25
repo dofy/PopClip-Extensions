@@ -1,5 +1,7 @@
 # PopClip Extensions
 
+[English](README.md) | [简体中文](README.zh-CN.md) | [繁體中文](README.zh-TW.md) | [日本語](README.ja.md)
+
 A collection of PopClip extensions and snippet extensions for macOS. The
 repository contains the editable sources in `src/` and locally buildable
 packages in `dist/`.
@@ -8,6 +10,13 @@ packages in `dist/`.
 
 Open a `.popclipextz` file from [`dist/`](dist/) to install an extension in
 PopClip. Snippet extensions use the `.popcliptxt` format.
+
+## Localization
+
+Extension and snippet names, descriptions, options, and action titles support
+English (`en`), Simplified Chinese (`zh-hans`), Traditional Chinese
+(`zh-hant`), Japanese (`ja`), Korean (`ko`), French (`fr`), and Spanish
+(`es`). English is kept as the required PopClip fallback language.
 
 ## Extensions
 

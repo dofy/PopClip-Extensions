@@ -1,14 +1,24 @@
 # popclip
 name: 
   en: Variable Name Convert
-  zh-Hans: 变量名转换
-  zh-Hant: 變量名轉换
+  zh-hans: 变量名转换
+  zh-hant: 變量名轉换
   ja: 変数名変換
+  ko: 변수 이름 변환
+  fr: Conversion de noms de variables
+  es: Conversión de nombres de variables
 version: 3
 identifier: xyz.phpz.popclip.extension.var-name-convert
 popclip version: 6159
 icon: square filled Var
-description: Convert selected variable names between common naming styles.
+description:
+  en: Convert selected variable names between common naming styles.
+  zh-hans: 在常见命名风格之间转换选中的变量名。
+  zh-hant: 在常見命名風格之間轉換選取的變數名稱。
+  ja: 選択した変数名を一般的な命名形式の間で変換します。
+  ko: 선택한 변수 이름을 일반적인 명명 스타일 간에 변환합니다.
+  fr: Convertir les noms de variables sélectionnés entre les styles courants.
+  es: Convierte nombres de variables seleccionados entre estilos habituales.
 keywords: variable naming camelcase snakecase code
 regex: ^\s*[a-zA-Z_][a-zA-Z0-9_]*\s*$
 javascript: |

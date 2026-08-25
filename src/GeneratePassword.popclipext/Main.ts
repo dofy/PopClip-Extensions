@@ -35,9 +35,12 @@ const extension: Extension = {
     {
       title: {
         en: 'Generate Password',
-        'zh-Hans': '生成密码',
-        'zh-Hant': '生成密碼',
+        'zh-hans': '生成密码',
+        'zh-hant': '生成密碼',
         ja: 'パスワードを生成する',
+        ko: '비밀번호 생성',
+        fr: 'Générer un mot de passe',
+        es: 'Generar contraseña',
       },
       requirements: [],
       code(_, opts, { canPaste }) {

@@ -12,9 +12,12 @@ const extension: Extension = {
     {
       title: {
         en: 'Generate Image',
+        'zh-hans': '生成图片',
+        'zh-hant': '生成圖片',
         ja: '画像を生成する',
-        'zh-Hans': '生成图片',
-        'zh-Hant': '生成圖片',
+        ko: '이미지 생성',
+        fr: 'Générer une image',
+        es: 'Generar imagen',
       },
       code({ text }, options) {
         const code = util.base64Encode(text, { urlSafe: true })

@@ -1,34 +1,57 @@
 name:
   en: 'Color Conversion'
-  zh-Hans: '颜色转换'
-  zh-Hant: '顏色轉换'
+  zh-hans: '颜色转换'
+  zh-hant: '顏色轉换'
   ja: 'カラー変換'
+  ko: '색상 변환'
+  fr: 'Conversion de couleurs'
+  es: 'Conversión de colores'
 version: 1
 identifier: xyz.phpz.popclip.extension.rgbhex
 popclip version: 6159
 icon: icon.png
-description: RGB to Hex or Hex to RGB
+description:
+  en: Convert RGB to hexadecimal or hexadecimal to RGB.
+  zh-hans: 将 RGB 转换为十六进制，或将十六进制转换为 RGB。
+  zh-hant: 將 RGB 轉換為十六進位，或將十六進位轉換為 RGB。
+  ja: RGB と 16 進数を相互に変換します。
+  ko: RGB와 16진수 색상을 서로 변환합니다.
+  fr: Convertir RGB en hexadécimal et inversement.
+  es: Convierte RGB a hexadecimal y viceversa.
 keywords: color rgb hex hexadecimal
 requirements: [text, paste]
 options:
   - identifier: opt_hex_with_hash
     label:
       en: 'Hex With #'
-      zh-Hans: 'Hex 带 #'
-      zh-Hant: 'Hex 帶 #'
+      zh-hans: 'Hex 带 #'
+      zh-hant: 'Hex 帶 #'
       ja: '# 付きの Hex'
+      ko: '# 포함 Hex'
+      fr: 'Hex avec #'
+      es: 'Hex con #'
     type: boolean
     default value: true
   - identifier: opt_hex_uppercase
     label:
       en: 'Hex to Uppercase'
-      zh-Hans: 'Hex 转大写'
-      zh-Hant: 'Hex 轉大寫'
+      zh-hans: 'Hex 转大写'
+      zh-hant: 'Hex 轉大寫'
       ja: 'Hex を大文字にする'
+      ko: 'Hex 대문자'
+      fr: 'Hexadécimal en majuscules'
+      es: 'Hexadecimal en mayúsculas'
     type: boolean
     default value: true
 actions:
-  - title: 'RGB to Hex'
+  - title:
+      en: 'RGB to Hex'
+      zh-hans: 'RGB 转 Hex'
+      zh-hant: 'RGB 轉 Hex'
+      ja: 'RGB から Hex'
+      ko: 'RGB를 Hex로'
+      fr: 'RGB vers Hex'
+      es: 'RGB a Hex'
     icon: square filled Hex
     regex: ^\s*?\(?\s*?(000|0?\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\s*?,\s*?(000|0?\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\s*?,\s*?(000|0?\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\s*?\)?\s*$
     javascript: |
@@ -46,7 +69,14 @@ actions:
       popclip.showText(`${hex} copied!`);
       return hex;
     after: paste-result
-  - title: 'Hex to RGB'
+  - title:
+      en: 'Hex to RGB'
+      zh-hans: 'Hex 转 RGB'
+      zh-hant: 'Hex 轉 RGB'
+      ja: 'Hex から RGB'
+      ko: 'Hex를 RGB로'
+      fr: 'Hex vers RGB'
+      es: 'Hex a RGB'
     icon: square filled RGB
     regex: ^#?([0-9a-fA-F]{6})$
     javascript: |

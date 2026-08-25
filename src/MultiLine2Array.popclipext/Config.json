@@ -5,20 +5,34 @@
   "popclipVersion": 6159,
   "name": {
     "en": "Multi-Line to Array",
-    "zh-Hans": "多行文本转数组",
-    "zh-Hant": "多行文本轉陣列",
-    "ja": "複数行テキストを配列に変換"
+    "zh-hans": "多行文本转数组",
+    "zh-hant": "多行文本轉陣列",
+    "ja": "複数行テキストを配列に変換",
+    "ko": "여러 줄 텍스트를 배열로 변환",
+    "fr": "Texte multiligne en tableau",
+    "es": "Texto multilínea a array"
   },
-  "description": "Convert multi-line text to a JavaScript array.",
+  "description": {
+    "en": "Convert multi-line text to a JavaScript array.",
+    "zh-hans": "将多行文本转换为 JavaScript 数组。",
+    "zh-hant": "將多行文字轉換為 JavaScript 陣列。",
+    "ja": "複数行テキストを JavaScript 配列に変換します。",
+    "ko": "여러 줄 텍스트를 JavaScript 배열로 변환합니다.",
+    "fr": "Convertir un texte multiligne en tableau JavaScript.",
+    "es": "Convierte texto multilínea en un array de JavaScript."
+  },
   "keywords": "javascript array multiline format code",
   "options": [
     {
       "identifier": "remove_empty_line",
       "label": {
         "en": "Remove empty line",
-        "zh-Hans": "去除空行",
-        "zh-Hant": "去除空行",
-        "ja": "空行を削除"
+        "zh-hans": "去除空行",
+        "zh-hant": "去除空行",
+        "ja": "空行を削除",
+        "ko": "빈 줄 제거",
+        "fr": "Supprimer les lignes vides",
+        "es": "Eliminar líneas vacías"
       },
       "type": "boolean",
       "defaultValue": true,
@@ -28,9 +42,12 @@
       "identifier": "last_comma",
       "label": {
         "en": "Add the last comma",
-        "zh-Hans": "添加最后一个逗号",
-        "zh-Hant": "添加最後一個逗號",
-        "ja": "最後のカンマを追加"
+        "zh-hans": "添加最后一个逗号",
+        "zh-hant": "添加最後一個逗號",
+        "ja": "最後のカンマを追加",
+        "ko": "마지막 쉼표 추가",
+        "fr": "Ajouter une virgule finale",
+        "es": "Añadir la última coma"
       },
       "type": "boolean",
       "defaultValue": false,
@@ -40,9 +57,12 @@
       "identifier": "add_brackets",
       "label": {
         "en": "Add brackets",
-        "zh-Hans": "添加括号 []",
-        "zh-Hant": "添加括號 []",
-        "ja": "括弧を追加 []"
+        "zh-hans": "添加括号 []",
+        "zh-hant": "添加括號 []",
+        "ja": "括弧を追加 []",
+        "ko": "대괄호 추가 []",
+        "fr": "Ajouter des crochets []",
+        "es": "Añadir corchetes []"
       },
       "type": "boolean",
       "defaultValue": true,
@@ -53,9 +73,12 @@
       "type": "boolean",
       "label": {
         "en": "Trim",
-        "zh-Hans": "去除空格",
-        "zh-Hant": "去除空格",
-        "ja": "空白を削除"
+        "zh-hans": "去除空格",
+        "zh-hant": "去除空格",
+        "ja": "空白を削除",
+        "ko": "공백 제거",
+        "fr": "Supprimer les espaces",
+        "es": "Recortar espacios"
       },
       "defaultValue": true
     },
@@ -64,9 +87,12 @@
       "type": "boolean",
       "label": {
         "en": "Single line",
-        "zh-Hans": "单行",
-        "zh-Hant": "單行",
-        "ja": "1行"
+        "zh-hans": "单行",
+        "zh-hant": "單行",
+        "ja": "1行",
+        "ko": "한 줄",
+        "fr": "Une seule ligne",
+        "es": "Una sola línea"
       },
       "defaultValue": false
     },
@@ -75,9 +101,12 @@
       "type": "multiple",
       "label": {
         "en": "Quotes \" or '",
-        "zh-Hans": "引号使用 \" 或 '",
-        "zh-Hant": "引號使用 \" 或 '",
-        "ja": "引用符 \" または '"
+        "zh-hans": "引号使用 \" 或 '",
+        "zh-hant": "引號使用 \" 或 '",
+        "ja": "引用符 \" または '",
+        "ko": "따옴표 \" 또는 '",
+        "fr": "Guillemets \" ou '",
+        "es": "Comillas \" o '"
       },
       "values": ["single", "double"],
       "defaultValue": "double",
@@ -90,9 +119,12 @@
       "identifier": "action",
       "title": {
         "en": "Format",
-        "zh-Hans": "格式化",
-        "zh-Hant": "格式化",
-        "ja": "フォーマット"
+        "zh-hans": "格式化",
+        "zh-hant": "格式化",
+        "ja": "フォーマット",
+        "ko": "서식 지정",
+        "fr": "Formater",
+        "es": "Formatear"
       },
       "javascript-file": "multiLine2Array.js",
       "after": "paste-result"

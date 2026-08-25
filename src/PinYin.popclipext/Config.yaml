@@ -1,92 +1,160 @@
 name:
   en: PinYin
-  zh-Hans: 拼音
-  zh-Hant: 拼音
+  zh-hans: 拼音
+  zh-hant: 拼音
+  ja: ピンイン
+  ko: 병음
+  fr: Pinyin
+  es: Pinyin
 version: 5
 identifier: xyz.phpz.popclip.extension.pinyin
 icon: 拼
 popclip version: 6159
 description:
   en: convert Chinese characters to pinyin.
-  zh-Hans: 将中文字符转换为拼音.
-  zh-Hant: 將中文字符轉換為拼音.
+  zh-hans: 将中文字符转换为拼音.
+  zh-hant: 將中文字符轉換為拼音.
+  ja: 中国語の文字をピンインに変換します。
+  ko: 중국어 문자를 병음으로 변환합니다.
+  fr: Convertir les caractères chinois en pinyin.
+  es: Convierte caracteres chinos a pinyin.
 keywords: pinyin zhuyin chinese pronunciation romanization
 options:
   # - identifier: read_it
   #   label:
   #     en: Read Selected Text
-  #     zh-Hans: 朗读所选文本
-  #     zh-Hant: 讀出所選文字
+  #     zh-hans: 朗读所选文本
+  #     zh-hant: 讀出所選文字
   #   type: boolean
   #   default value: true
   - identifier: pinyin_tone_type
     label:
       en: PinYin Tone Type
-      zh-Hans: 拼音音调类型
-      zh-Hant: 拼音音調類型
+      zh-hans: 拼音音调类型
+      zh-hant: 拼音音調類型
+      ja: ピンインの声調
+      ko: 병음 성조 유형
+      fr: Type de ton du pinyin
+      es: Tipo de tono del pinyin
     type: multiple
     values: [mark, number, alphabet]
     value labels:
       - en: Tone Mark (pīn)
-        zh-Hans: 音调标记 (pīn)
-        zh-Hant: 音調標記 (pīn)
+        zh-hans: 音调标记 (pīn)
+        zh-hant: 音調標記 (pīn)
+        ja: 声調記号 (pīn)
+        ko: 성조 기호 (pīn)
+        fr: Marque tonale (pīn)
+        es: Marca tonal (pīn)
       - en: Tone Number (pin1)
-        zh-Hans: 音调数字 (pin1)
-        zh-Hant: 音調數字 (pin1)
+        zh-hans: 音调数字 (pin1)
+        zh-hant: 音調數字 (pin1)
+        ja: 声調番号 (pin1)
+        ko: 성조 숫자 (pin1)
+        fr: Numéro de ton (pin1)
+        es: Número de tono (pin1)
       - en: Tone Alphabet (pin)
-        zh-Hans: 无音调 (pin)
-        zh-Hant: 無音調 (pin)
+        zh-hans: 无音调 (pin)
+        zh-hant: 無音調 (pin)
+        ja: 声調なし (pin)
+        ko: 성조 없음 (pin)
+        fr: Sans ton (pin)
+        es: Sin tono (pin)
   - identifier: zhuyin_tone_type
     label:
       en: Zhuyin Tone Type
-      zh-Hans: 注音音调类型
-      zh-Hant: 注音音調類型
+      zh-hans: 注音音调类型
+      zh-hant: 注音音調類型
+      ja: 注音の声調
+      ko: 주음 성조 유형
+      fr: Type de ton du zhuyin
+      es: Tipo de tono del zhuyin
     type: multiple
     values: [mark, number, alphabet]
     value labels:
       - en: Tone Mark (ㄆㄧㄣˊ)
-        zh-Hans: 音调标记 (ㄆㄧㄣˊ)
-        zh-Hant: 音調標記 (ㄆㄧㄣˊ)
+        zh-hans: 音调标记 (ㄆㄧㄣˊ)
+        zh-hant: 音調標記 (ㄆㄧㄣˊ)
+        ja: 声調記号 (ㄆㄧㄣˊ)
+        ko: 성조 기호 (ㄆㄧㄣˊ)
+        fr: Marque tonale (ㄆㄧㄣˊ)
+        es: Marca tonal (ㄆㄧㄣˊ)
       - en: Tone Number (ㄆㄧㄣ2)
-        zh-Hans: 音调数字 (ㄆㄧㄣ2)
-        zh-Hant: 音調數字 (ㄆㄧㄣ2)
+        zh-hans: 音调数字 (ㄆㄧㄣ2)
+        zh-hant: 音調數字 (ㄆㄧㄣ2)
+        ja: 声調番号 (ㄆㄧㄣ2)
+        ko: 성조 숫자 (ㄆㄧㄣ2)
+        fr: Numéro de ton (ㄆㄧㄣ2)
+        es: Número de tono (ㄆㄧㄣ2)
       - en: Tone Alphabet (ㄆㄧㄣ)
-        zh-Hans: 无音调 (ㄆㄧㄣ)
-        zh-Hant: 無音調 (ㄆㄧㄣ)
+        zh-hans: 无音调 (ㄆㄧㄣ)
+        zh-hant: 無音調 (ㄆㄧㄣ)
+        ja: 声調なし (ㄆㄧㄣ)
+        ko: 성조 없음 (ㄆㄧㄣ)
+        fr: Sans ton (ㄆㄧㄣ)
+        es: Sin tono (ㄆㄧㄣ)
   - identifier: output_mode
     label:
       en: Output
-      zh-Hans: 输出方式
-      zh-Hant: 輸出方式
+      zh-hans: 输出方式
+      zh-hant: 輸出方式
+      ja: 出力
+      ko: 출력 방식
+      fr: Sortie
+      es: Salida
     description:
       en: Choose whether to show the result, copy it, or do both.
-      zh-Hans: 选择仅显示、仅复制，或显示并复制结果。
-      zh-Hant: 選擇僅顯示、僅複製，或顯示並複製結果。
+      zh-hans: 选择仅显示、仅复制，或显示并复制结果。
+      zh-hant: 選擇僅顯示、僅複製，或顯示並複製結果。
+      ja: 結果を表示、コピー、または表示してコピーするかを選択します。
+      ko: 결과를 표시하거나 복사하거나 둘 다 할지 선택합니다.
+      fr: Choisissez d’afficher, de copier ou d’afficher et copier le résultat.
+      es: Elige mostrar, copiar o mostrar y copiar el resultado.
     type: multiple
     values: [show, show-copy, copy]
     value labels:
       - en: Show Result Only
-        zh-Hans: 仅显示结果
-        zh-Hant: 僅顯示結果
+        zh-hans: 仅显示结果
+        zh-hant: 僅顯示結果
+        ja: 結果のみ表示
+        ko: 결과만 표시
+        fr: Afficher uniquement
+        es: Mostrar solo el resultado
       - en: Show and Copy
-        zh-Hans: 显示并复制
-        zh-Hant: 顯示並複製
+        zh-hans: 显示并复制
+        zh-hant: 顯示並複製
+        ja: 表示してコピー
+        ko: 표시 및 복사
+        fr: Afficher et copier
+        es: Mostrar y copiar
       - en: Copy Only
-        zh-Hans: 仅复制
-        zh-Hant: 僅複製
+        zh-hans: 仅复制
+        zh-hant: 僅複製
+        ja: コピーのみ
+        ko: 복사만
+        fr: Copier uniquement
+        es: Copiar solo
     default value: show-copy
     inset: true
 actions:
   - submenu:
       - title:
           en: PinYin
-          zh-Hans: 拼音
-          zh-Hant: 拼音
+          zh-hans: 拼音
+          zh-hant: 拼音
+          ja: ピンイン
+          ko: 병음
+          fr: Pinyin
+          es: Pinyin
         icon: 拼
         javascript file: pinyin.js
       - title:
           en: Zhuyin
-          zh-Hans: 注音
-          zh-Hant: 注音
+          zh-hans: 注音
+          zh-hant: 注音
+          ja: 注音
+          ko: 주음
+          fr: Zhuyin
+          es: Zhuyin
         icon: 注
         javascript file: zhuyin.js

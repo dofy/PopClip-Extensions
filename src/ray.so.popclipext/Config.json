@@ -3,34 +3,59 @@
   "icon": "symbol:filemenu.and.selection",
   "version": 3,
   "popclipVersion": 6159,
-  "name": "ray.so",
-  "description": "Generate an image from selected code with ray.so.",
+  "name": {
+    "en": "ray.so",
+    "zh-hans": "ray.so",
+    "zh-hant": "ray.so",
+    "ja": "ray.so",
+    "ko": "ray.so",
+    "fr": "ray.so",
+    "es": "ray.so"
+  },
+  "description": {
+    "en": "Generate an image from selected code with ray.so.",
+    "zh-hans": "使用 ray.so 将选中的代码生成图片。",
+    "zh-hant": "使用 ray.so 將選取的程式碼產生圖片。",
+    "ja": "選択したコードから ray.so で画像を生成します。",
+    "ko": "선택한 코드로 ray.so 이미지를 생성합니다.",
+    "fr": "Générer une image à partir du code sélectionné avec ray.so.",
+    "es": "Genera una imagen del código seleccionado con ray.so."
+  },
   "keywords": "code image snippet ray.so",
   "options": [
     {
       "identifier": "language",
       "label": {
         "en": "Language",
-        "zh-Hans": "语言",
-        "zh-Hant": "語言",
-        "ja": "言語"
+        "zh-hans": "语言",
+        "zh-hant": "語言",
+        "ja": "言語",
+        "ko": "언어",
+        "fr": "Langue",
+        "es": "Idioma"
       },
       "type": "string",
       "defaultValue": "auto",
       "description": {
         "en": "Use auto for automatic detection, or enter a ray.so language identifier.",
-        "zh-Hans": "使用 auto 自动检测，也可以输入 ray.so 支持的语言标识符。",
-        "zh-Hant": "使用 auto 自動偵測，也可以輸入 ray.so 支援的語言識別碼。",
-        "ja": "自動検出には auto を使用するか、ray.so の言語識別子を入力してください。"
+        "zh-hans": "使用 auto 自动检测，也可以输入 ray.so 支持的语言标识符。",
+        "zh-hant": "使用 auto 自動偵測，也可以輸入 ray.so 支援的語言識別碼。",
+        "ja": "自動検出には auto を使用するか、ray.so の言語識別子を入力してください。",
+        "ko": "자동 감지에는 auto를 사용하거나 ray.so 언어 식별자를 입력하세요.",
+        "fr": "Utilisez auto pour la détection automatique ou saisissez un identifiant de langue ray.so.",
+        "es": "Usa auto para la detección automática o introduce un identificador de idioma de ray.so."
       }
     },
     {
       "identifier": "background",
       "label": {
         "en": "Background",
-        "zh-Hans": "背景",
-        "zh-Hant": "背景",
-        "ja": "背景"
+        "zh-hans": "背景",
+        "zh-hant": "背景",
+        "ja": "背景",
+        "ko": "배경",
+        "fr": "Arrière-plan",
+        "es": "Fondo"
       },
       "type": "boolean",
       "defaultValue": true
@@ -39,9 +64,12 @@
       "identifier": "lineNumbers",
       "label": {
         "en": "Line Numbers",
-        "zh-Hans": "行号",
-        "zh-Hant": "行號",
-        "ja": "行番号"
+        "zh-hans": "行号",
+        "zh-hant": "行號",
+        "ja": "行番号",
+        "ko": "줄 번호",
+        "fr": "Numéros de ligne",
+        "es": "Números de línea"
       },
       "type": "boolean",
       "defaultValue": false
@@ -50,9 +78,12 @@
       "identifier": "darkMode",
       "label": {
         "en": "Dark Mode",
-        "zh-Hans": "暗黑模式",
-        "zh-Hant": "暗黑模式",
-        "ja": "ダークモード"
+        "zh-hans": "暗黑模式",
+        "zh-hant": "暗黑模式",
+        "ja": "ダークモード",
+        "ko": "다크 모드",
+        "fr": "Mode sombre",
+        "es": "Modo oscuro"
       },
       "type": "boolean",
       "defaultValue": true
@@ -61,59 +92,86 @@
       "identifier": "theme",
       "label": {
         "en": "Theme",
-        "zh-Hans": "主题",
-        "zh-Hant": "主題",
-        "ja": "テーマ"
+        "zh-hans": "主题",
+        "zh-hant": "主題",
+        "ja": "テーマ",
+        "ko": "테마",
+        "fr": "Thème",
+        "es": "Tema"
       },
       "type": "multiple",
       "valueLabels": [
         {
           "en": "Candy",
-          "zh-Hans": "糖果",
-          "zh-Hant": "糖果",
-          "ja": "キャンディ"
+          "zh-hans": "糖果",
+          "zh-hant": "糖果",
+          "ja": "キャンディ",
+          "ko": "캔디",
+          "fr": "Bonbon",
+          "es": "Caramelo"
         },
         {
           "en": "Breeze",
-          "zh-Hans": "微风",
-          "zh-Hant": "微風",
-          "ja": "微風"
+          "zh-hans": "微风",
+          "zh-hant": "微風",
+          "ja": "微風",
+          "ko": "산들바람",
+          "fr": "Brise",
+          "es": "Brisa"
         },
         {
           "en": "Crimson",
-          "zh-Hans": "深红",
-          "zh-Hant": "深紅",
-          "ja": "クリムゾン"
+          "zh-hans": "深红",
+          "zh-hant": "深紅",
+          "ja": "クリムゾン",
+          "ko": "진홍",
+          "fr": "Cramoisi",
+          "es": "Carmesí"
         },
         {
           "en": "Falcon",
-          "zh-Hans": "猎鹰",
-          "zh-Hant": "獵鷹",
-          "ja": "ファルコン"
+          "zh-hans": "猎鹰",
+          "zh-hant": "獵鷹",
+          "ja": "ファルコン",
+          "ko": "매",
+          "fr": "Faucon",
+          "es": "Halcón"
         },
         {
           "en": "Meadow",
-          "zh-Hans": "草地",
-          "zh-Hant": "草地",
-          "ja": "草地"
+          "zh-hans": "草地",
+          "zh-hant": "草地",
+          "ja": "草地",
+          "ko": "초원",
+          "fr": "Prairie",
+          "es": "Pradera"
         },
         {
           "en": "Midnight",
-          "zh-Hans": "午夜",
-          "zh-Hant": "午夜",
-          "ja": "ミッドナイト"
+          "zh-hans": "午夜",
+          "zh-hant": "午夜",
+          "ja": "ミッドナイト",
+          "ko": "자정",
+          "fr": "Minuit",
+          "es": "Medianoche"
         },
         {
           "en": "Raindrop",
-          "zh-Hans": "雨滴",
-          "zh-Hant": "雨滴",
-          "ja": "レインドロップ"
+          "zh-hans": "雨滴",
+          "zh-hant": "雨滴",
+          "ja": "レインドロップ",
+          "ko": "빗방울",
+          "fr": "Goutte de pluie",
+          "es": "Gota de lluvia"
         },
         {
           "en": "Sunset",
-          "zh-Hans": "日落",
-          "zh-Hant": "日落",
-          "ja": "サンセット"
+          "zh-hans": "日落",
+          "zh-hant": "日落",
+          "ja": "サンセット",
+          "ko": "일몰",
+          "fr": "Coucher de soleil",
+          "es": "Atardecer"
         },
         "Vercel",
         "Supabase",
@@ -181,9 +239,12 @@
       "identifier": "padding",
       "label": {
         "en": "Padding",
-        "zh-Hans": "内边距",
-        "zh-Hant": "內邊距",
-        "ja": "パディング"
+        "zh-hans": "内边距",
+        "zh-hant": "內邊距",
+        "ja": "パディング",
+        "ko": "여백",
+        "fr": "Marge intérieure",
+        "es": "Relleno"
       },
       "type": "multiple",
       "values": ["16", "32", "64", "128"],

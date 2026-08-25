@@ -1,138 +1,199 @@
 # Yaml Config File
 # DOCS: https://www.popclip.app/dev/packages
 identifier: org.phpz.popclip.extension.password-generator
-description: Generate a random password with configurable character classes.
+description:
+  en: Generate a random password with configurable character classes.
+  zh-hans: 生成可配置字符类别的随机密码。
+  zh-hant: 產生可設定字元類別的隨機密碼。
+  ja: 文字種別を設定できるランダムパスワードを生成します。
+  ko: 문자 종류를 설정할 수 있는 무작위 비밀번호를 생성합니다.
+  fr: Générer un mot de passe aléatoire avec des classes de caractères configurables.
+  es: Genera una contraseña aleatoria con clases de caracteres configurables.
 keywords: password random secure generator
 popclip version: 6159
 icon: symbol:key
 name:
   en: 'Password Generator'
-  zh-Hans: '密码生成器'
-  zh-Hant: '密碼生成器'
+  zh-hans: '密码生成器'
+  zh-hant: '密碼生成器'
   ja: 'パスワードジェネレーター'
+  ko: '비밀번호 생성기'
+  fr: 'Générateur de mots de passe'
+  es: 'Generador de contraseñas'
 version: 2
 options:
   - identifier: leng
     label:
       en: 'Password Length'
-      zh-Hans: '密码长度'
-      zh-Hant: '密碼長度'
+      zh-hans: '密码长度'
+      zh-hant: '密碼長度'
       ja: 'パスワードの長さ'
+      ko: '비밀번호 길이'
+      fr: 'Longueur du mot de passe'
+      es: 'Longitud de la contraseña'
     type: string
     default value: '16'
     description:
       en: 'An integer between 4 and 256. Defaults to 16 if empty or invalid.'
-      zh-Hans: '4 到 256 之间的整数,留空或非法时使用 16。'
-      zh-Hant: '4 到 256 之間的整數,留空或非法時使用 16。'
+      zh-hans: '4 到 256 之间的整数,留空或非法时使用 16。'
+      zh-hant: '4 到 256 之間的整數,留空或非法時使用 16。'
       ja: '4 から 256 の整数。空欄・不正時は 16。'
+      ko: '4에서 256 사이의 정수입니다. 비어 있거나 잘못되면 16을 사용합니다.'
+      fr: 'Un entier entre 4 et 256. La valeur 16 est utilisée si le champ est vide ou invalide.'
+      es: 'Un entero entre 4 y 256. Se usa 16 si está vacío o no es válido.'
     inset: true
   - identifier: heading_classes
     label:
       en: 'Character classes'
-      zh-Hans: '字符类型'
-      zh-Hant: '字符類型'
+      zh-hans: '字符类型'
+      zh-hant: '字符類型'
       ja: '文字種'
+      ko: '문자 종류'
+      fr: 'Classes de caractères'
+      es: 'Clases de caracteres'
     type: heading
   - identifier: lowercase
     label:
       en: 'Lowercase (a-z)'
-      zh-Hans: '小写字母 (a-z)'
-      zh-Hant: '小寫字母 (a-z)'
+      zh-hans: '小写字母 (a-z)'
+      zh-hant: '小寫字母 (a-z)'
       ja: '小文字 (a-z)'
+      ko: '소문자 (a-z)'
+      fr: 'Minuscules (a-z)'
+      es: 'Minúsculas (a-z)'
     type: boolean
     default value: true
     inset: true
   - identifier: uppercase
     label:
       en: 'Uppercase (A-Z)'
-      zh-Hans: '大写字母 (A-Z)'
-      zh-Hant: '大寫字母 (A-Z)'
+      zh-hans: '大写字母 (A-Z)'
+      zh-hant: '大寫字母 (A-Z)'
       ja: '大文字 (A-Z)'
+      ko: '대문자 (A-Z)'
+      fr: 'Majuscules (A-Z)'
+      es: 'Mayúsculas (A-Z)'
     type: boolean
     default value: true
     inset: true
   - identifier: number
     label:
       en: 'Numbers (0-9)'
-      zh-Hans: '数字 (0-9)'
-      zh-Hant: '數字 (0-9)'
+      zh-hans: '数字 (0-9)'
+      zh-hant: '數字 (0-9)'
       ja: '数字 (0-9)'
+      ko: '숫자 (0-9)'
+      fr: 'Chiffres (0-9)'
+      es: 'Números (0-9)'
     type: boolean
     default value: true
     inset: true
   - identifier: symbol
     label:
       en: 'Symbols'
-      zh-Hans: '符号'
-      zh-Hant: '符號'
+      zh-hans: '符号'
+      zh-hant: '符號'
       ja: '記号'
+      ko: '기호'
+      fr: 'Symboles'
+      es: 'Símbolos'
     type: boolean
     default value: true
     inset: true
   - identifier: customSymbols
     label:
       en: 'Custom symbols'
-      zh-Hans: '自定义符号'
-      zh-Hant: '自訂符號'
+      zh-hans: '自定义符号'
+      zh-hant: '自訂符號'
       ja: 'カスタム記号'
+      ko: '사용자 지정 기호'
+      fr: 'Symboles personnalisés'
+      es: 'Símbolos personalizados'
     type: string
     default value: ''
     description:
       en: 'Override the built-in symbol set when Symbols is on. Leave empty to use the default: !@#$%^&*()_+-=[]{};:,./<>?\|'
-      zh-Hans: '启用「符号」时覆盖内置集合,留空则使用默认: !@#$%^&*()_+-=[]{};:,./<>?\|'
-      zh-Hant: '啟用「符號」時覆蓋內建集合,留空則使用預設: !@#$%^&*()_+-=[]{};:,./<>?\|'
+      zh-hans: '启用「符号」时覆盖内置集合,留空则使用默认: !@#$%^&*()_+-=[]{};:,./<>?\|'
+      zh-hant: '啟用「符號」時覆蓋內建集合,留空則使用預設: !@#$%^&*()_+-=[]{};:,./<>?\|'
       ja: '「記号」有効時に内蔵セットを差し替え。空欄で既定 !@#$%^&*()_+-=[]{};:,./<>?\|'
+      ko: '「기호」가 켜져 있을 때 기본 기호 집합을 바꿉니다. 비워 두면 기본값을 사용합니다: !@#$%^&*()_+-=[]{};:,./<>?\|'
+      fr: 'Remplace le jeu de symboles intégré lorsque les symboles sont activés. Laissez vide pour utiliser la valeur par défaut : !@#$%^&*()_+-=[]{};:,./<>?\|'
+      es: 'Reemplaza el conjunto de símbolos integrado cuando están activados. Déjalo vacío para usar el valor predeterminado: !@#$%^&*()_+-=[]{};:,./<>?\|'
     inset: true
   - identifier: heading_advanced
     label:
       en: 'Advanced'
-      zh-Hans: '高级'
-      zh-Hant: '進階'
+      zh-hans: '高级'
+      zh-hant: '進階'
       ja: '詳細'
+      ko: '고급'
+      fr: 'Avancé'
+      es: 'Avanzado'
     type: heading
   - identifier: excludeAmbiguous
     label:
       en: 'Exclude look-alikes (0 O 1 l I |)'
-      zh-Hans: '排除易混字符 (0 O 1 l I |)'
-      zh-Hant: '排除易混字元 (0 O 1 l I |)'
+      zh-hans: '排除易混字符 (0 O 1 l I |)'
+      zh-hant: '排除易混字元 (0 O 1 l I |)'
       ja: '紛らわしい文字を除外 (0 O 1 l I |)'
+      ko: '혼동하기 쉬운 문자 제외 (0 O 1 l I |)'
+      fr: 'Exclure les caractères similaires (0 O 1 l I |)'
+      es: 'Excluir caracteres parecidos (0 O 1 l I |)'
     type: boolean
     default value: false
     inset: true
   - identifier: noRepeat
     label:
       en: 'No adjacent duplicates'
-      zh-Hans: '禁止相邻重复'
-      zh-Hant: '禁止相鄰重複'
+      zh-hans: '禁止相邻重复'
+      zh-hant: '禁止相鄰重複'
       ja: '隣接する重複を禁止'
+      ko: '연속 중복 금지'
+      fr: 'Pas de doublons adjacents'
+      es: 'Sin duplicados adyacentes'
     type: boolean
     default value: false
     inset: true
   - identifier: outputMode
     label:
       en: 'After generating'
-      zh-Hans: '生成后'
-      zh-Hant: '生成後'
+      zh-hans: '生成后'
+      zh-hant: '生成後'
       ja: '生成後'
+      ko: '생성 후'
+      fr: 'Après génération'
+      es: 'Después de generar'
     type: multiple
     values: [auto, paste, copy, show]
     value labels:
       - en: 'Paste if possible, else copy'
-        zh-Hans: '尽量粘贴,否则复制'
-        zh-Hant: '盡量貼上,否則複製'
+        zh-hans: '尽量粘贴,否则复制'
+        zh-hant: '盡量貼上,否則複製'
         ja: '可能なら貼付,不可なら複製'
+        ko: '가능하면 붙여넣고, 아니면 복사'
+        fr: 'Coller si possible, sinon copier'
+        es: 'Pegar si es posible; si no, copiar'
       - en: 'Always paste'
-        zh-Hans: '始终粘贴'
-        zh-Hant: '始終貼上'
+        zh-hans: '始终粘贴'
+        zh-hant: '始終貼上'
         ja: '常に貼付'
+        ko: '항상 붙여넣기'
+        fr: 'Toujours coller'
+        es: 'Pegar siempre'
       - en: 'Always copy'
-        zh-Hans: '始终复制'
-        zh-Hant: '始終複製'
+        zh-hans: '始终复制'
+        zh-hant: '始終複製'
         ja: '常に複製'
+        ko: '항상 복사'
+        fr: 'Toujours copier'
+        es: 'Copiar siempre'
       - en: 'Show only'
-        zh-Hans: '仅显示'
-        zh-Hant: '僅顯示'
+        zh-hans: '仅显示'
+        zh-hant: '僅顯示'
         ja: '表示のみ'
+        ko: '표시만'
+        fr: 'Afficher uniquement'
+        es: 'Solo mostrar'
     default value: auto
     inset: true
 module: Main.ts
