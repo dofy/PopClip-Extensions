@@ -10,20 +10,21 @@ icon: symbol:list.bullet
 popclip version: 5992
 description: Convert selected multi-line text into a Markdown list.
 requirements: [text, paste]
-submenu:
-  - title:
-      en: Numbered List
-      zh-Hans: 编号列表
-      zh-Hant: 編號列表
-      ja: 番号付きリスト
-    icon: symbol:list.number
-    javascript: return '1. ' + popclip.input.text.replace(/\n/g, '\n1. ')
-    after: paste-result
-  - title:
-      en: Bulleted List
-      zh-Hans: 无序列表
-      zh-Hant: 無序列表
-      ja: 箇条書きリスト
-    icon: symbol:list.bullet
-    javascript: return '- ' + popclip.input.text.replace(/\n/g, '\n- ')
-    after: paste-result
+actions:
+  - submenu:
+      - title:
+          en: Numbered List
+          zh-Hans: 编号列表
+          zh-Hant: 編號列表
+          ja: 番号付きリスト
+        icon: symbol:list.number
+        javascript: return '1. ' + popclip.input.text.replace(/\n/g, '\n1. ')
+        after: paste-result
+      - title:
+          en: Bulleted List
+          zh-Hans: 无序列表
+          zh-Hant: 無序列表
+          ja: 箇条書きリスト
+        icon: symbol:list.bullet
+        javascript: return '- ' + popclip.input.text.replace(/\n/g, '\n- ')
+        after: paste-result

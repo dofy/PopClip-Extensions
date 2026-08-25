@@ -52,18 +52,19 @@ options:
       - en: Tone Alphabet (ㄆㄧㄣ)
         zh-Hans: 无音调 (ㄆㄧㄣ)
         zh-Hant: 無音調 (ㄆㄧㄣ)
-submenu:
-  - title:
-      en: PinYin
-      zh-Hans: 拼音
-      zh-Hant: 拼音
-    icon: 拼
-    javascript file: pinyin.js
-    after: show-result
-  - title:
-      en: Zhuyin
-      zh-Hans: 注音
-      zh-Hant: 注音
-    icon: 注
-    javascript file: zhuyin.js
-    after: show-result
+actions:
+  - submenu:
+      - title:
+          en: PinYin
+          zh-Hans: 拼音
+          zh-Hant: 拼音
+        icon: 拼
+        javascript file: pinyin.js
+        after: show-result
+      - title:
+          en: Zhuyin
+          zh-Hans: 注音
+          zh-Hant: 注音
+        icon: 注
+        javascript file: zhuyin.js
+        after: show-result
