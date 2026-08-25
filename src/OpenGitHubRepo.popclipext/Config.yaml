@@ -5,7 +5,7 @@ name:
   ja: GitHub リポジトリを開く
 icon: assets/github.svg
 identifier: org.phpz.popclip.extension.open-github-repo
-popclip version: 5992
+popclip version: 6159
 description:
   Open GitHub Repo in a web browser with the selected text like AUTHOR/REPO.
 keywords: github repository repo browser

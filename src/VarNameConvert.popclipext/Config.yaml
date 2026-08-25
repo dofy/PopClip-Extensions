@@ -6,7 +6,7 @@ name:
   ja: 変数名変換
 version: 3
 identifier: xyz.phpz.popclip.extension.var-name-convert
-popclip version: 5992
+popclip version: 6159
 icon: square filled Var
 description: Convert selected variable names between common naming styles.
 keywords: variable naming camelcase snakecase code

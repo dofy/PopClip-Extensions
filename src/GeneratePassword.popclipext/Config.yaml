@@ -3,7 +3,7 @@
 identifier: org.phpz.popclip.extension.password-generator
 description: Generate a random password with configurable character classes.
 keywords: password random secure generator
-popclip version: 5992
+popclip version: 6159
 icon: symbol:key
 name:
   en: 'Password Generator'

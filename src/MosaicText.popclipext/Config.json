@@ -2,7 +2,7 @@
   "identifier": "xyz.phpz.popclip.extension.mosaic-text",
   "icon": "iconify:mingcute:mosaic-line",
   "version": 1,
-  "popclipVersion": 5992,
+  "popclipVersion": 6159,
   "name": {
     "en": "Mosaic Text",
     "zh-Hans": "马赛克文本",

@@ -7,7 +7,7 @@ name:
 version: 2
 identifier: xyz.phpz.popclip.extension.markdown-list
 icon: symbol:list.bullet
-popclip version: 5992
+popclip version: 6159
 description: Convert selected multi-line text into a Markdown list.
 keywords: markdown list bullets numbered
 requirements: [text, paste]

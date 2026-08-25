@@ -5,7 +5,7 @@ name:
   ja: 'コメント切り替え'
 version: 2
 identifier: xyz.phpz.popclip.extension.comment-switcher
-popclip version: 5992
+popclip version: 6159
 keywords: comment comments code uncomment syntax
 icon: 'square filled #'
 description:

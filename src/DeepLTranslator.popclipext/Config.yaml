@@ -4,7 +4,7 @@ name:
   zh-hans: DeepL 翻译器
 icon: icon.png
 identifier: org.phpz.popclip.extension.deepl-translator
-popclip version: 5992
+popclip version: 6159
 description: Translate selected text with the DeepL app or website.
 keywords: translate translation language deepl
 options:

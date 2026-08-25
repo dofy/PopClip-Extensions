@@ -2,7 +2,7 @@
   "identifier": "xyz.phpz.popclip.extension.multi-line-to-array",
   "icon": "square filled monospaced []",
   "version": 1,
-  "popclipVersion": 5992,
+  "popclipVersion": 6159,
   "name": {
     "en": "Multi-Line to Array",
     "zh-Hans": "多行文本转数组",

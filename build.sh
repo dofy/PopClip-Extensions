@@ -1,169 +1,431 @@
 #!/bin/sh
 
-help() {
-  echo "    //   ) )                   //   ) )                "
-  echo "   //___/ /  ___      ___     //        // ( )  ___    "
-  echo "  / ____ / //   ) ) //   ) ) //        // / / //   ) ) "
-  echo " //       //   / / //___/ / //        // / / //___/ /  "
-  echo "//       ((___/ / //       ((____/ / // / / //         "
-  echo ""
-  echo "Create / Build / Remove the PopClip extension"
-  echo
-  echo "Usage:"
-  echo "\t./build.sh <EXT_NAME>"
-  echo "\t./build.sh <OPTIONS> <EXT_NAME>"
-  echo "\t./build.sh -h"
-  echo
-  echo "Options:"
-  echo "\t-p\tCreate extension from plist template."
-  echo "\t-y\tCreate extension from yaml template."
-  echo "\t-j\tCreate extension from json template."
-  echo "\t-m\tCreate extension from module template (Yaml & TypeScript)."
-  echo "\t-J\tCreate snippet extension from JavaScript snippet template."
-  echo "\t-T\tCreate snippet extension from TypeScript snippet template."
-  echo "\t-Y\tCreate snippet extension from yaml snippet template."
-  echo "\t-i\tBuild and Install extension."
-  echo "\t-r\tRemove Extension and SOURCE!!!"
-  echo "\t-h\tShow help."
-  echo ""
-  exit 0
+set -eu
+
+SCRIPT_DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+SRC_ROOT="$SCRIPT_DIR/src"
+DIST_ROOT="$SCRIPT_DIR/dist"
+TEMPLATE_ROOT="$SCRIPT_DIR/templates"
+
+PACKAGE_SUFFIX=".popclipext"
+PACKAGE_ZIP_SUFFIX=".popclipextz"
+SNIPPET_SUFFIX=".popcliptxt"
+MAX_FILES=100
+MAX_FILE_BYTES=1048576
+MAX_TOTAL_BYTES=2097152
+
+STAGE_DIR=
+LAST_OUTPUT=
+
+say() {
+  printf '%s\n' "$*"
 }
 
-SRC_ROOT="src/"
-DIST_ROOT="dist/"
-TEMP_ROOT="templates"
-
-JS_EXT=".js"
-TS_EXT=".ts"
-YAML_EXT=".yaml"
-SNIPPET_EXT=".popcliptxt"
-EXT=".popclipext"
-EXTz="${EXT}z"
-
 die() {
-  echo $1
+  printf 'Error: %s\n' "$*" >&2
   exit 1
 }
 
-# create extension by template
-create_package() {
-  if [ $1 == "p" ]; then
-    TYPE=Plist
-  elif [ $1 == "y" ]; then
-    TYPE=Yaml
-  elif [ $1 == "j" ]; then
-    TYPE=JSON
-  elif [ $1 == "m" ]; then
-    TYPE=module
-  fi
-  SRC=$2
-  TMP=$TEMP_ROOT/$TYPE
-  if [ -f "$SRC_ROOT/$SRC.*" ] || [ -d "$SRC_ROOT$SRC.popclipext" ]; then
-    die "The extension \"$SRC\" already exists!"
-  else
-    mkdir -p "$SRC_ROOT$SRC.popclipext"
-    cp -R "$TMP/" "$SRC_ROOT$SRC.popclipext/"
-    echo "Extension \"$SRC\" has been created."
-    echo "You can edit it now."
-  fi
+usage() {
+  cat <<'EOF'
+Build and manage PopClip extensions and snippets.
+
+Usage:
+  ./build.sh                         Interactive menu
+  ./build.sh NAME                    Build a package or snippet
+  ./build.sh build NAME              Build a package or snippet
+  ./build.sh install NAME            Build and install a package or snippet
+  ./build.sh create-package FORMAT NAME
+  ./build.sh create-snippet FORMAT NAME
+  ./build.sh remove NAME             Remove source and generated files
+
+Legacy options are also supported:
+  -p NAME    Create a Plist package from the template
+  -y NAME    Create a YAML package from the template
+  -j NAME    Create a JSON package from the template
+  -m NAME    Create a module package from the template
+  -J NAME    Create a JavaScript snippet
+  -T NAME    Create a TypeScript snippet
+  -Y NAME    Create a YAML snippet
+  -i NAME    Build and install
+  -r NAME    Remove source and generated files
+  -h         Show this help
+
+Package formats: plist, yaml, json, module
+Snippet formats: javascript, typescript, yaml
+EOF
 }
 
-# create snippet extension by template
-create_snippet() {
-  if [ $1 == "T" ]; then
-    TYPE=$TS_EXT
-  elif [ $1 == "J" ]; then
-    TYPE=$JS_EXT
-  elif [ $1 == "Y" ]; then
-    TYPE=$YAML_EXT
+cleanup_stage() {
+  if [ -n "${STAGE_DIR:-}" ] && [ -d "$STAGE_DIR" ]; then
+    rm -rf "$STAGE_DIR"
   fi
-  SRC=$2
-  FILE_NAME=$SRC$TYPE
-  TMP=$TEMP_ROOT/_Snippets/template$TYPE
-  echo $TMP
-  if [ -f "$SRC_ROOT$SRC.*" ] || [ -d "$SRC_ROOT$SRC.popclipext" ]; then
-    die "The extension \"$SRC\" already exists!"
-  else
-    cp "$TMP" "$SRC_ROOT$FILE_NAME"
-    echo "Extension \"$FILE_NAME\" has been created."
-    echo "You can edit it now."
-  fi
+  STAGE_DIR=
 }
 
-build() {
-  SRC=$1
-  if [ -d "$SRC_ROOT$SRC.popclipext" ]; then
-    rm -rf "$DIST_ROOT$SRC$EXT" "$DIST_ROOT$SRC$EXTz"
-    mkdir -p "$DIST_ROOT$SRC$EXT"
-    cp -R "$SRC_ROOT$SRC.popclipext/" "$DIST_ROOT$SRC$EXT/"
-    cd "$DIST_ROOT"
-    zip -r -m -q "$SRC$EXTz" "$SRC$EXT"
-    cd ..
-    echo "Extension \"$SRC\" build successfully!"
-    echo "You can try to install it in \"$DIST_ROOT$SRC$EXTz\""
-  elif [ -f "$SRC_ROOT$SRC$JS_EXT" ]; then
-    cp "$SRC_ROOT$SRC$JS_EXT" "$DIST_ROOT$SRC$SNIPPET_EXT"
-    echo "Snippet Extension \"$SRC\" build successfully!"
-    echo "You can try to install it in \"$DIST_ROOT$SRC$SNIPPET_EXT\""
-  elif [ -f "$SRC_ROOT$SRC$TS_EXT" ]; then
-    cp "$SRC_ROOT$SRC$TS_EXT" "$DIST_ROOT$SRC$SNIPPET_EXT"
-    echo "Snippet Extension \"$SRC\" build successfully!"
-    echo "You can try to install it in \"$DIST_ROOT$SRC$SNIPPET_EXT\""
-  elif [ -f "$SRC_ROOT$SRC$YAML_EXT" ]; then
-    cp "$SRC_ROOT$SRC$YAML_EXT" "$DIST_ROOT$SRC$SNIPPET_EXT"
-    echo "Snippet Extension \"$SRC\" build successfully!"
-    echo "You can try to install it in \"$DIST_ROOT$SRC$SNIPPET_EXT\""
-  else
-    die "The extension \"$SRC\" does not exist."
-  fi
-}
+trap cleanup_stage EXIT HUP INT TERM
 
-remove() {
-  SRC=$1
-  read -p "Are you sure to remove \"$SRC\"? [y/N]" CONFIRM
-  while true; do
-    case $CONFIRM in
-    [yY]*)
-      rm -rf "$SRC_ROOT$SRC.popclipext" "$SRC_ROOT$SRC".* "$DIST_ROOT$SRC".*
-      echo "Extension \"$SRC\" has been removed."
+require_name() {
+  name=$1
+  case "$name" in
+    ""|.*|*[!A-Za-z0-9._-]*)
+      die "Invalid name '$name'. Use letters, numbers, dots, hyphens, or underscores."
       ;;
-    [nN]* | *) ;;
+  esac
+}
+
+require_args() {
+  expected=$1
+  shift
+  if [ "$#" -ne "$expected" ]; then
+    die "Expected $expected argument(s), received $#"
+  fi
+}
+
+source_exists_for_name() {
+  name=$1
+  for candidate in \
+    "$SRC_ROOT/$name$PACKAGE_SUFFIX" \
+    "$SRC_ROOT/$name.js" \
+    "$SRC_ROOT/$name.ts" \
+    "$SRC_ROOT/$name.yaml" \
+    "$SRC_ROOT/$name.yml" \
+    "$SRC_ROOT/$name.json" \
+    "$SRC_ROOT/$name.applescript" \
+    "$SRC_ROOT/$name$SNIPPET_SUFFIX"; do
+    if [ -e "$candidate" ]; then
+      return 0
+    fi
+  done
+  return 1
+}
+
+template_for_package_format() {
+  case "$1" in
+    p|plist) printf '%s\n' "Plist" ;;
+    y|yaml) printf '%s\n' "Yaml" ;;
+    j|json) printf '%s\n' "JSON" ;;
+    m|module) printf '%s\n' "module" ;;
+    *) die "Unknown package format '$1'" ;;
+  esac
+}
+
+template_for_snippet_format() {
+  case "$1" in
+    J|javascript|js) printf '%s\n' "template.js" ;;
+    T|typescript|ts) printf '%s\n' "template.ts" ;;
+    Y|yaml) printf '%s\n' "template.yaml" ;;
+    *) die "Unknown snippet format '$1'" ;;
+  esac
+}
+
+create_package() {
+  format=$1
+  name=$2
+  require_name "$name"
+  template_dir=$(template_for_package_format "$format")
+  target="$SRC_ROOT/$name$PACKAGE_SUFFIX"
+
+  if source_exists_for_name "$name"; then
+    die "A source with the name '$name' already exists."
+  fi
+
+  mkdir -p "$target"
+  cp -R "$TEMPLATE_ROOT/$template_dir/." "$target/"
+  say "Created package source: $target"
+}
+
+create_snippet() {
+  format=$1
+  name=$2
+  require_name "$name"
+  template_file=$(template_for_snippet_format "$format")
+  case "$template_file" in
+    template.js) extension=".js" ;;
+    template.ts) extension=".ts" ;;
+    template.yaml) extension=".yaml" ;;
+  esac
+  target="$SRC_ROOT/$name$extension"
+
+  if source_exists_for_name "$name"; then
+    die "A source with the name '$name' already exists."
+  fi
+
+  cp "$TEMPLATE_ROOT/_Snippets/$template_file" "$target"
+  say "Created snippet source: $target"
+}
+
+validate_package() {
+  package_dir=$1
+  config_count=$(find "$package_dir" -maxdepth 1 -type f -name 'Config*' -print | awk 'NF { count++ } END { print count + 0 }')
+  [ "$config_count" -eq 1 ] || die "Package must contain exactly one Config file at its root."
+
+  stats=$(find "$package_dir" -type f -exec wc -c {} \; | awk '
+    { files += 1; total += $1; if ($1 > largest) largest = $1 }
+    END { print files + 0, total + 0, largest + 0 }
+  ')
+  set -- $stats
+  file_count=$1
+  total_bytes=$2
+  largest_bytes=$3
+
+  [ "$file_count" -le "$MAX_FILES" ] || die "Package has $file_count files; maximum is $MAX_FILES."
+  [ "$largest_bytes" -le "$MAX_FILE_BYTES" ] || die "A package file is $largest_bytes bytes; maximum is $MAX_FILE_BYTES."
+  [ "$total_bytes" -le "$MAX_TOTAL_BYTES" ] || die "Package is $total_bytes bytes; maximum is $MAX_TOTAL_BYTES."
+}
+
+copy_visible_files() {
+  source_dir=$1
+  destination_dir=$2
+  (
+    cd "$source_dir" || exit 1
+    find . -type f ! -path '*/.*' ! -path '*/_*' -exec sh -c '
+      destination_root=$1
+      shift
+      for source_file do
+        relative_file=${source_file#./}
+        destination_file="$destination_root/$relative_file"
+        mkdir -p "$(dirname "$destination_file")"
+        cp "$source_file" "$destination_file"
+      done
+    ' popclip-copy "$destination_dir" {} +
+  )
+}
+
+build_package() {
+  name=$1
+  require_name "$name"
+  source_dir="$SRC_ROOT/$name$PACKAGE_SUFFIX"
+  [ -d "$source_dir" ] || die "Package source not found: $source_dir"
+  command -v zip >/dev/null 2>&1 || die "The zip command is required."
+
+  mkdir -p "$DIST_ROOT"
+  STAGE_DIR=$(mktemp -d "${TMPDIR:-/tmp}/popclip-build.XXXXXX")
+  staged_package="$STAGE_DIR/$name$PACKAGE_SUFFIX"
+  mkdir -p "$staged_package"
+
+  copy_visible_files "$source_dir" "$staged_package"
+  validate_package "$staged_package"
+
+  output="$DIST_ROOT/$name$PACKAGE_ZIP_SUFFIX"
+  rm -f "$output"
+  (
+    cd "$STAGE_DIR" || exit 1
+    zip -qr "$output" "$name$PACKAGE_SUFFIX"
+  )
+  cleanup_stage
+  LAST_OUTPUT=$output
+  say "Built package: $output"
+}
+
+build_snippet() {
+  name=$1
+  require_name "$name"
+  source_file=
+  for extension in .js .ts .yaml .yml .applescript .popcliptxt; do
+    if [ -f "$SRC_ROOT/$name$extension" ]; then
+      source_file="$SRC_ROOT/$name$extension"
+      break
+    fi
+  done
+  [ -n "$source_file" ] || die "Snippet source not found for '$name'."
+
+  mkdir -p "$DIST_ROOT"
+  output="$DIST_ROOT/$name$SNIPPET_SUFFIX"
+  cp "$source_file" "$output"
+  LAST_OUTPUT=$output
+  say "Built snippet: $output"
+}
+
+build_target() {
+  name=$1
+  if [ -d "$SRC_ROOT/$name$PACKAGE_SUFFIX" ]; then
+    build_package "$name"
+  else
+    build_snippet "$name"
+  fi
+}
+
+install_target() {
+  name=$1
+  build_target "$name"
+  command -v open >/dev/null 2>&1 || die "The macOS open command is required."
+  open "$LAST_OUTPUT"
+  say "Opened for installation: $LAST_OUTPUT"
+}
+
+remove_target() {
+  name=$1
+  require_name "$name"
+  say "This removes source and generated files for '$name'."
+  printf 'Continue? [y/N] '
+  IFS= read -r answer
+  case "$answer" in
+    [yY]|[yY][eE][sS]) ;;
+    *) say "Cancelled."; return 0 ;;
+  esac
+
+  rm -rf "$SRC_ROOT/$name$PACKAGE_SUFFIX"
+  for extension in .js .ts .yaml .yml .json .applescript; do
+    rm -f "$SRC_ROOT/$name$extension"
+  done
+  rm -f "$DIST_ROOT/$name$PACKAGE_ZIP_SUFFIX" "$DIST_ROOT/$name$SNIPPET_SUFFIX"
+  say "Removed '$name'."
+}
+
+list_packages() {
+  find "$SRC_ROOT" -mindepth 1 -maxdepth 1 -type d -name "*$PACKAGE_SUFFIX" \
+    -exec basename {} \; | sort
+}
+
+list_snippets() {
+  for source_file in "$SRC_ROOT"/*.js "$SRC_ROOT"/*.ts "$SRC_ROOT"/*.yaml "$SRC_ROOT"/*.yml "$SRC_ROOT"/*.applescript "$SRC_ROOT"/*.popcliptxt; do
+    [ -f "$source_file" ] || continue
+    basename "$source_file"
+  done | sed 's/\.[^.]*$//' | sort -u
+}
+
+choose_from_list() {
+  title=$1
+  values=$2
+  [ -n "$values" ] || die "No $title available."
+  say "" >&2
+  say "$title:" >&2
+  printf '%s\n' "$values" | awk '{ printf "  %d) %s\n", NR, $0 }' >&2
+  printf 'Choose a number: ' >&2
+  IFS= read -r choice
+  case "$choice" in
+    ''|*[!0-9]) die "Please choose a number." ;;
+  esac
+  selected=$(printf '%s\n' "$values" | awk -v number="$choice" 'NR == number { print; exit }')
+  [ -n "$selected" ] || die "Invalid selection."
+  printf '%s\n' "$selected"
+}
+
+choose_package_name() {
+  choose_from_list "packages" "$(list_packages)"
+}
+
+choose_snippet_name() {
+  choose_from_list "snippets" "$(list_snippets)"
+}
+
+choose_package_format() {
+  say "Package format:" >&2
+  say "  1) YAML" >&2
+  say "  2) JSON" >&2
+  say "  3) Plist" >&2
+  say "  4) Module (YAML + TypeScript)" >&2
+  printf 'Choose a number: ' >&2
+  IFS= read -r choice
+  case "$choice" in
+    1) printf '%s\n' yaml ;;
+    2) printf '%s\n' json ;;
+    3) printf '%s\n' plist ;;
+    4) printf '%s\n' module ;;
+    *) die "Invalid package format." ;;
+  esac
+}
+
+choose_snippet_format() {
+  say "Snippet format:" >&2
+  say "  1) JavaScript" >&2
+  say "  2) TypeScript" >&2
+  say "  3) YAML" >&2
+  printf 'Choose a number: ' >&2
+  IFS= read -r choice
+  case "$choice" in
+    1) printf '%s\n' javascript ;;
+    2) printf '%s\n' typescript ;;
+    3) printf '%s\n' yaml ;;
+    *) die "Invalid snippet format." ;;
+  esac
+}
+
+interactive_menu() {
+  while :; do
+    say ""
+    say "PopClip Extensions"
+    say "  1) Build a package"
+    say "  2) Build and install a package"
+    say "  3) Build a snippet"
+    say "  4) Build and install a snippet"
+    say "  5) Create a package from a template"
+    say "  6) Create a snippet from a template"
+    say "  7) Remove source and generated files"
+    say "  q) Quit"
+    printf 'Choose an action: '
+    IFS= read -r action || exit 0
+    case "$action" in
+      1) name=$(choose_package_name); build_package "$name" ;;
+      2) name=$(choose_package_name); install_target "$name" ;;
+      3) name=$(choose_snippet_name); build_snippet "$name" ;;
+      4) name=$(choose_snippet_name); install_target "$name" ;;
+      5)
+        printf 'New package name: '
+        IFS= read -r name
+        format=$(choose_package_format)
+        create_package "$format" "$name"
+        ;;
+      6)
+        printf 'New snippet name: '
+        IFS= read -r name
+        format=$(choose_snippet_format)
+        create_snippet "$format" "$name"
+        ;;
+      7)
+        printf 'Name to remove: '
+        IFS= read -r name
+        remove_target "$name"
+        ;;
+      q|Q) exit 0 ;;
+      *) say "Unknown action." >&2 ;;
     esac
-    exit 0
   done
 }
 
-[ $# -eq 0 ] && help
+if [ "$#" -eq 0 ]; then
+  interactive_menu
+  exit 0
+fi
 
-while getopts "p:y:j:m:J:T:Y:i:r:h" opts; do
-  case $opts in
-  p | y | j | m)
-    create_package "$opts" "$OPTARG"
-    exit 0
+command_name=$1
+shift
+case "$command_name" in
+  -h|--help|help)
+    require_args 0 "$@"
+    usage
     ;;
-  J | T | Y)
-    create_snippet "$opts" "$OPTARG"
-    exit 0
+  build|--build)
+    require_args 1 "$@"
+    build_target "$1"
     ;;
-  i)
-    build "$OPTARG"
-    if [ -f "$DIST_ROOT$SRC$EXTz" ]; then
-      open "$DIST_ROOT$SRC$EXTz"
-    elif [ -f "$DIST_ROOT$SRC$SNIPPET_EXT" ]; then
-      open "$DIST_ROOT$SRC$SNIPPET_EXT"
-    else
-      die "Build failed!"
-    fi
-    exit 0
+  install|--install|-i)
+    require_args 1 "$@"
+    install_target "$1"
     ;;
-  r)
-    remove "$OPTARG"
-    exit 0
+  remove|--remove|-r)
+    require_args 1 "$@"
+    remove_target "$1"
     ;;
-  h | ?)
-    help
+  create-package)
+    require_args 2 "$@"
+    create_package "$1" "$2"
     ;;
-  esac
-done
-
-build "$1"
+  create-snippet)
+    require_args 2 "$@"
+    create_snippet "$1" "$2"
+    ;;
+  -p|-y|-j|-m)
+    require_args 1 "$@"
+    create_package "${command_name#-}" "$1"
+    ;;
+  -J|-T|-Y)
+    require_args 1 "$@"
+    create_snippet "${command_name#-}" "$1"
+    ;;
+  *)
+    require_args 0 "$@"
+    build_target "$command_name"
+    ;;
+esac
