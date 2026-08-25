@@ -10,7 +10,14 @@ Configure tone marks, tone numbers, or no tones in the extension settings.
 Use the **Output** setting to choose between **Show Result Only**, **Show and
 Copy**, or **Copy Only**. The default is **Show and Copy**.
 
+### Clipboard troubleshooting
+
+If an older installation no longer copies the converted text, reinstall the
+latest version and select **Show and Copy** or **Copy Only** in the **Output**
+setting. This makes clipboard behavior explicit and addresses [Issue #7](https://github.com/dofy/PopClip-Extensions/issues/7).
+
 ## Changelog
 
 - 2026-08-25: Initial directory submission.
 - 2026-08-25: Added configurable output behavior.
+- 2026-08-25: Documented the clipboard fix for Issue #7.
