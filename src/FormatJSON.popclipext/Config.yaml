@@ -9,6 +9,7 @@ identifier: xyz.phpz.popclip.extension.format-json
 popclip version: 5992
 icon: circle J
 description: Format selected JSON text with configurable indentation.
+keywords: json format formatter prettify
 options:
   - identifier: indent
     label: Use Tab / Space

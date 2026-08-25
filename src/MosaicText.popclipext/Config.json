@@ -10,7 +10,8 @@
     "ja": "モザイクテキスト"
   },
   "requirements": ["text", "paste"],
-  "description": "Use a custom code to mosaic the selected text. You can change the code in the extension.",
+  "description": "Replace selected text with a configurable mosaic character.",
+  "keywords": "mosaic redact privacy censor",
   "options": [
     {
       "identifier": "mosaic-code",

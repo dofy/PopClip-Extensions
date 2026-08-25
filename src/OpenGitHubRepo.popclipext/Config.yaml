@@ -8,6 +8,7 @@ identifier: org.phpz.popclip.extension.open-github-repo
 popclip version: 5992
 description:
   Open GitHub Repo in a web browser with the selected text like AUTHOR/REPO.
+keywords: github repository repo browser
 regex: ^\s*[\w\-\.]+\s*/\s*[\w\-\.]+\s*$
 entitlements:
   - dynamic

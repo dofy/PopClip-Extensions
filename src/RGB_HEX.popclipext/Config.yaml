@@ -1,5 +1,5 @@
 name:
-  en: 'Color Convertion'
+  en: 'Color Conversion'
   zh-Hans: '颜色转换'
   zh-Hant: '顏色轉换'
   ja: 'カラー変換'
@@ -8,6 +8,7 @@ identifier: xyz.phpz.popclip.extension.rgbhex
 popclip version: 5992
 icon: icon.png
 description: RGB to Hex or Hex to RGB
+keywords: color rgb hex hexadecimal
 requirements: [text, paste]
 options:
   - identifier: opt_hex_with_hash

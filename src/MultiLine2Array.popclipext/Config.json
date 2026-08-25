@@ -9,7 +9,8 @@
     "zh-Hant": "多行文本轉陣列",
     "ja": "複数行テキストを配列に変換"
   },
-  "description": "Format multi-line text to javascript array",
+  "description": "Convert multi-line text to a JavaScript array.",
+  "keywords": "javascript array multiline format code",
   "options": [
     {
       "identifier": "remove_empty_line",

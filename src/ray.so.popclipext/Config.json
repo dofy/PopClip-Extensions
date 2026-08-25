@@ -4,7 +4,8 @@
   "version": 3,
   "popclipVersion": 5992,
   "name": "ray.so",
-  "description": "Generate a image from code with ray.so",
+  "description": "Generate an image from selected code with ray.so.",
+  "keywords": "code image snippet ray.so",
   "options": [
     {
       "identifier": "language",

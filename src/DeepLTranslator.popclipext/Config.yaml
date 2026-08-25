@@ -5,7 +5,8 @@ name:
 icon: icon.png
 identifier: org.phpz.popclip.extension.deepl-translator
 popclip version: 5992
-description: Translate seleted text by DeepL App or Website.
+description: Translate selected text with the DeepL app or website.
+keywords: translate translation language deepl
 options:
   - identifier: runMode
     label:

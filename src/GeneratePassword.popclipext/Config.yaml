@@ -1,7 +1,8 @@
 # Yaml Config File
 # DOCS: https://www.popclip.app/dev/packages
 identifier: org.phpz.popclip.extension.password-generator
-description: Generate a random password
+description: Generate a random password with configurable character classes.
+keywords: password random secure generator
 popclip version: 5992
 icon: symbol:key
 name:

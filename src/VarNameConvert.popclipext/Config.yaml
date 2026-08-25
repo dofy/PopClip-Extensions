@@ -9,6 +9,7 @@ identifier: xyz.phpz.popclip.extension.var-name-convert
 popclip version: 5992
 icon: square filled Var
 description: Convert selected variable names between common naming styles.
+keywords: variable naming camelcase snakecase code
 regex: ^\s*[a-zA-Z_][a-zA-Z0-9_]*\s*$
 javascript: |
   const name = popclip.input.text.replace(/^[\s_]+|[\s_]+$/g, '');

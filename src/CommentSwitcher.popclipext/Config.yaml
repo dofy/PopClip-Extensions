@@ -6,6 +6,7 @@ name:
 version: 2
 identifier: xyz.phpz.popclip.extension.comment-switcher
 popclip version: 5992
+keywords: comment comments code uncomment syntax
 icon: 'square filled #'
 description:
   en: 'Comment switcher'

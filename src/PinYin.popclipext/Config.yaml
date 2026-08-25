@@ -10,6 +10,7 @@ description:
   en: convert Chinese characters to pinyin.
   zh-Hans: 将中文字符转换为拼音.
   zh-Hant: 將中文字符轉換為拼音.
+keywords: pinyin zhuyin chinese pronunciation romanization
 options:
   # - identifier: read_it
   #   label:

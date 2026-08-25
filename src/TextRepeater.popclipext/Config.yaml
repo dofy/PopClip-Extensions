@@ -4,6 +4,7 @@ identifier: xyz.phpz.popclip.extension.text-repeater
 popclip version: 5992
 icon: square T*n
 description: Repeat selected text a specified number of times.
+keywords: repeat duplicate text multiplication
 regex: ^.*?(\.|\*)\d+$
 requirements: [text, paste]
 javascript file: repeater.js
