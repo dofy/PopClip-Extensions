@@ -1,16 +1,45 @@
 # Yaml Config File
 # DOCS: https://www.popclip.app/dev/packages
 identifier: your.domain.popclip.extension.template_module
-description: Description
+version: 1
+popclip version: 6159
+description:
+  en: Description of the extension
+  zh-hans: 扩展功能说明
+  zh-hant: 擴充功能說明
+  ja: 拡張機能の説明
+  ko: 확장 프로그램 설명
+  fr: Description de l’extension
+  es: Descripción de la extensión
+keywords: template example module
 icon: square filled M
+requirements: [text]
 name:
   en: 'Name'
-  zh-Hans: '名称'
-  zh-Hant: '名稱'
+  zh-hans: '名称'
+  zh-hant: '名稱'
   ja: '名前'
+  ko: '이름'
+  fr: 'Nom'
+  es: 'Nombre'
 options:
   - identifier: option-a
-    label: Option A
+    label:
+      en: Option A
+      zh-hans: 选项 A
+      zh-hant: 選項 A
+      ja: オプション A
+      ko: 옵션 A
+      fr: Option A
+      es: Opción A
+    description:
+      en: Enable option A for this example.
+      zh-hans: 为此示例启用选项 A。
+      zh-hant: 為此範例啟用選項 A。
+      ja: この例でオプション A を有効にします。
+      ko: 이 예제에서 옵션 A를 활성화합니다.
+      fr: Active l’option A pour cet exemple.
+      es: Activa la opción A para este ejemplo.
     type: boolean
     default value: true
 module: Main.ts

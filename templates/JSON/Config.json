@@ -1,21 +1,48 @@
 {
   "identifier": "your.domain.popclip.extension.template_json",
   "icon": "iconify:ion:fish",
+  "version": 1,
+  "popclipVersion": 6159,
   "name": {
     "en": "Extension Name",
-    "zh-Hans": "扩展名",
-    "zh-Hant": "擴展名",
-    "ja": "拡張名"
+    "zh-hans": "扩展名",
+    "zh-hant": "擴充功能名稱",
+    "ja": "拡張機能名",
+    "ko": "확장 프로그램 이름",
+    "fr": "Nom de l’extension",
+    "es": "Nombre de la extensión"
   },
-  "description": "Description of the extension",
+  "description": {
+    "en": "Description of the extension",
+    "zh-hans": "扩展功能说明",
+    "zh-hant": "擴充功能說明",
+    "ja": "拡張機能の説明",
+    "ko": "확장 프로그램 설명",
+    "fr": "Description de l’extension",
+    "es": "Descripción de la extensión"
+  },
+  "keywords": "template example",
+  "requirements": ["text"],
   "options": [
     {
       "identifier": "option-a",
       "label": {
         "en": "Option A",
-        "zh-Hans": "选项 A",
-        "zh-Hant": "選項 A",
-        "ja": "オプション A"
+        "zh-hans": "选项 A",
+        "zh-hant": "選項 A",
+        "ja": "オプション A",
+        "ko": "옵션 A",
+        "fr": "Option A",
+        "es": "Opción A"
+      },
+      "description": {
+        "en": "Enable option A for this example.",
+        "zh-hans": "为此示例启用选项 A。",
+        "zh-hant": "為此範例啟用選項 A。",
+        "ja": "この例でオプション A を有効にします。",
+        "ko": "이 예제에서 옵션 A를 활성화합니다.",
+        "fr": "Active l’option A pour cet exemple.",
+        "es": "Activa la opción A para este ejemplo."
       },
       "type": "boolean",
       "defaultValue": false
@@ -27,11 +54,14 @@
       "icon": "iconify:ph:rocket-launch-thin",
       "title": {
         "en": "Action A",
-        "zh-Hans": "动作 A",
-        "zh-Hant": "動作 A",
-        "ja": "アクション A"
+        "zh-hans": "动作 A",
+        "zh-hant": "動作 A",
+        "ja": "アクション A",
+        "ko": "동작 A",
+        "fr": "Action A",
+        "es": "Acción A"
       },
-      "javascript-file": "actionA.js",
+      "javascriptFile": "actionA.js",
       "after": "show-result"
     }
   ]

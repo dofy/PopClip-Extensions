@@ -2,16 +2,19 @@
   "compilerOptions": {
     "target": "es2018",
     "lib": ["es2023", "dom", "dom.iterable"],
-    "module": "commonjs",
-    "moduleResolution": "node",
-    "ignoreDeprecations": "6.0",
+    "module": "preserve",
+    "moduleResolution": "bundler",
+    "noEmit": true,
     "skipLibCheck": true,
-    "resolveJsonModule": true,
-    "esModuleInterop": true,
     "strict": true,
-    "noImplicitAny": false,
-    "types": ["node", "@popclip/types"],
+    "forceConsistentCasingInFileNames": true,
+    "types": ["@popclip/types"],
     "isolatedModules": true
   },
-  "include": ["./src"]
+  "include": [
+    "src/**/*.ts",
+    "templates/module/Main.ts",
+    "templates/_Snippets/template.ts"
+  ],
+  "exclude": ["node_modules", "dist"]
 }

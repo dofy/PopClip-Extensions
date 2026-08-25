@@ -3,10 +3,17 @@ const extension: Extension = {
     {
       title: {
         en: 'Action',
-        'zh-Hans': '动作',
+        'zh-hans': '动作',
+        'zh-hant': '動作',
+        ja: 'アクション',
+        ko: '동작',
+        fr: 'Action',
+        es: 'Acción',
       },
-      code(input, options, context) {
-        popclip.showText(`text: ${input.text}, option: ${options['option-a']}`)
+      icon: 'square filled M',
+      after: 'show-result',
+      code({ text }, options) {
+        return `text: ${text}\noption A: ${options['option-a'] ? 'enabled' : 'disabled'}`
       },
     },
   ],

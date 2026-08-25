@@ -1,24 +1,57 @@
 # Yaml Config File
 # DOCS: https://www.popclip.app/dev/packages
 identifier: your.domain.popclip.extension.template_yaml
-description: Description
+version: 1
+popclip version: 6159
+description:
+  en: Description of the extension
+  zh-hans: 扩展功能说明
+  zh-hant: 擴充功能說明
+  ja: 拡張機能の説明
+  ko: 확장 프로그램 설명
+  fr: Description de l’extension
+  es: Descripción de la extensión
+keywords: template example
 icon: square filled 7
 name:
   en: 'Name'
-  zh-Hans: '名称'
-  zh-Hant: '名稱'
+  zh-hans: '名称'
+  zh-hant: '名稱'
   ja: '名前'
+  ko: '이름'
+  fr: 'Nom'
+  es: 'Nombre'
+requirements: [text]
 options:
   - identifier: option-a
-    label: Option A
+    label:
+      en: Option A
+      zh-hans: 选项 A
+      zh-hant: 選項 A
+      ja: オプション A
+      ko: 옵션 A
+      fr: Option A
+      es: Opción A
+    description:
+      en: Enable option A for this example.
+      zh-hans: 为此示例启用选项 A。
+      zh-hant: 為此範例啟用選項 A。
+      ja: この例でオプション A を有効にします。
+      ko: 이 예제에서 옵션 A를 활성화합니다.
+      fr: Active l’option A pour cet exemple.
+      es: Activa la opción A para este ejemplo.
     type: boolean
     default value: true
-action:
-  title:
-    en: 'Action'
-    zh-Hans: '动作'
-    zh-Hant: '動作'
-    ja: 'アクション'
-  icon: square filled A
-  javascript file: actionA.js
-  after: show-result
+actions:
+  - identifier: action-a
+    title:
+      en: 'Action'
+      zh-hans: '动作'
+      zh-hant: '動作'
+      ja: 'アクション'
+      ko: '동작'
+      fr: 'Action'
+      es: 'Acción'
+    icon: square filled A
+    javascript file: actionA.js
+    after: show-result

@@ -4,27 +4,80 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
   <dict>
-    <key>Extension Name</key>
-    <!-- replace your extension name -->
-    <string>{EXT_NAME}</string>
-    <key>Extension Identifier</key>
-    <!-- change your extension id -->
-    <string>your.domain.popclip.extension.{EXT_ID}</string>
-    <key>Extension Description</key>
-    <!-- and description -->
-    <string>{EXT_DESCRIPTION}</string>
-    <key>Actions</key>
-    <!-- for more infomation visit https://github.com/pilotmoon/PopClip-Extensions -->
+    <key>identifier</key>
+    <string>your.domain.popclip.extension.template_plist</string>
+    <key>version</key>
+    <integer>1</integer>
+    <key>popclip version</key>
+    <integer>6159</integer>
+    <key>name</key>
+    <dict>
+      <key>en</key>
+      <string>Extension Name</string>
+      <key>zh-hans</key>
+      <string>扩展名</string>
+      <key>zh-hant</key>
+      <string>擴充功能名稱</string>
+      <key>ja</key>
+      <string>拡張機能名</string>
+      <key>ko</key>
+      <string>확장 프로그램 이름</string>
+      <key>fr</key>
+      <string>Nom de l’extension</string>
+      <key>es</key>
+      <string>Nombre de la extensión</string>
+    </dict>
+    <key>description</key>
+    <dict>
+      <key>en</key>
+      <string>Description of the extension</string>
+      <key>zh-hans</key>
+      <string>扩展功能说明</string>
+      <key>zh-hant</key>
+      <string>擴充功能說明</string>
+      <key>ja</key>
+      <string>拡張機能の説明</string>
+      <key>ko</key>
+      <string>확장 프로그램 설명</string>
+      <key>fr</key>
+      <string>Description de l’extension</string>
+      <key>es</key>
+      <string>Descripción de la extensión</string>
+    </dict>
+    <key>keywords</key>
+    <string>template example</string>
+    <key>requirements</key>
+    <array>
+      <string>text</string>
+    </array>
+    <key>actions</key>
     <array>
       <dict>
-        <key>URL</key>
-        <string>https://phpz.xyz/popclip/{popclip text}</string>
-        <key>Image File</key>
+        <key>identifier</key>
+        <string>action-a</string>
+        <key>url</key>
+        <string>https://example.com/search?q={popclip text}</string>
+        <key>icon</key>
         <string>icon.png</string>
-        <key>Title</key>
-        <string>{ACTION_NAME}</string>
-        <key>Regular Expression</key>
-        <string> (?s)^.{1,777}$</string>
+        <key>title</key>
+        <dict>
+          <key>en</key>
+          <string>Action</string>
+          <key>zh-hans</key>
+          <string>动作</string>
+          <key>zh-hant</key>
+          <string>動作</string>
+          <key>ja</key>
+          <string>アクション</string>
+          <key>ko</key>
+          <string>동작</string>
+          <key>fr</key>
+          <string>Action</string>
+          <key>es</key>
+          <string>Acción</string>
+        </dict>
+        <key>regex</key>
+        <string>(?s)^.{1,777}$</string>
       </dict>
     </array>
   </dict>

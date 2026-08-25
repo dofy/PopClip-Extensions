@@ -1,12 +1,42 @@
 #popclip
 # DOCS: https://www.popclip.app/dev/snippets
-name: Name
+name:
+  en: YAML Snippet Template
+  zh-hans: YAML Snippet 模板
+  zh-hant: YAML Snippet 範本
+  ja: YAML snippet テンプレート
+  ko: YAML 스니펫 템플릿
+  fr: Modèle de snippet YAML
+  es: Plantilla de snippet YAML
+description:
+  en: A starter PopClip snippet with two paste actions.
+  zh-hans: 包含两个粘贴动作的 PopClip snippet 入门模板。
+  zh-hant: 包含兩個貼上動作的 PopClip snippet 入門範本。
+  ja: 2 つの貼り付けアクションを備えた PopClip snippet のスターターテンプレートです。
+  ko: 두 개의 붙여넣기 동작이 포함된 PopClip 스니펫 시작 템플릿입니다.
+  fr: Modèle de départ PopClip avec deux actions de collage.
+  es: Plantilla inicial de PopClip con dos acciones de pegado.
+keywords: template example
 icon: iconify:ion:fish
 requirements: [text, paste]
 actions:
-  - title: Action 1
+  - title:
+      en: Action 1
+      zh-hans: 动作 1
+      zh-hant: 動作 1
+      ja: アクション 1
+      ko: 동작 1
+      fr: Action 1
+      es: Acción 1
     icon: circle filled 1
     javascript: "popclip.pasteText(`Action 1: ${popclip.input.text}`)"
-  - title: Action 2
+  - title:
+      en: Action 2
+      zh-hans: 动作 2
+      zh-hant: 動作 2
+      ja: アクション 2
+      ko: 동작 2
+      fr: Action 2
+      es: Acción 2
     icon: circle filled 2
     javascript: "popclip.pasteText(`Action 2: ${popclip.input.text}`)"
