@@ -66,26 +66,52 @@ directory package glob:
 
 ## Build
 
-Run without arguments to open the interactive build menu:
+`build.sh` builds, installs, creates, and removes PopClip packages and snippets.
+Run it without arguments to open the interactive menu, which provides these
+actions:
+
+- Build a package
+- Build and install a package
+- Build a snippet
+- Build and install a snippet
+- Create a package from a template
+- Create a snippet from a template
+- Remove source and generated files after confirmation
 
 ```sh
 ./build.sh
 ```
 
-The menu can build or install packages and snippets, create sources from
-templates, and remove a source with confirmation. For automation, build one
-package or snippet with:
+For direct commands, use the following:
 
 ```sh
 ./build.sh PinYin
 ./build.sh build PinYin
 ./build.sh install PinYin
 ./build.sh build FancyText
+./build.sh create-package yaml NewExtension
+./build.sh create-snippet javascript NewSnippet
+./build.sh remove NewExtension
+./build.sh help
 ```
 
-The result is written to `dist/`. Legacy options such as `./build.sh -i
-PinYin` remain supported. Run `./build.sh -h` for all commands and template
-formats.
+`./build.sh NAME` is shorthand for `./build.sh build NAME`.
+
+`build NAME` builds either `src/NAME.popclipext/` or a snippet source in `src/`
+and writes the result to `dist/NAME.popclipextz` or
+`dist/NAME.popcliptxt`. `install NAME` builds the target and opens the
+generated file with macOS `open` for installation in PopClip.
+
+The available package template formats are `plist`, `yaml`, `json`, and
+`module`. The available snippet template formats are `javascript`,
+`typescript`, and `yaml`. A module package contains a YAML configuration and
+TypeScript source. Package names may contain letters, numbers, dots, hyphens,
+and underscores.
+
+Package builds validate that the package contains exactly one root `Config`
+file and no more than 100 files, 1 MB per file, or 2 MB in total. `remove NAME`
+deletes the matching source and generated files only after an interactive
+confirmation. Run `./build.sh help` to print the command reference.
 
 ## Directory submission
 

@@ -58,22 +58,40 @@
 
 ## 建置
 
-不帶參數執行即可開啟互動式建置選單：
+`build.sh` 用於建置、安裝、建立與移除 PopClip 擴充功能套件及 snippet。不帶參數執行時會開啟互動式選單，提供以下操作：
+
+- 建置擴充功能套件
+- 建置並安裝擴充功能套件
+- 建置 snippet
+- 建置並安裝 snippet
+- 根據範本建立擴充功能套件
+- 根據範本建立 snippet
+- 確認後移除原始檔與產生檔
 
 ```sh
 ./build.sh
 ```
 
-選單可以建置或安裝擴充功能與 snippet、根據範本建立原始檔，並在確認後移除原始檔。自動化建置單一擴充功能或 snippet：
+直接執行命令時，可以使用：
 
 ```sh
 ./build.sh PinYin
 ./build.sh build PinYin
 ./build.sh install PinYin
 ./build.sh build FancyText
+./build.sh create-package yaml NewExtension
+./build.sh create-snippet javascript NewSnippet
+./build.sh remove NewExtension
+./build.sh help
 ```
 
-結果會寫入 `dist/`。舊版參數（例如 `./build.sh -i PinYin`）仍然支援。執行 `./build.sh -h` 查看所有命令與範本格式。
+`./build.sh NAME` 是 `./build.sh build NAME` 的簡寫。
+
+`build NAME` 會建置 `src/NAME.popclipext/` 或 `src/` 中的 snippet 原始檔，並將結果寫入 `dist/NAME.popclipextz` 或 `dist/NAME.popcliptxt`。`install NAME` 會先建置目標，再使用 macOS 的 `open` 命令開啟產生檔案，以便在 PopClip 中安裝。
+
+可用的擴充功能套件範本格式有 `plist`、`yaml`、`json` 和 `module`；可用的 snippet 範本格式有 `javascript`、`typescript` 和 `yaml`。Module 擴充功能套件包含 YAML 設定與 TypeScript 原始碼。擴充功能名稱只能包含字母、數字、點號、連字號與底線。
+
+建置擴充功能套件時會檢查：根目錄必須恰好包含一個 `Config` 檔案，檔案總數不超過 100 個，單一檔案不超過 1 MB，總大小不超過 2 MB。`remove NAME` 只有在互動確認後才會刪除對應的原始檔與產生檔。執行 `./build.sh help` 可查看命令參考。
 
 ## 提交至目錄
 

@@ -58,22 +58,40 @@ macOS 向けの PopClip 拡張機能と snippet 拡張機能のコレクショ�
 
 ## ビルド
 
-引数なしで実行すると、対話式のビルドメニューが開きます。
+`build.sh` は PopClip のパッケージと snippet のビルド、インストール、作成、削除を行います。引数なしで実行すると対話式メニューが開き、次の操作を選べます。
+
+- パッケージをビルド
+- パッケージをビルドしてインストール
+- snippet をビルド
+- snippet をビルドしてインストール
+- テンプレートからパッケージを作成
+- テンプレートから snippet を作成
+- 確認後にソースと生成ファイルを削除
 
 ```sh
 ./build.sh
 ```
 
-メニューでは、拡張機能と snippet のビルドまたはインストール、テンプレートからのソース作成、確認後のソース削除を行えます。自動化する場合は、次のように 1 つの拡張機能または snippet をビルドします。
+直接コマンドを実行する場合は、次のようにします。
 
 ```sh
 ./build.sh PinYin
 ./build.sh build PinYin
 ./build.sh install PinYin
 ./build.sh build FancyText
+./build.sh create-package yaml NewExtension
+./build.sh create-snippet javascript NewSnippet
+./build.sh remove NewExtension
+./build.sh help
 ```
 
-結果は `dist/` に出力されます。`./build.sh -i PinYin` などの旧形式のオプションも引き続き使用できます。すべてのコマンドとテンプレート形式は `./build.sh -h` で確認できます。
+`./build.sh NAME` は `./build.sh build NAME` の短縮形です。
+
+`build NAME` は `src/NAME.popclipext/` または `src/` 内の snippet ソースをビルドし、結果を `dist/NAME.popclipextz` または `dist/NAME.popcliptxt` に出力します。`install NAME` は対象をビルドした後、macOS の `open` コマンドで生成ファイルを開き、PopClip へのインストールを開始します。
+
+利用できるパッケージテンプレート形式は `plist`、`yaml`、`json`、`module` です。snippet テンプレート形式は `javascript`、`typescript`、`yaml` です。Module パッケージには YAML 設定と TypeScript ソースが含まれます。名前には英字、数字、ドット、ハイフン、アンダースコアを使用できます。
+
+パッケージのビルドでは、ルートに `Config` ファイルが 1 つだけあること、ファイル数が 100 以下であること、1 ファイルが 1 MB 以下であること、合計サイズが 2 MB 以下であることを検証します。`remove NAME` は対話式の確認後に、対応するソースと生成ファイルだけを削除します。コマンド一覧は `./build.sh help` で表示できます。
 
 ## ディレクトリへの提出
 

@@ -58,22 +58,40 @@
 
 ## 构建
 
-不带参数运行即可打开交互式构建菜单：
+`build.sh` 用于构建、安装、创建和删除 PopClip 扩展包及 snippet。不带参数运行时会打开交互式菜单，提供以下操作：
+
+- 构建扩展包
+- 构建并安装扩展包
+- 构建 snippet
+- 构建并安装 snippet
+- 根据模板创建扩展包
+- 根据模板创建 snippet
+- 确认后删除源文件和生成文件
 
 ```sh
 ./build.sh
 ```
 
-菜单可以构建或安装扩展和 snippet、根据模板创建源文件，并在确认后移除源文件。自动化构建单个扩展或 snippet：
+直接执行命令时，可以使用：
 
 ```sh
 ./build.sh PinYin
 ./build.sh build PinYin
 ./build.sh install PinYin
 ./build.sh build FancyText
+./build.sh create-package yaml NewExtension
+./build.sh create-snippet javascript NewSnippet
+./build.sh remove NewExtension
+./build.sh help
 ```
 
-结果会写入 `dist/`。旧版参数（例如 `./build.sh -i PinYin`）仍然支持。运行 `./build.sh -h` 查看所有命令和模板格式。
+`./build.sh NAME` 是 `./build.sh build NAME` 的简写。
+
+`build NAME` 会构建 `src/NAME.popclipext/` 或 `src/` 中的 snippet 源文件，并将结果写入 `dist/NAME.popclipextz` 或 `dist/NAME.popcliptxt`。`install NAME` 会先构建目标，然后使用 macOS 的 `open` 命令打开生成文件，以便在 PopClip 中安装。
+
+可用的扩展包模板格式有 `plist`、`yaml`、`json` 和 `module`；可用的 snippet 模板格式有 `javascript`、`typescript` 和 `yaml`。Module 扩展包包含 YAML 配置和 TypeScript 源码。扩展名称只能包含字母、数字、点号、连字符和下划线。
+
+构建扩展包时会检查：根目录必须恰好包含一个 `Config` 文件，文件总数不超过 100 个，单个文件不超过 1 MB，总大小不超过 2 MB。`remove NAME` 只有在交互确认后才会删除对应的源文件和生成文件。运行 `./build.sh help` 可查看命令参考。
 
 ## 提交到目录
 
