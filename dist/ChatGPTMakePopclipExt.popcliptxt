@@ -34,6 +34,8 @@ delay 0.5
 
 tell application "System Events"
   -- Open the ChatGPT quick conversation dialog without using the global Chat Bar shortcut.
+  key code 53
+  delay 0.2
   keystroke "n" using {command down, option down}
   delay 0.5
   keystroke "v" using {command down}
