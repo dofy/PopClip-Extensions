@@ -35,7 +35,18 @@ const pin2zhu = (pin) => {
   return result
 }
 
-return popclip.input.text
+const result = popclip.input.text
   .split('')
   .map((char) => (chars[char] ? `${pin2zhu(chars[char])} ` : char))
   .join('');
+
+const outputMode = popclip.options['output_mode'] || 'show-copy';
+
+if (outputMode === 'show') {
+  popclip.showText(result);
+} else if (outputMode === 'copy') {
+  await popclip.copyText(result);
+} else {
+  await popclip.copyText(result, { notify: false });
+  popclip.showText(result);
+}

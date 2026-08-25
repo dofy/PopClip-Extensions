@@ -2,7 +2,7 @@ name:
   en: PinYin
   zh-Hans: 拼音
   zh-Hant: 拼音
-version: 3
+version: 4
 identifier: xyz.phpz.popclip.extension.pinyin
 icon: 拼
 popclip version: 5992
@@ -53,6 +53,29 @@ options:
       - en: Tone Alphabet (ㄆㄧㄣ)
         zh-Hans: 无音调 (ㄆㄧㄣ)
         zh-Hant: 無音調 (ㄆㄧㄣ)
+  - identifier: output_mode
+    label:
+      en: Output
+      zh-Hans: 输出方式
+      zh-Hant: 輸出方式
+    description:
+      en: Choose whether to show the result, copy it, or do both.
+      zh-Hans: 选择仅显示、仅复制，或显示并复制结果。
+      zh-Hant: 選擇僅顯示、僅複製，或顯示並複製結果。
+    type: multiple
+    values: [show, show-copy, copy]
+    value labels:
+      - en: Show Result Only
+        zh-Hans: 仅显示结果
+        zh-Hant: 僅顯示結果
+      - en: Show and Copy
+        zh-Hans: 显示并复制
+        zh-Hant: 顯示並複製
+      - en: Copy Only
+        zh-Hans: 仅复制
+        zh-Hant: 僅複製
+    default value: show-copy
+    inset: true
 actions:
   - submenu:
       - title:
@@ -61,11 +84,9 @@ actions:
           zh-Hant: 拼音
         icon: 拼
         javascript file: pinyin.js
-        after: show-result
       - title:
           en: Zhuyin
           zh-Hans: 注音
           zh-Hant: 注音
         icon: 注
         javascript file: zhuyin.js
-        after: show-result
