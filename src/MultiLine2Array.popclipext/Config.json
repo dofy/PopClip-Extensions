@@ -16,7 +16,7 @@
     "en": "Convert multi-line text to a JavaScript array.",
     "zh-hans": "将多行文本转换为 JavaScript 数组。",
     "zh-hant": "將多行文字轉換為 JavaScript 陣列。",
-    "ja": "複数行テキストを JavaScript 配列に変換します。",
+    "ja": "複数行テキストをJavaScript配列に変換します。",
     "ko": "여러 줄 텍스트를 JavaScript 배열로 변환합니다.",
     "fr": "Convertir un texte multiligne en tableau JavaScript.",
     "es": "Convierte texto multilínea en un array de JavaScript."

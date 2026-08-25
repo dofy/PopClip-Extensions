@@ -7,7 +7,7 @@
 //   en: JavaScript Snippet Template
 //   zh-hans: JavaScript Snippet 模板
 //   zh-hant: JavaScript Snippet 範本
-//   ja: JavaScript snippet テンプレート
+//   ja: JavaScript snippetのテンプレート
 //   ko: JavaScript 스니펫 템플릿
 //   fr: Modèle de snippet JavaScript
 //   es: Plantilla de snippet JavaScript
@@ -15,7 +15,7 @@
 //   en: A starter PopClip snippet with three example actions.
 //   zh-hans: 包含三个示例动作的 PopClip snippet 入门模板。
 //   zh-hant: 包含三個範例動作的 PopClip snippet 入門範本。
-//   ja: 3 つのサンプルアクションを備えた PopClip snippet のスターターテンプレートです。
+//   ja: 3つのサンプルアクションを備えたPopClip snippetのスターターテンプレートです。
 //   ko: 세 가지 예제 동작이 포함된 PopClip 스니펫 시작 템플릿입니다.
 //   fr: Modèle de départ PopClip avec trois actions d’exemple.
 //   es: Plantilla inicial de PopClip con tres acciones de ejemplo.

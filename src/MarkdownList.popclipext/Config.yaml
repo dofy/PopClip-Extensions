@@ -3,7 +3,7 @@ name:
   en: Markdown List
   zh-hans: Markdown 列表
   zh-hant: Markdown 列表
-  ja: Markdown リスト
+  ja: Markdownリスト
   ko: Markdown 목록
   fr: Liste Markdown
   es: Lista Markdown
@@ -15,7 +15,7 @@ description:
   en: Convert selected multi-line text into a Markdown list.
   zh-hans: 将选中的多行文本转换为 Markdown 列表。
   zh-hant: 將選取的多行文字轉換為 Markdown 清單。
-  ja: 選択した複数行テキストを Markdown リストに変換します。
+  ja: 選択した複数行テキストをMarkdownリストに変換します。
   ko: 선택한 여러 줄 텍스트를 Markdown 목록으로 변환합니다.
   fr: Convertir le texte multiligne sélectionné en liste Markdown.
   es: Convierte el texto multilínea seleccionado en una lista Markdown.

@@ -37,7 +37,7 @@ options:
       en: 'An integer between 4 and 256. Defaults to 16 if empty or invalid.'
       zh-hans: '4 到 256 之间的整数,留空或非法时使用 16。'
       zh-hant: '4 到 256 之間的整數,留空或非法時使用 16。'
-      ja: '4 から 256 の整数。空欄・不正時は 16。'
+      ja: '4から256の整数。空欄・不正時は16。'
       ko: '4에서 256 사이의 정수입니다. 비어 있거나 잘못되면 16을 사용합니다.'
       fr: 'Un entier entre 4 et 256. La valeur 16 est utilisée si le champ est vide ou invalide.'
       es: 'Un entero entre 4 y 256. Se usa 16 si está vacío o no es válido.'

@@ -16,7 +16,7 @@
     "en": "Generate an image from selected code with ray.so.",
     "zh-hans": "使用 ray.so 将选中的代码生成图片。",
     "zh-hant": "使用 ray.so 將選取的程式碼產生圖片。",
-    "ja": "選択したコードから ray.so で画像を生成します。",
+    "ja": "選択したコードからray.soで画像を生成します。",
     "ko": "선택한 코드로 ray.so 이미지를 생성합니다.",
     "fr": "Générer une image à partir du code sélectionné avec ray.so.",
     "es": "Genera una imagen del código seleccionado con ray.so."
@@ -40,7 +40,7 @@
         "en": "Use auto for automatic detection, or enter a ray.so language identifier.",
         "zh-hans": "使用 auto 自动检测，也可以输入 ray.so 支持的语言标识符。",
         "zh-hant": "使用 auto 自動偵測，也可以輸入 ray.so 支援的語言識別碼。",
-        "ja": "自動検出には auto を使用するか、ray.so の言語識別子を入力してください。",
+        "ja": "自動検出にはautoを使用するか、ray.soの言語識別子を入力してください。",
         "ko": "자동 감지에는 auto를 사용하거나 ray.so 언어 식별자를 입력하세요.",
         "fr": "Utilisez auto pour la détection automatique ou saisissez un identifiant de langue ray.so.",
         "es": "Usa auto para la detección automática o introduce un identificador de idioma de ray.so."

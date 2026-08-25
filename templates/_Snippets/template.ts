@@ -7,7 +7,7 @@
 //   en: TypeScript Snippet Template
 //   zh-hans: TypeScript Snippet 模板
 //   zh-hant: TypeScript Snippet 範本
-//   ja: TypeScript snippet テンプレート
+//   ja: TypeScript snippetのテンプレート
 //   ko: TypeScript 스니펫 템플릿
 //   fr: Modèle de snippet TypeScript
 //   es: Plantilla de snippet TypeScript
@@ -15,7 +15,7 @@
 //   en: A starter PopClip snippet with two example actions.
 //   zh-hans: 包含两个示例动作的 PopClip snippet 入门模板。
 //   zh-hant: 包含兩個範例動作的 PopClip snippet 入門範本。
-//   ja: 2 つのサンプルアクションを備えた PopClip snippet のスターターテンプレートです。
+//   ja: 2つのサンプルアクションを備えたPopClip snippetのスターターテンプレートです。
 //   ko: 두 가지 예제 동작이 포함된 PopClip 스니펫 시작 템플릿입니다.
 //   fr: Modèle de départ PopClip avec deux actions d’exemple.
 //   es: Plantilla inicial de PopClip con dos acciones de ejemplo.

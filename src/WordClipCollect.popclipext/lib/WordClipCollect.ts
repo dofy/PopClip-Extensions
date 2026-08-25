@@ -6,7 +6,7 @@ const extension: Extension = {
       {
         title: {
           en: `Add to WordClip: ${word}`,
-          ja: `WordClip に追加: ${word}`,
+          ja: `WordClipに追加: ${word}`,
           'zh-hans': `添加到 WordClip: ${word}`,
           'zh-hant': `加入 WordClip: ${word}`,
           ko: `WordClip에 추가: ${word}`,

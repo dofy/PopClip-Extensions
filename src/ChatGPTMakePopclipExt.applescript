@@ -3,7 +3,7 @@
 --   en: ChatGPT generate PopClip Snippets
 --   zh-hans: ChatGPT 生成 PopClip 片段
 --   zh-hant: ChatGPT 產生 PopClip 片段
---   ja: ChatGPT で PopClip スニペットを生成
+--   ja: ChatGPTでPopClipスニペットを生成
 --   ko: ChatGPT로 PopClip 스니펫 생성
 --   fr: Générer des snippets PopClip avec ChatGPT
 --   es: Generar snippets de PopClip con ChatGPT
