@@ -6,7 +6,9 @@ name:
   ja: JSON 形式
 version: 2
 identifier: xyz.phpz.popclip.extension.format-json
+popclip version: 5992
 icon: circle J
+description: Format selected JSON text with configurable indentation.
 options:
   - identifier: indent
     label: Use Tab / Space

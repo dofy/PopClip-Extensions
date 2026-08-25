@@ -58,10 +58,11 @@ create_package() {
   fi
   SRC=$2
   TMP=$TEMP_ROOT/$TYPE
-  if [ -f "$SRC_ROOT/$SRC.*" ] || [ -d "$SRC_ROOT$SRC" ]; then
+  if [ -f "$SRC_ROOT/$SRC.*" ] || [ -d "$SRC_ROOT$SRC.popclipext" ]; then
     die "The extension \"$SRC\" already exists!"
   else
-    cp -R "$TMP/" "$SRC_ROOT$SRC/"
+    mkdir -p "$SRC_ROOT$SRC.popclipext"
+    cp -R "$TMP/" "$SRC_ROOT$SRC.popclipext/"
     echo "Extension \"$SRC\" has been created."
     echo "You can edit it now."
   fi
@@ -80,7 +81,7 @@ create_snippet() {
   FILE_NAME=$SRC$TYPE
   TMP=$TEMP_ROOT/_Snippets/template$TYPE
   echo $TMP
-  if [ -f "$SRC_ROOT$SRC.*" ] || [ -d "$SRC_ROOT$SRC" ]; then
+  if [ -f "$SRC_ROOT$SRC.*" ] || [ -d "$SRC_ROOT$SRC.popclipext" ]; then
     die "The extension \"$SRC\" already exists!"
   else
     cp "$TMP" "$SRC_ROOT$FILE_NAME"
@@ -91,10 +92,10 @@ create_snippet() {
 
 build() {
   SRC=$1
-  if [ -d "$SRC_ROOT$SRC" ]; then
+  if [ -d "$SRC_ROOT$SRC.popclipext" ]; then
     rm -rf "$DIST_ROOT$SRC$EXT" "$DIST_ROOT$SRC$EXTz"
     mkdir -p "$DIST_ROOT$SRC$EXT"
-    cp -R "$SRC_ROOT$SRC/" "$DIST_ROOT$SRC$EXT/"
+    cp -R "$SRC_ROOT$SRC.popclipext/" "$DIST_ROOT$SRC$EXT/"
     cd "$DIST_ROOT"
     zip -r -m -q "$SRC$EXTz" "$SRC$EXT"
     cd ..
@@ -123,7 +124,7 @@ remove() {
   while true; do
     case $CONFIRM in
     [yY]*)
-      rm -rf "$SRC_ROOT$SRC" "$SRC_ROOT$SRC".* "$DIST_ROOT$SRC".*
+      rm -rf "$SRC_ROOT$SRC.popclipext" "$SRC_ROOT$SRC".* "$DIST_ROOT$SRC".*
       echo "Extension \"$SRC\" has been removed."
       ;;
     [nN]* | *) ;;

@@ -2,6 +2,7 @@
   "identifier": "xyz.phpz.popclip.extension.ray-so",
   "icon": "symbol:filemenu.and.selection",
   "version": 3,
+  "popclipVersion": 5992,
   "name": "ray.so",
   "description": "Generate a image from code with ray.so",
   "options": [

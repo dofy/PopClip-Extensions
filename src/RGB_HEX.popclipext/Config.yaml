@@ -5,6 +5,7 @@ name:
   ja: 'カラー変換'
 version: 1
 identifier: xyz.phpz.popclip.extension.rgbhex
+popclip version: 5992
 icon: icon.png
 description: RGB to Hex or Hex to RGB
 requirements: [text, paste]

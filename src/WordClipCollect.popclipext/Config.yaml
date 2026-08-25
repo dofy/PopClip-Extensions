@@ -5,6 +5,7 @@ name:
   ja: WordClip に追加
 icon: assets/wordclip.svg
 identifier: xyz.phpz.popclip.extension.wordclip-collect
+popclip version: 5992
 description:
   Collect the selected word into the WordClip app via wordclip://collect?word=<word>.
 entitlements:
