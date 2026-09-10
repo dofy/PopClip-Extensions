@@ -21,7 +21,7 @@
 | Markdown List | 將多行文字轉換為有序或無序 Markdown 清單。 | [原始碼](src/MarkdownList.popclipext/) | [安裝](dist/MarkdownList.popclipextz) |
 | Mosaic Text | 使用可設定的馬賽克字元取代文字。 | [原始碼](src/MosaicText.popclipext/) | [安裝](dist/MosaicText.popclipextz) |
 | Multi-Line to Array | 將多行文字轉換為 JavaScript 陣列。 | [原始碼](src/MultiLine2Array.popclipext/) | [安裝](dist/MultiLine2Array.popclipextz) |
-| Open GitHub Repo | 根據 `AUTHOR/REPO` 文字開啟儲存庫。 | [原始碼](src/OpenGitHubRepo.popclipext/) | [安裝](dist/OpenGitHubRepo.popclipextz) |
+| Open GitHub Repo | 根據 `AUTHOR/REPO` 或 scoped npm 套件文字開啟儲存庫。 | [原始碼](src/OpenGitHubRepo.popclipext/) | [安裝](dist/OpenGitHubRepo.popclipextz) |
 | PinYin | 將中文文字轉換為拼音或注音。 | [原始碼](src/PinYin.popclipext/) | [安裝](dist/PinYin.popclipextz) |
 | Color Conversion | 轉換 RGB 與十六進位顏色。 | [原始碼](src/RGB_HEX.popclipext/) | [安裝](dist/RGB_HEX.popclipextz) |
 | Text Repeater | 使用倍數後綴重複文字。 | [原始碼](src/TextRepeater.popclipext/) | [安裝](dist/TextRepeater.popclipextz) |

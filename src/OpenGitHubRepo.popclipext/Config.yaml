@@ -10,15 +10,15 @@ icon: assets/github.svg
 identifier: org.phpz.popclip.extension.open-github-repo
 popclip version: 6159
 description:
-  en: Open a GitHub repository in a web browser from selected text like AUTHOR/REPO.
-  zh-hans: 根据类似 AUTHOR/REPO 的选中文本在浏览器中打开 GitHub 仓库。
-  zh-hant: 根據類似 AUTHOR/REPO 的選取文字在瀏覽器中開啟 GitHub 儲存庫。
-  ja: AUTHOR/REPOの形式で選択したテキストからGitHubリポジトリをブラウザで開きます。
-  ko: AUTHOR/REPO 형식의 선택한 텍스트로 GitHub 저장소를 브라우저에서 엽니다.
-  fr: Ouvre dans un navigateur un dépôt GitHub à partir d’un texte comme AUTHOR/REPO.
-  es: Abre en el navegador un repositorio de GitHub a partir de texto como AUTHOR/REPO.
-keywords: github repository repo browser
-regex: ^\s*[\w\-\.]+\s*/\s*[\w\-\.]+\s*$
+  en: Open a GitHub repository from selected text containing a GitHub URL, AUTHOR/REPO, or a scoped npm package.
+  zh-hans: 根据包含 GitHub URL、AUTHOR/REPO 或 scoped npm 包的选中文本打开 GitHub 仓库。
+  zh-hant: 根據包含 GitHub URL、AUTHOR/REPO 或 scoped npm 套件的選取文字開啟 GitHub 儲存庫。
+  ja: GitHub URL、AUTHOR/REPOまたはscoped npmパッケージを含む選択テキストからGitHubリポジトリを開きます。
+  ko: GitHub URL, AUTHOR/REPO 또는 scoped npm 패키지를 포함한 선택 텍스트에서 GitHub 저장소를 엽니다.
+  fr: Ouvre un dépôt GitHub à partir d’un texte contenant une URL GitHub, AUTHOR/REPO ou un paquet npm scoped.
+  es: Abre un repositorio desde texto que contenga una URL de GitHub, AUTHOR/REPO o un paquete npm con scope.
+keywords: github repository repo browser npm package
+regex: '[\w\-\.]+\s*/\s*[\w\-\.]+'
 entitlements:
   - dynamic
 options:
@@ -32,4 +32,5 @@ options:
       fr: Nom d’utilisateur GitHub
       es: Nombre de usuario de GitHub
     type: string
+    inset: true
 module: lib/GitHubRepo.ts

@@ -25,7 +25,7 @@ These 14 packages are configured for submission to the
 | Markdown List | Convert lines to numbered or bulleted Markdown. | [Source](src/MarkdownList.popclipext/) | [Install](dist/MarkdownList.popclipextz) |
 | Mosaic Text | Replace text with a configurable mosaic character. | [Source](src/MosaicText.popclipext/) | [Install](dist/MosaicText.popclipextz) |
 | Multi-Line to Array | Convert lines into a JavaScript array. | [Source](src/MultiLine2Array.popclipext/) | [Install](dist/MultiLine2Array.popclipextz) |
-| Open GitHub Repo | Open a repository from `AUTHOR/REPO` text. | [Source](src/OpenGitHubRepo.popclipext/) | [Install](dist/OpenGitHubRepo.popclipextz) |
+| Open GitHub Repo | Open a repository from `AUTHOR/REPO` or scoped npm package text. | [Source](src/OpenGitHubRepo.popclipext/) | [Install](dist/OpenGitHubRepo.popclipextz) |
 | PinYin | Convert Chinese text to Pinyin or Zhuyin. | [Source](src/PinYin.popclipext/) | [Install](dist/PinYin.popclipextz) |
 | Color Conversion | Convert RGB and hexadecimal colors. | [Source](src/RGB_HEX.popclipext/) | [Install](dist/RGB_HEX.popclipextz) |
 | Text Repeater | Repeat text using a multiplier suffix. | [Source](src/TextRepeater.popclipext/) | [Install](dist/TextRepeater.popclipextz) |

@@ -21,7 +21,7 @@ macOS 向けの PopClip 拡張機能と snippet 拡張機能のコレクショ�
 | Markdown List | 行を番号付きまたは箇条書きの Markdown リストに変換します。 | [ソース](src/MarkdownList.popclipext/) | [インストール](dist/MarkdownList.popclipextz) |
 | Mosaic Text | 設定可能なモザイク文字でテキストを置き換えます。 | [ソース](src/MosaicText.popclipext/) | [インストール](dist/MosaicText.popclipextz) |
 | Multi-Line to Array | 複数行のテキストを JavaScript 配列に変換します。 | [ソース](src/MultiLine2Array.popclipext/) | [インストール](dist/MultiLine2Array.popclipextz) |
-| Open GitHub Repo | `AUTHOR/REPO` 形式のテキストからリポジトリを開きます。 | [ソース](src/OpenGitHubRepo.popclipext/) | [インストール](dist/OpenGitHubRepo.popclipextz) |
+| Open GitHub Repo | `AUTHOR/REPO`またはscoped npmパッケージのテキストからリポジトリを開きます。 | [ソース](src/OpenGitHubRepo.popclipext/) | [インストール](dist/OpenGitHubRepo.popclipextz) |
 | PinYin | 中国語テキストをピンインまたは注音に変換します。 | [ソース](src/PinYin.popclipext/) | [インストール](dist/PinYin.popclipextz) |
 | Color Conversion | RGB と 16 進数カラーを相互変換します。 | [ソース](src/RGB_HEX.popclipext/) | [インストール](dist/RGB_HEX.popclipextz) |
 | Text Repeater | 倍率のサフィックスを使ってテキストを繰り返します。 | [ソース](src/TextRepeater.popclipext/) | [インストール](dist/TextRepeater.popclipextz) |

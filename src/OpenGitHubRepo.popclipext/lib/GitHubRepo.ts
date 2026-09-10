@@ -1,8 +1,21 @@
 const GITHUB_DOMAIN = 'https://github.com'
+const NPM_DOMAIN = 'https://www.npmjs.com'
+const GITHUB_URL_PATTERN = /https?:\/\/(?:www\.)?github\.com\/([\w.-]+)\/([\w.-]+)/i
+const GITHUB_REPO_PATTERN = /[\w.-]+\s*\/\s*[\w.-]+/
+const NPM_PACKAGE_PATTERN =
+  /(@[a-z0-9][a-z0-9._-]*\/[a-z0-9][a-z0-9._-]*)(?:(?:\s+|@)v?(\d+\.\d+\.\d+(?:-[0-9a-z.-]+)?))?/i
 
 const extension: Extension = {
   actions: ({ text }, { username }) => {
-    const [user, repo] = text.replace(/\s+/g, '').split('/')
+    const npmPackageMatch = text.match(NPM_PACKAGE_PATTERN)
+    const githubUrlMatch = text.match(GITHUB_URL_PATTERN)
+    const githubRepoMatch = githubUrlMatch ? null : text.match(GITHUB_REPO_PATTERN)
+    if (!githubUrlMatch && !githubRepoMatch) return []
+
+    const [user, rawRepo] = githubUrlMatch
+      ? [githubUrlMatch[1], githubUrlMatch[2]]
+      : githubRepoMatch![0].replace(/\s+/g, '').split('/')
+    const repo = rawRepo.replace(/\.git$/i, '')
 
     const actions: Action[] = [
       {
@@ -38,6 +51,31 @@ const extension: Extension = {
           popclip.openUrl(`${GITHUB_DOMAIN}/${username}/${repo}`)
         },
       })
+
+    if (npmPackageMatch) {
+      const [, packageName, version] = npmPackageMatch
+      const packageLabel = `${packageName}${version ? `@${version}` : ''}`
+      const versionPath = version ? `/v/${encodeURIComponent(version)}` : ''
+
+      actions.push({
+        title: {
+          en: `Open npm Package: ${packageLabel}`,
+          ja: `npmパッケージを開く: ${packageLabel}`,
+          'zh-hans': `打开 npm 包: ${packageLabel}`,
+          'zh-hant': `打開 npm 套件: ${packageLabel}`,
+          ko: `npm 패키지 열기: ${packageLabel}`,
+          fr: `Ouvrir le paquet npm : ${packageLabel}`,
+          es: `Abrir paquete npm: ${packageLabel}`,
+        },
+        icon: 'square filled NPM',
+        code() {
+          popclip.openUrl(
+            `${NPM_DOMAIN}/package/${encodeURIComponent(packageName)}${versionPath}`,
+          )
+        },
+      })
+    }
+
     return actions
   },
 }
