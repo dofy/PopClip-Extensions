@@ -8,14 +8,18 @@ macOS 向けの PopClip 拡張機能と snippet 拡張機能のコレクショ�
 
 [`dist/`](dist/) にある `.popclipextz` ファイルを開くと、PopClip に拡張機能をインストールできます。Snippet 拡張機能には `.popcliptxt` 形式を使用します。
 
+PopClip は `.popclipextz` のインストール後に元のファイルを削除します（[公式ドキュメント](https://www.popclip.app/dev/packages)）。リポジトリ内のファイルを保持するには、ダウンロードまたはコピーしたファイルを開いてください。`./build.sh install NAME` は一時コピーを開き、`dist/` 内のパッケージを保持します。Emoji Append のようにネットワーク権限を宣言する未署名の JavaScript 拡張機能は、インストール時に警告が表示されます。
+
 ## 拡張機能
 
-以下の 14 個のパッケージは [PopClip 拡張機能ディレクトリ](https://www.popclip.app/extensions/) への提出用に設定されています。
+以下の 16 個のパッケージは [PopClip 拡張機能ディレクトリ](https://www.popclip.app/extensions/) への提出用に設定されています。
 
 | 拡張機能 | 説明 | ソース | パッケージ |
 | --- | --- | --- | --- |
 | Comment Switcher | 設定可能なプレフィックスで行コメントを切り替えます。 | [ソース](src/CommentSwitcher.popclipext/) | [インストール](dist/CommentSwitcher.popclipextz) |
 | DeepL Translator | DeepL アプリまたはウェブサイトでテキストを翻訳します。 | [ソース](src/DeepLTranslator.popclipext/) | [インストール](dist/DeepLTranslator.popclipextz) |
+| Emoji Append | カスタム API で原文の末尾に適切な emoji を 1～3 個追加します。 | [ソース](src/EmojiAppend.popclipext/) | [インストール](dist/EmojiAppend.popclipextz) |
+| LinguaDock Translate | LinguaDock アプリで選択したテキストを翻訳します。 | [ソース](src/LinguaDock.popclipext/) | [インストール](dist/LinguaDock.popclipextz) |
 | Format JSON | 設定可能なインデントで選択した JSON を整形します。 | [ソース](src/FormatJSON.popclipext/) | [インストール](dist/FormatJSON.popclipextz) |
 | Password Generator | 設定可能なランダムパスワードをローカルで生成します。 | [ソース](src/GeneratePassword.popclipext/) | [インストール](dist/GeneratePassword.popclipextz) |
 | Markdown List | 行を番号付きまたは箇条書きの Markdown リストに変換します。 | [ソース](src/MarkdownList.popclipext/) | [インストール](dist/MarkdownList.popclipextz) |
@@ -33,6 +37,8 @@ macOS 向けの PopClip 拡張機能と snippet 拡張機能のコレクショ�
 
 - [Comment Switcher](src/CommentSwitcher.popclipext/README.md)
 - [DeepL Translator](src/DeepLTranslator.popclipext/README.md)
+- [Emoji Append](src/EmojiAppend.popclipext/README.md)
+- [LinguaDock Translate](src/LinguaDock.popclipext/README.md)
 - [Format JSON](src/FormatJSON.popclipext/README.md)
 - [Password Generator](src/GeneratePassword.popclipext/README.md)
 - [Markdown List](src/MarkdownList.popclipext/README.md)
@@ -51,12 +57,27 @@ macOS 向けの PopClip 拡張機能と snippet 拡張機能のコレクショ�
 以下は独立した PopClip snippet 拡張機能で、ディレクトリ提出用の package glob には含まれません。
 
 - [Search in NPM](src/Search-in-NPM.yaml) · [インストール](dist/Search-in-NPM.popcliptxt)
-- [ChatGPT Make PopClip Extension](src/ChatGPTMakePopclipExt.applescript)
+- [ChatGPT Make PopClip Extension](src/ChatGPTMakePopclipExt.applescript) · [インストール](dist/ChatGPTMakePopclipExt.popcliptxt)
 
   > 選択したリクエストを ChatGPT のダイアログに送り、インストール可能な PopClip snippet を生成するよう依頼します。ChatGPT macOS アプリと、System Events へのアクセシビリティ権限が必要です。
-- [Fancy Text](src/FancyText.popcliptxt)
+- [Fancy Text](src/FancyText.popcliptxt) · [インストール](dist/FancyText.popcliptxt)
+
+## Raycast コマンド
+
+[Emoji Append for Raycast](Raycast/README.md) は通常のホットキーコマンドです。テキストを選択して **Append Contextual Emoji** を実行すると、原文の末尾に適切な emoji を追加して貼り付けます。API Base URL、API Key、モデル、emoji 数の上限は各拡張機能で個別に設定します。OpenAI-compatible Chat Completions API を使用し、Raycast AI Commands や Pro は不要です。`Raycast/` で `pnpm install --frozen-lockfile && pnpm dev` を実行するとローカルに追加できます。
 
 ## ビルド
+
+全 16 パッケージと 3 snippet を再ビルドし、`dist/` 内の同名ファイルを上書きします：
+
+```sh
+for package in src/*.popclipext; do
+  ./build.sh build "$(basename "$package" .popclipext)"
+done
+for snippet in ChatGPTMakePopclipExt FancyText Search-in-NPM; do
+  ./build.sh build "$snippet"
+done
+```
 
 `build.sh` は PopClip のパッケージと snippet のビルド、インストール、作成、削除を行います。引数なしで実行すると対話式メニューが開き、次の操作を選べます。
 
@@ -87,7 +108,7 @@ macOS 向けの PopClip 拡張機能と snippet 拡張機能のコレクショ�
 
 `./build.sh NAME` は `./build.sh build NAME` の短縮形です。
 
-`build NAME` は `src/NAME.popclipext/` または `src/` 内の snippet ソースをビルドし、結果を `dist/NAME.popclipextz` または `dist/NAME.popcliptxt` に出力します。`install NAME` は対象をビルドした後、macOS の `open` コマンドで生成ファイルを開き、PopClip へのインストールを開始します。
+`build NAME` は `src/NAME.popclipext/` または `src/` 内の snippet ソースをビルドし、結果を `dist/NAME.popclipextz` または `dist/NAME.popcliptxt` に出力します。`install NAME` は対象をビルドした後、macOS の `open` コマンドで一時コピーを開き、`dist/` 内の元ファイルを保持したまま PopClip へのインストールを開始します。
 
 利用できるパッケージテンプレート形式は `plist`、`yaml`、`json`、`module` です。snippet テンプレート形式は `javascript`、`typescript`、`yaml` です。Module パッケージには YAML 設定と TypeScript ソースが含まれます。名前には英字、数字、ドット、ハイフン、アンダースコアを使用できます。
 

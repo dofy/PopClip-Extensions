@@ -8,14 +8,18 @@
 
 開啟 [`dist/`](dist/) 中的 `.popclipextz` 檔案，即可在 PopClip 中安裝擴充功能。Snippet 擴充功能使用 `.popcliptxt` 格式。
 
+PopClip 安裝 `.popclipextz` 後會刪除原安裝套件（[官方說明](https://www.popclip.app/dev/packages)）。直接開啟前，請先下載或複製一份，保留儲存庫中的套件。`./build.sh install NAME` 會開啟暫存副本，保留 `dist/` 中的安裝套件。Emoji Append 等宣告網路權限的未簽署 JavaScript 擴充功能會顯示安裝警告。
+
 ## 擴充功能
 
-以下 14 個擴充功能已設定為提交至 [PopClip 擴充功能目錄](https://www.popclip.app/extensions/)：
+以下 16 個擴充功能已設定為提交至 [PopClip 擴充功能目錄](https://www.popclip.app/extensions/)：
 
 | 擴充功能 | 說明 | 原始碼 | 安裝套件 |
 | --- | --- | --- | --- |
 | Comment Switcher | 使用可設定的前綴切換行註解。 | [原始碼](src/CommentSwitcher.popclipext/) | [安裝](dist/CommentSwitcher.popclipextz) |
 | DeepL Translator | 使用 DeepL 應用程式或網站翻譯文字。 | [原始碼](src/DeepLTranslator.popclipext/) | [安裝](dist/DeepLTranslator.popclipextz) |
+| Emoji Append | 使用自訂 API，在原文末尾附加 1～3 個應景 emoji。 | [原始碼](src/EmojiAppend.popclipext/) | [安裝](dist/EmojiAppend.popclipextz) |
+| LinguaDock Translate | 使用 LinguaDock 應用程式翻譯選取的文字。 | [原始碼](src/LinguaDock.popclipext/) | [安裝](dist/LinguaDock.popclipextz) |
 | Format JSON | 使用可設定的縮排格式化選取的 JSON。 | [原始碼](src/FormatJSON.popclipext/) | [安裝](dist/FormatJSON.popclipextz) |
 | Password Generator | 在本機產生可設定的隨機密碼。 | [原始碼](src/GeneratePassword.popclipext/) | [安裝](dist/GeneratePassword.popclipextz) |
 | Markdown List | 將多行文字轉換為有序或無序 Markdown 清單。 | [原始碼](src/MarkdownList.popclipext/) | [安裝](dist/MarkdownList.popclipextz) |
@@ -33,6 +37,8 @@
 
 - [Comment Switcher](src/CommentSwitcher.popclipext/README.md)
 - [DeepL Translator](src/DeepLTranslator.popclipext/README.md)
+- [Emoji Append](src/EmojiAppend.popclipext/README.md)
+- [LinguaDock Translate](src/LinguaDock.popclipext/README.md)
 - [Format JSON](src/FormatJSON.popclipext/README.md)
 - [Password Generator](src/GeneratePassword.popclipext/README.md)
 - [Markdown List](src/MarkdownList.popclipext/README.md)
@@ -51,12 +57,27 @@
 以下是獨立的 PopClip snippet 擴充功能，不包含在目錄提交的 package glob 中：
 
 - [Search in NPM](src/Search-in-NPM.yaml) · [安裝](dist/Search-in-NPM.popcliptxt)
-- [ChatGPT Make PopClip Extension](src/ChatGPTMakePopclipExt.applescript)
+- [ChatGPT Make PopClip Extension](src/ChatGPTMakePopclipExt.applescript) · [安裝](dist/ChatGPTMakePopclipExt.popcliptxt)
 
   > 將選取的請求傳送到 ChatGPT 對話框，讓 ChatGPT 產生可安裝的 PopClip snippet。需要 ChatGPT macOS 應用程式，以及為 System Events 授予輔助功能權限。
-- [Fancy Text](src/FancyText.popcliptxt)
+- [Fancy Text](src/FancyText.popcliptxt) · [安裝](dist/FancyText.popcliptxt)
+
+## Raycast 一般命令
+
+[Emoji Append for Raycast](Raycast/README.md) 支援快捷鍵：選取文字，執行 **Append Contextual Emoji**，自動在原文末尾加入應景 emoji 並貼回。兩端分別設定 API Base URL、API Key、模型和 emoji 數量上限；使用 OpenAI-compatible Chat Completions API，不依賴 Raycast AI Command 或 Pro。在 `Raycast/` 中執行 `pnpm install --frozen-lockfile && pnpm dev` 即可加入本機命令。
 
 ## 建置
+
+批次重建全部 16 個擴充套件和 3 個 snippet，覆寫 `dist/` 中的同名檔案：
+
+```sh
+for package in src/*.popclipext; do
+  ./build.sh build "$(basename "$package" .popclipext)"
+done
+for snippet in ChatGPTMakePopclipExt FancyText Search-in-NPM; do
+  ./build.sh build "$snippet"
+done
+```
 
 `build.sh` 用於建置、安裝、建立與移除 PopClip 擴充功能套件及 snippet。不帶參數執行時會開啟互動式選單，提供以下操作：
 
@@ -87,7 +108,7 @@
 
 `./build.sh NAME` 是 `./build.sh build NAME` 的簡寫。
 
-`build NAME` 會建置 `src/NAME.popclipext/` 或 `src/` 中的 snippet 原始檔，並將結果寫入 `dist/NAME.popclipextz` 或 `dist/NAME.popcliptxt`。`install NAME` 會先建置目標，再使用 macOS 的 `open` 命令開啟產生檔案，以便在 PopClip 中安裝。
+`build NAME` 會建置 `src/NAME.popclipext/` 或 `src/` 中的 snippet 原始檔，並將結果寫入 `dist/NAME.popclipextz` 或 `dist/NAME.popcliptxt`。`install NAME` 會先建置目標，再使用 macOS 的 `open` 命令開啟暫存副本，以便在 PopClip 中安裝，並保留 `dist/` 中的原安裝套件。
 
 可用的擴充功能套件範本格式有 `plist`、`yaml`、`json` 和 `module`；可用的 snippet 範本格式有 `javascript`、`typescript` 和 `yaml`。Module 擴充功能套件包含 YAML 設定與 TypeScript 原始碼。擴充功能名稱只能包含字母、數字、點號、連字號與底線。
 

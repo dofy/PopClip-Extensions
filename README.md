@@ -11,15 +11,19 @@ packages in `dist/`.
 Open a `.popclipextz` file from [`dist/`](dist/) to install an extension in
 PopClip. Snippet extensions use the `.popcliptxt` format.
 
+PopClip deletes a `.popclipextz` file after installation ([official documentation](https://www.popclip.app/dev/packages)). Download or copy packages before opening them to keep the repository copy. `./build.sh install NAME` opens a temporary copy and retains the built file in `dist/`. Unsigned JavaScript extensions with network permissions, including Emoji Append, show an installation warning.
+
 ## Extensions
 
-These 14 packages are configured for submission to the
+These 16 packages are configured for submission to the
 [PopClip Extensions Directory](https://www.popclip.app/extensions/):
 
 | Extension | Description | Source | Package |
 | --- | --- | --- | --- |
 | Comment Switcher | Toggle line comments with a configurable prefix. | [Source](src/CommentSwitcher.popclipext/) | [Install](dist/CommentSwitcher.popclipextz) |
 | DeepL Translator | Translate with the DeepL app or website. | [Source](src/DeepLTranslator.popclipext/) | [Install](dist/DeepLTranslator.popclipextz) |
+| Emoji Append | Append 1–3 contextual emojis with a configurable API; preserve the original text. | [Source](src/EmojiAppend.popclipext/) | [Install](dist/EmojiAppend.popclipextz) |
+| LinguaDock Translate | Translate selected text with the LinguaDock app. | [Source](src/LinguaDock.popclipext/) | [Install](dist/LinguaDock.popclipextz) |
 | Format JSON | Format selected JSON with configurable indentation. | [Source](src/FormatJSON.popclipext/) | [Install](dist/FormatJSON.popclipextz) |
 | Password Generator | Generate configurable random passwords locally. | [Source](src/GeneratePassword.popclipext/) | [Install](dist/GeneratePassword.popclipextz) |
 | Markdown List | Convert lines to numbered or bulleted Markdown. | [Source](src/MarkdownList.popclipext/) | [Install](dist/MarkdownList.popclipextz) |
@@ -38,6 +42,8 @@ changelog:
 
 - [Comment Switcher](src/CommentSwitcher.popclipext/README.md)
 - [DeepL Translator](src/DeepLTranslator.popclipext/README.md)
+- [Emoji Append](src/EmojiAppend.popclipext/README.md)
+- [LinguaDock Translate](src/LinguaDock.popclipext/README.md)
 - [Format JSON](src/FormatJSON.popclipext/README.md)
 - [Password Generator](src/GeneratePassword.popclipext/README.md)
 - [Markdown List](src/MarkdownList.popclipext/README.md)
@@ -57,14 +63,29 @@ These are standalone PopClip snippet extensions and are not included in the
 directory package glob:
 
 - [Search in NPM](src/Search-in-NPM.yaml) · [Install](dist/Search-in-NPM.popcliptxt)
-- [ChatGPT Make PopClip Extension](src/ChatGPTMakePopclipExt.applescript)
+- [ChatGPT Make PopClip Extension](src/ChatGPTMakePopclipExt.applescript) · [Install](dist/ChatGPTMakePopclipExt.popcliptxt)
 
   > Send the selected request to the ChatGPT Chat Bar and ask it to generate
   > an installable PopClip snippet. The ChatGPT macOS app and Accessibility
   > permission for System Events are required.
-- [Fancy Text](src/FancyText.popcliptxt)
+- [Fancy Text](src/FancyText.popcliptxt) · [Install](dist/FancyText.popcliptxt)
+
+## Raycast command
+
+[Emoji Append for Raycast](Raycast/README.md) provides a regular hotkey command: select text, run **Append Contextual Emoji**, and paste back the original text with contextual emojis. Configure the API Base URL, API key, model and emoji limit independently in each extension. It uses an OpenAI-compatible Chat Completions API and does not require Raycast AI Commands or Pro. Run `pnpm install --frozen-lockfile && pnpm dev` in `Raycast/` to add the command locally.
 
 ## Build
+
+Rebuild all 16 packages and 3 snippets, replacing same-name files in `dist/`:
+
+```sh
+for package in src/*.popclipext; do
+  ./build.sh build "$(basename "$package" .popclipext)"
+done
+for snippet in ChatGPTMakePopclipExt FancyText Search-in-NPM; do
+  ./build.sh build "$snippet"
+done
+```
 
 `build.sh` builds, installs, creates, and removes PopClip packages and snippets.
 Run it without arguments to open the interactive menu, which provides these
@@ -100,7 +121,8 @@ For direct commands, use the following:
 `build NAME` builds either `src/NAME.popclipext/` or a snippet source in `src/`
 and writes the result to `dist/NAME.popclipextz` or
 `dist/NAME.popcliptxt`. `install NAME` builds the target and opens the
-generated file with macOS `open` for installation in PopClip.
+a temporary copy with macOS `open` for installation in PopClip, retaining the
+original generated file in `dist/`.
 
 The available package template formats are `plist`, `yaml`, `json`, and
 `module`. The available snippet template formats are `javascript`,
