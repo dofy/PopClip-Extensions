@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <!-- Translation glyphs with opposing curved arrows inspired by LinguaDock. -->
+  <g fill="none" stroke="#000" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+    <!-- 文, drawn as paths so the icon does not depend on installed fonts. -->
+    <path d="M35 12v8M12 24h48M22 27c4 18 17 32 37 39M50 27C45 45 32 59 12 66" />
+    <!-- A -->
+    <path d="m68 114 20-51 20 51M75 96h26" />
+    <!-- Rounded, opposing conversion arrows. -->
+    <path d="M75 20h19q20 0 20 20v10m-9-9 9 9 9-9" />
+    <path d="M53 108H34q-20 0-20-20V78m-9 9 9-9 9 9" />
+  </g>
+</svg>

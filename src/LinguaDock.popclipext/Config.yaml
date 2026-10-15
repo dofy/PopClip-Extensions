@@ -1,0 +1,15 @@
+name:
+  en: LinguaDock Translate
+  zh-hans: LinguaDock 翻译
+  zh-hant: LinguaDock 翻譯
+  ja: LinguaDock 翻訳
+icon: icon.png
+identifier: xyz.phpz.popclip.extension.linguadock
+popclip version: 6159
+description:
+  en: Translate selected text with LinguaDock.
+  zh-hans: 使用 LinguaDock 翻译选中的文本。
+  zh-hant: 使用 LinguaDock 翻譯選取的文字。
+  ja: 選択したテキストを LinguaDock で翻訳します。
+keywords: translate translation language linguadock
+module: Main.ts
