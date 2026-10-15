@@ -250,8 +250,17 @@ install_target() {
   name=$1
   build_target "$name"
   command -v open >/dev/null 2>&1 || die "The macOS open command is required."
-  open "$LAST_OUTPUT"
-  say "Opened for installation: $LAST_OUTPUT"
+  # PopClip deletes .popclipextz files after installation. Open a temporary
+  # copy so the distributable remains in dist. Do not remove this directory
+  # on exit: macOS open hands the file to PopClip asynchronously.
+  install_dir=$(mktemp -d "${TMPDIR:-/tmp}/popclip-install.XXXXXX")
+  install_file="$install_dir/$(basename "$LAST_OUTPUT")"
+  cp "$LAST_OUTPUT" "$install_file"
+  if ! open "$install_file"; then
+    rm -rf "$install_dir"
+    die "Could not open the temporary installation copy."
+  fi
+  say "Opened temporary copy for installation; retained: $LAST_OUTPUT"
 }
 
 remove_target() {
