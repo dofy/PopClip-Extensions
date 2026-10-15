@@ -43,7 +43,7 @@ test(
       for (const file of ["core.ts", "api.ts"]) {
         writeFileSync(
           join(fixture, file),
-          readFileSync(new URL(`../../src/EmojiAppend.popclipext/${file}`, import.meta.url)),
+          readFileSync(new URL(`../src/EmojiAppend.popclipext/${file}`, import.meta.url)),
         );
       }
       writeFileSync(

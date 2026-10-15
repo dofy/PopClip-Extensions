@@ -3,5 +3,8 @@
 		"@popclip/types": "^1.6959.1",
 		"@types/node": "^26.2.0",
 		"typescript": "^6.0.3"
+	},
+	"scripts": {
+		"test": "node --experimental-strip-types --test tests/*.test.mjs"
 	}
 }

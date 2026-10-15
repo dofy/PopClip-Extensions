@@ -1,7 +1,7 @@
 # 应景 Emoji · Emoji Append
 
 选中输入框中的文字，点击单色线条笑脸图标，在末尾添加 1～3 个应景 emoji 并替换选区。
-与本仓库 `Raycast/` 的普通命令共用 API 请求和 emoji 校验逻辑。
+配套 Raycast 普通命令在独立的 [raycast-extensions 仓库](https://github.com/dofy/reaycast-extensions/tree/main/emoji-append)中开发；本插件不依赖 Raycast 扩展。
 
 ## 安装
 

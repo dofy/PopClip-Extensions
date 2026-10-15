@@ -64,7 +64,7 @@ PopClip は `.popclipextz` のインストール後に元のファイルを削�
 
 ## Raycast コマンド
 
-[Emoji Append for Raycast](Raycast/README.md) は通常のホットキーコマンドです。テキストを選択して **Append Contextual Emoji** を実行すると、原文の末尾に適切な emoji を追加して貼り付けます。API Base URL、API Key、モデル、emoji 数の上限は各拡張機能で個別に設定します。OpenAI-compatible Chat Completions API を使用し、Raycast AI Commands や Pro は不要です。`Raycast/` で `pnpm install --frozen-lockfile && pnpm dev` を実行するとローカルに追加できます。
+[Emoji Append for Raycast](https://github.com/dofy/reaycast-extensions/tree/main/emoji-append) は通常のホットキーコマンドです。テキストを選択して **Append Contextual Emoji** を実行すると、原文の末尾に適切な emoji を追加して貼り付けます。API Base URL、API Key、モデル、emoji 数の上限は各拡張機能で個別に設定します。OpenAI-compatible Chat Completions API を使用し、Raycast AI Commands や Pro は不要です。`/Users/seven/Documents/raycast-extensions/emoji-append/` で `pnpm install --frozen-lockfile && pnpm dev` を実行するとローカルに追加できます。
 
 ## ビルド
 

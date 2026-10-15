@@ -64,7 +64,7 @@ PopClip 安裝 `.popclipextz` 後會刪除原安裝套件（[官方說明](https
 
 ## Raycast 一般命令
 
-[Emoji Append for Raycast](Raycast/README.md) 支援快捷鍵：選取文字，執行 **Append Contextual Emoji**，自動在原文末尾加入應景 emoji 並貼回。兩端分別設定 API Base URL、API Key、模型和 emoji 數量上限；使用 OpenAI-compatible Chat Completions API，不依賴 Raycast AI Command 或 Pro。在 `Raycast/` 中執行 `pnpm install --frozen-lockfile && pnpm dev` 即可加入本機命令。
+[Emoji Append for Raycast](https://github.com/dofy/reaycast-extensions/tree/main/emoji-append) 支援快捷鍵：選取文字，執行 **Append Contextual Emoji**，自動在原文末尾加入應景 emoji 並貼回。兩端分別設定 API Base URL、API Key、模型和 emoji 數量上限；使用 OpenAI-compatible Chat Completions API，不依賴 Raycast AI Command 或 Pro。在 `/Users/seven/Documents/raycast-extensions/emoji-append/` 中執行 `pnpm install --frozen-lockfile && pnpm dev` 即可加入本機命令。
 
 ## 建置
 

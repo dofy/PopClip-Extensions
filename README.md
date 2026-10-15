@@ -72,7 +72,7 @@ directory package glob:
 
 ## Raycast command
 
-[Emoji Append for Raycast](Raycast/README.md) provides a regular hotkey command: select text, run **Append Contextual Emoji**, and paste back the original text with contextual emojis. Configure the API Base URL, API key, model and emoji limit independently in each extension. It uses an OpenAI-compatible Chat Completions API and does not require Raycast AI Commands or Pro. Run `pnpm install --frozen-lockfile && pnpm dev` in `Raycast/` to add the command locally.
+[Emoji Append for Raycast](https://github.com/dofy/reaycast-extensions/tree/main/emoji-append) provides a regular hotkey command: select text, run **Append Contextual Emoji**, and paste back the original text with contextual emojis. Configure the API Base URL, API key, model and emoji limit independently in each extension. It uses an OpenAI-compatible Chat Completions API and does not require Raycast AI Commands or Pro. Run `pnpm install --frozen-lockfile && pnpm dev` in `/Users/seven/Documents/raycast-extensions/emoji-append/` to add the command locally.
 
 ## Build
 
