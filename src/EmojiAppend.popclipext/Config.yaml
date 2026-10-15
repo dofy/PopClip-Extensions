@@ -1,0 +1,37 @@
+name:
+  en: Emoji Append
+  zh-hans: 应景 Emoji
+identifier: xyz.phpz.popclip.extension.emoji-append
+version: 2
+popclip version: 6159
+icon: symbol:face.smiling
+description:
+  en: Append contextual emojis to selected text using your own API.
+  zh-hans: 通过自定义 API，在选中文字末尾添加应景 emoji。
+keywords: emoji emotion ai append
+entitlements: [network]
+module: Main.ts
+options:
+  - identifier: apiBaseUrl
+    label: API Base URL
+    type: string
+    default value: https://api.openai.com/v1
+    description:
+      en: OpenAI-compatible version root or full chat/completions endpoint. Use HTTPS for remote services.
+      zh-hans: OpenAI-compatible 的版本根地址或完整 chat/completions 地址。远程服务建议使用 HTTPS。
+  - identifier: apiKey
+    label: API Key
+    type: secret
+  - identifier: model
+    label:
+      en: Model
+      zh-hans: 模型
+    type: string
+    default value: gpt-4o-mini
+  - identifier: maxEmojis
+    label:
+      en: Maximum Emojis
+      zh-hans: Emoji 数量上限
+    type: multiple
+    values: ['1', '2', '3']
+    default value: '3'
